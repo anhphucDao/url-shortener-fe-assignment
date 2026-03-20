@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Header from './components/Header'
 import QrModal from './components/QrModal'
 import UrlForm from './components/UrlForm'
-//import axios from 'axios'
+import axios from 'axios'
 
 const QR_CANVAS_ID = 'shortened-url-qr-canvas'
 
@@ -20,9 +20,12 @@ function App() {
     }
 
     try {
-      // const response = await axios.post('/api/shorten', { url: normalizedUrl });
-      // const newShortUrl = response.data.shortUrl;
-      setShortened(normalizedUrl)
+      const response = await axios.post('http://localhost:5002/api/shorten', {
+        url: normalizedUrl,
+      })
+
+      const shortUrl = response.data.shortURL
+      setShortened(shortUrl)
       setShowPopup(true)
       setCopySuccess('')
     } catch (error) {
