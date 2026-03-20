@@ -12,24 +12,36 @@ function App() {
   const [showPopup, setShowPopup] = useState(false)
   const [copySuccess, setCopySuccess] = useState('')
   const [profileOpen, setProfileOpen] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   async function handleShorten() {
     const normalizedUrl = url.trim()
     if (!normalizedUrl) {
       return
     }
+    setLoading(true)
+    const delay = new Promise(resolve => setTimeout(resolve, 1000))
 
     try {
       const response = await axios.post('http://localhost:5002/api/shorten', {
         url: normalizedUrl,
       })
 
+      await delay
+
       const shortUrl = response.data.shortURL
       setShortened(shortUrl)
       setShowPopup(true)
       setCopySuccess('')
     } catch (error) {
-      console.error('Failed to shorten URL:', error)
+      console.error('Failed to shorten url', error)
+      await delay
+
+      setShortened(normalizedUrl)
+      setShowPopup(true)
+      setCopySuccess('')
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -70,6 +82,7 @@ function App() {
       <main className="mx-auto flex min-h-[calc(100vh-108px)] w-full max-w-[1920px] items-center justify-center px-4 py-1 sm:px-8 lg:px-12">
         <UrlForm
           url={url}
+          loading={loading}
           onUrlChange={setUrl}
           onSubmit={e => {
             e.preventDefault()

@@ -12,15 +12,17 @@ function Header({ profileOpen, onToggleProfile, onCloseProfile }: HeaderProps) {
   return (
     <header className="border-b border-rich-mahogany/20 bg-parchment/95 backdrop-blur-md">
       <div className="mx-auto flex h-[108px] w-full max-w-[1920px] items-center justify-between px-6 sm:px-10 lg:px-16">
-        <div className="text-1xl font-black tracking-[0.12em] text-rich-mahogany sm:text-2xl">
+        <div className="flex items-center gap-2 text-1xl font-black tracking-[0.12em] text-rich-mahogany sm:text-2xl">
           <a href="https://fessior.com/" target="_blank" rel="noopener">
             <img
               src={devcampLogo}
-              className="mr-8 inline-block h-full w-auto cursor-pointer transition hover:scale-120"
+              className="cursor-pointer mr-8 inline-block h-full w-auto cursor-pointer transition hover:scale-120"
               alt="Devcamp logo"
             />
           </a>
-          Fessior DevCamp 2026
+          <span className="truncate whitespace-nowrap text-sm font-black tracking-[0.1em] text-rich-mahogany sm:text-xl lg:text-2xl lg:tracking-[0.12em]">
+            Fessior DevCamp 2026
+          </span>
         </div>
 
         <div className="relative flex w-full max-w-[240px] justify-end">

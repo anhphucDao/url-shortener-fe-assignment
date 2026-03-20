@@ -2,11 +2,12 @@ import type { FormEvent } from 'react'
 
 type UrlFormProps = {
   url: string
+  loading: boolean
   onUrlChange: (value: string) => void
   onSubmit: (e: FormEvent<HTMLFormElement>) => void
 }
 
-function UrlForm({ url, onUrlChange, onSubmit }: UrlFormProps) {
+function UrlForm({ url, loading, onUrlChange, onSubmit }: UrlFormProps) {
   return (
     <section className="flex w-full max-w-[832px] flex-col justify-between gap-5 lg:h-[301px]">
       <h2 className="text-center text-4xl font-black text-rich-mahogany sm:text-5xl">
@@ -20,8 +21,11 @@ function UrlForm({ url, onUrlChange, onSubmit }: UrlFormProps) {
         <div className="mx-auto w-full max-w-[744px]">
           <p className="mb-4 font-extrabold text-rich-mahogany">Your long URL</p>
 
-          <form className="flex w-full items-center gap-4" onSubmit={onSubmit}>
-            <div className="flex h-14 min-w-0 flex-1 items-center rounded-xl border border-rich-mahogany/20 bg-parchment px-4">
+          <form
+            className="flex w-full flex-col gap-4 sm:flex-row sm:items-center"
+            onSubmit={onSubmit}
+          >
+            <div className="flex h-14 w-full min-w-0 flex-1 items-center rounded-xl border border-rich-mahogany/20 bg-parchment px-4">
               <span className="text-rich-mahogany/90" aria-hidden="true">
                 <svg
                   width="20"
@@ -36,7 +40,7 @@ function UrlForm({ url, onUrlChange, onSubmit }: UrlFormProps) {
                 </svg>
               </span>
               <input
-                className="ml-3 h-full w-full border-l border-rich-mahogany/20 bg-transparent pl-3 text-base font-medium text-rich-mahogany focus-within:ring-2 focus-within:ring-rich-mahogany"
+                className="ml-3 h-full w-full border-l border-rich-mahogany/20 bg-transparent pl-3 text-base font-medium text-rich-mahogany focus-within:ring-2 focus-within:ring-rich-mahogany focus:outline-none"
                 type="url"
                 placeholder="Paste your long URL here"
                 value={url}
@@ -46,10 +50,18 @@ function UrlForm({ url, onUrlChange, onSubmit }: UrlFormProps) {
             </div>
 
             <button
-              className="h-14 min-w-[132px] flex-shrink-0 cursor-pointer rounded-xl bg-rich-mahogany px-8 text-3xl font-bold text-parchment transition hover:scale-105 hover:bg-rich-mahogany-dark focus:outline-none focus:ring-4 focus:ring-rich-mahogany/30 sm:text-base"
+              className="cursor-pointer flex h-14 w-full flex-shrink-0 items-center justify-center gap-2 rounded-xl bg-rich-mahogany px-8 text-2xl font-bold text-parchment transition hover:scale-105 hover:bg-rich-mahogany-dark focus:outline-none focus:ring-4 focus:ring-rich-mahogany/30 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100 disabled:hover:bg-rich-mahogany sm:w-auto sm:min-w-[132px] sm:text-base"
               type="submit"
+              disabled={loading}
+              aria-busy={loading}
             >
-              Shorten
+              {loading && (
+                <span
+                  className="h-4 w-4 animate-spin rounded-full border-2 border-parchment/40 border-t-parchment"
+                  aria-hidden="true"
+                />
+              )}
+              <span>{loading ? 'Shortening...' : 'Shorten'}</span>
             </button>
           </form>
         </div>

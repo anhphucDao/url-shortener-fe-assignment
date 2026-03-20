@@ -7,7 +7,7 @@ const PORT = 5002
 app.use(cors())
 app.use(express.json())
 
-const db = new Map() //shortcode - url
+const db = new Map() //hashmap for test db: [shortcode - url]
 
 // POST /api/shorten
 app.post('/api/shorten', (req, res) => {
