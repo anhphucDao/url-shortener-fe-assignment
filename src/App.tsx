@@ -26,8 +26,8 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_20%_20%,#ddeeff_0%,#f8fbff_40%,#ffffff_100%)] text-neutral-900">
-      <header className="border-b border-neutral-200/70 bg-white/70 backdrop-blur-md">
+    <div className="min-h-screen bg-parchment text-rich-mahogany">
+      <header className="border-b border-rich-mahogany/20 bg-parchment/95 backdrop-blur-md">
         <div className="mx-auto flex h-[108px] w-full max-w-[1920px] items-center justify-between px-6 sm:px-10 lg:px-16">
           <div className="text-1xl font-black tracking-[0.12em] text-brand-navy sm:text-2xl">
             <a href="https://fessior.com/">
@@ -42,7 +42,7 @@ function App() {
             <button
               type="button"
               onClick={() => setProfileOpen(prev => !prev)}
-              className="flex cursor-pointer items-center overflow-hidden rounded-full border border-brand-blue/100 bg-brand-blue/10 pr-5 text-base font-semibold text-brand-blue transition-transform duration-200 hover:scale-110 gap-2"
+              className="flex cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-rich-mahogany/40 bg-rich-mahogany/10 pr-5 text-base font-semibold text-rich-mahogany transition-transform duration-200 hover:scale-110"
               aria-haspopup="menu"
               aria-expanded={profileOpen}
               aria-label="Open profile menu"
@@ -68,12 +68,12 @@ function App() {
             </button>
 
             {profileOpen && (
-              <div className="absolute right-0 top-[calc(100%+10px)] z-30 w-[220px] rounded-2xl border border-brand-blue/20 bg-white p-2 shadow-xl">
+              <div className="absolute right-0 top-[calc(100%+10px)] z-30 w-[220px] rounded-2xl border border-rich-mahogany/20 bg-parchment p-2 shadow-xl">
                 <a
                   href="https://github.com/dhp-exe"
                   target="_blank"
                   rel="noopener"
-                  className="block rounded-xl px-4 py-3 text-sm font-semibold text-brand-navy transition hover:bg-brand-blue/10"
+                  className="block rounded-xl px-4 py-3 text-sm font-semibold text-rich-mahogany transition hover:bg-rich-mahogany/10"
                   onClick={() => setProfileOpen(false)}
                 >
                   <a className="flex items-center gap-2">
@@ -84,9 +84,9 @@ function App() {
 
                 <button
                   type="button"
-                  className="flex w-full items-center gap-2 rounded-xl px-4 py-3 text-left text-sm font-semibold text-brand-navy transition hover:bg-brand-blue/10"
+                  className="flex w-full items-center gap-2 rounded-xl px-4 py-3 text-left text-sm font-semibold text-rich-mahogany transition hover:bg-rich-mahogany/10"
                 >
-                  <span aria-hidden="true" className="text-base text-brand-navy/80">
+                  <span aria-hidden="true" className="text-base text-rich-mahogany/80">
                     ⎋
                   </span>
                   <span>Logout</span>
@@ -97,60 +97,81 @@ function App() {
         </div>
       </header>
 
-      <main className="mx-auto flex min-h-[calc(100vh-108px)] w-full max-w-[1920px] items-center justify-center px-4 py-8 sm:px-8 lg:px-12">
-        <section className="w-full max-w-[832px] rounded-[28px] border border-white/70 bg-white/80 p-6 shadow-[0_24px_80px_-20px_rgba(11,40,120,0.35)] backdrop-blur-sm sm:p-10 lg:h-[301px]">
-          <div className="flex h-full flex-col justify-between gap-5">
-            <h2 className="text-center mt-2 text-3xl font-black text-brand-navy sm:text-4xl">
-              Devcamp URL Shortener
-            </h2>
-            <p className="text-center font-semibold uppercase tracking-[0.08em] text-brand-gray">
-              Shorten links in one click
-            </p>
-            <form
-              className="flex flex-col gap-4 sm:flex-row"
-              onSubmit={e => {
-                e.preventDefault()
-                handleShorten()
-              }}
-            >
-              <input
-                className="h-14 w-full rounded-2xl border border-neutral-200 bg-white px-5 text-base font-medium text-neutral-900 outline-none transition focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/20"
-                type="url"
-                placeholder="Paste your long URL here"
-                value={url}
-                onChange={e => setUrl(e.target.value)}
-                required
-              />
-              <button
-                className="cursor-pointer hover:scale-110 transition h-14 rounded-2xl bg-brand-navy px-8 text-base font-bold text-white transition hover:bg-info-700 focus:outline-none focus:ring-4 focus:ring-brand-blue/30"
-                type="submit"
+      <main className="mx-auto flex min-h-[calc(100vh-108px)] w-full max-w-[1920px] items-center justify-center px-4 py-1 sm:px-8 lg:px-12">
+        <section className="flex w-full max-w-[832px] flex-col justify-between gap-5 lg:h-[301px]">
+          <h2 className="text-center text-4xl font-black text-rich-mahogany sm:text-5xl">
+            Devcamp URL Shortener
+          </h2>
+          <p className="mt-5 text-center text-sm text-rich-mahogany/90 sm:text-xl">
+            Simple, Easy, Organized. Shortens the link in one click
+          </p>
+
+          <div className="w-full max-w-[800px] rounded-2xl border border-rich-mahogany/15 bg-parchment p-5 shadow-[0_20px_60px_-22px_rgba(55,27,23,0.35)] backdrop-blur-sm sm:p-7">
+            <div className="mx-auto w-full max-w-[744px]">
+              <p className="mb-4 font-extrabold text-rich-mahogany">Your long URL</p>
+
+              <form
+                className="flex w-full items-center gap-4"
+                onSubmit={e => {
+                  e.preventDefault()
+                  handleShorten()
+                }}
               >
-                Shorten
-              </button>
-            </form>
+                <div className="flex h-14 min-w-0 flex-1 items-center rounded-xl border border-rich-mahogany/20 bg-parchment px-4">
+                  <span className="text-rich-mahogany/90" aria-hidden="true">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L10 4" />
+                      <path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 0 0 7.07 7.07L14 20" />
+                    </svg>
+                  </span>
+                  <input
+                    className="ml-3 h-full w-full border-l border-rich-mahogany/20 bg-transparent pl-3 text-base font-medium text-rich-mahogany outline-none"
+                    type="url"
+                    placeholder="Paste your long URL here"
+                    value={url}
+                    onChange={e => setUrl(e.target.value)}
+                    required
+                  />
+                </div>
+
+                <button
+                  className="h-14 min-w-[132px] flex-shrink-0 cursor-pointer rounded-xl bg-rich-mahogany px-8 text-3xl font-bold text-parchment transition hover:scale-105 hover:bg-rich-mahogany-dark focus:outline-none focus:ring-4 focus:ring-rich-mahogany/30 sm:text-base"
+                  type="submit"
+                >
+                  Shorten
+                </button>
+              </form>
+            </div>
           </div>
         </section>
       </main>
 
       {showPopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-          <div className="relative w-[400px] rounded-2xl overflow-hidden shadow-2xl bg-white">
+          <div className="relative w-[400px] overflow-hidden rounded-2xl bg-parchment shadow-2xl">
             <button
               onClick={() => setShowPopup(false)}
               aria-label="Close popup"
-              className="cursor-pointer absolute top-3 right-3 w-8 h-8 rounded-full bg-white shadow flex items-center justify-center text-gray-600 hover:text-black z-10 hover:scale-110 transition"
+              className="absolute right-3 top-3 z-10 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-parchment text-rich-mahogany/70 shadow transition hover:scale-110 hover:text-rich-mahogany"
             >
               ✕
             </button>
 
-            <div className="bg-brand-navy h-[180px] flex items-end justify-center relative">
-              <div className="absolute top-12 bg-white p-3 rounded-xl shadow-lg">
+            <div className="relative flex h-[180px] items-end justify-center bg-rich-mahogany">
+              <div className="absolute top-12 rounded-xl bg-parchment p-3 shadow-lg">
                 <img
                   src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=example"
                   alt="qr"
                   className="w-[140px] h-[140px]"
                 />
-                <button className="cursor-pointer hover:scale-110 transition absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-10 h-10 rounded-full bg-brand-navy border-2 border-white flex items-center justify-center text-white">
+                <button className="absolute bottom-0 right-0 flex h-10 w-10 translate-x-1/2 translate-y-1/2 cursor-pointer items-center justify-center rounded-full border-2 border-parchment bg-rich-mahogany text-parchment transition hover:scale-110">
                   <img
                     src="src/assets/file_download.svg"
                     alt="Download"
@@ -161,28 +182,29 @@ function App() {
             </div>
 
             <div className="pt-20 pb-6 px-6 flex flex-col items-center text-center gap-3">
-              <h3 className="text-lg font-bold text-brand-navy">Link shortened!</h3>
+              <h3 className="text-lg font-bold text-rich-mahogany">Link shortened!</h3>
 
-              <p className="text-sm text-brand-gray max-w-[260px]">
-                Access the “My URL” page to view statistics on your shortened links
+              <p className="max-w-[260px] text-sm text-rich-mahogany/80">
+                Click the download button to save the QR code, or copy the shortened URL below to
+                share it with others.
               </p>
 
               <div className="w-full flex items-center gap-2 mt-3">
                 <input
                   value={shortened}
                   readOnly
-                  className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm"
+                  className="flex-1 rounded-lg border border-rich-mahogany/25 bg-parchment px-3 py-2 text-sm text-rich-mahogany"
                 />
                 <button
                   onClick={handleCopy}
-                  className="cursor-pointer hover:scale-110 transition w-10 h-10 rounded-lg bg-brand-navy text-white flex items-center justify-center"
+                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg bg-rich-mahogany text-parchment transition hover:scale-110"
                 >
                   <img src="src/assets/copy-outline.png" alt="Copy" className="w-4 h-4 invert" />
                 </button>
               </div>
 
               {copySuccess && (
-                <span className="text-xs text-green-600 font-semibold">{copySuccess}</span>
+                <span className="text-xs font-semibold text-rich-mahogany">{copySuccess}</span>
               )}
             </div>
           </div>
