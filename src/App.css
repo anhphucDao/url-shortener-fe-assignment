@@ -26,11 +26,11 @@
   }
 
   .frame-5522 {
-    @apply mx-auto flex w-full max-w-[894px] flex-col items-center gap-[16px];
+    @apply mx-auto flex w-full max-w-[894px] flex-col items-center gap-[25px];
   }
 
   .frame-5522-wrapper {
-    @apply flex min-h-screen items-center justify-center px-[24px] pb-[18px];
+    @apply flex min-h-screen items-center justify-center px-[24px] pb-[18px] -translate-y-[250px];
   }
 
   .frame-5522__title {
