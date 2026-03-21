@@ -1,0 +1,80 @@
+@reference "./index.css";
+
+@layer components {
+  .url-header {
+    @apply relative mx-auto flex h-[108px] w-full max-w-[1920px] items-center justify-end pr-[40.5px];
+  }
+
+  .url-header__logo {
+    @apply absolute left-[40px] top-[17px] h-[74px] w-[96px];
+  }
+
+  .url-header__signin {
+    @apply flex h-[40px] w-[148px] items-center gap-[10px] rounded-[25.5px] border border-primary-500 bg-white pl-[0.5px] pr-[14px] sm:h-[51px] sm:w-[198px] sm:gap-[14px] sm:pr-[20px];
+  }
+
+  .url-header__icon {
+    @apply flex h-[40px] w-[40px] items-center justify-center text-primary-500 sm:h-[52px] sm:w-[52px];
+  }
+
+  .url-header__icon-svg {
+    @apply h-[40px] w-[40px] sm:h-[52px] sm:w-[52px];
+  }
+
+  .url-header__text {
+    @apply text-[11px] font-medium text-[#5B5B5B] sm:text-[12px];
+  }
+
+  .frame-5522 {
+    @apply mx-auto mt-[18px] flex w-full max-w-[894px] flex-col items-center gap-[16px];
+  }
+
+  .frame-5522__title {
+    @apply text-center text-[36px] font-semibold leading-[1.2] text-primary-500;
+  }
+
+  .frame-5522__subtitle {
+    @apply max-w-[760px] text-center text-[16px] font-medium text-primary-300;
+  }
+
+  .frame-5522__card {
+    @apply w-full rounded-[8px] border border-[#7E7E7E]/30 bg-white shadow-[0_4px_47px_rgba(11,40,120,0.3)];
+  }
+
+  .frame-5522__card-head {
+    @apply flex items-center px-[12px] py-[10px];
+  }
+
+  .frame-5522__card-text {
+    @apply text-[14px] font-semibold text-primary-500;
+  }
+
+  .frame-5522__controls {
+    @apply flex items-center justify-between gap-[16px] px-[12px] pb-[10px];
+  }
+
+  .frame-5522__input {
+    @apply flex h-[42px] flex-1 items-center gap-[10px] rounded-[8px] border border-[#7E7E7E]/30 bg-white px-[10px];
+  }
+
+  .frame-5522__input-icon {
+    @apply flex h-[18px] w-[18px] items-center justify-center text-primary-500;
+  }
+
+  .frame-5522__input-icon-svg {
+    @apply h-[18px] w-[18px];
+  }
+
+  .frame-5522__input-divider {
+    @apply h-[26px] w-px bg-[#696969]/30;
+  }
+
+  .frame-5522__input-text {
+    @apply text-[14px] font-medium text-primary-300;
+  }
+
+  .frame-5522__button {
+    @apply h-[42px] w-[98px] rounded-[8px] bg-primary-500 text-[14px] font-semibold text-white;
+  }
+}
+ 
