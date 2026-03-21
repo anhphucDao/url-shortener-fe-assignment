@@ -26,7 +26,11 @@
   }
 
   .frame-5522 {
-    @apply mx-auto mt-[18px] flex w-full max-w-[894px] flex-col items-center gap-[16px];
+    @apply mx-auto flex w-full max-w-[894px] flex-col items-center gap-[16px];
+  }
+
+  .frame-5522-wrapper {
+    @apply flex min-h-screen items-center justify-center px-[24px] pb-[18px];
   }
 
   .frame-5522__title {
@@ -70,11 +74,11 @@
   }
 
   .frame-5522__input-text {
-    @apply text-[14px] font-medium text-primary-300;
+    @apply min-w-0 flex-1 bg-transparent text-[14px] font-medium text-primary-300 placeholder:text-primary-300 focus:outline-none;
   }
 
   .frame-5522__button {
-    @apply h-[42px] w-[98px] rounded-[8px] bg-primary-500 text-[14px] font-semibold text-white;
+    @apply h-[42px] w-[98px] rounded-[8px] bg-primary-500 text-[14px] font-semibold text-white active:brightness-95;
   }
 }
  
