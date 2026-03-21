@@ -1,22 +1,21 @@
+import { useState, memo } from 'react'
 import devcampLogo from '../assets/devcamp_logo_navy 1.svg'
 import githubIcon from '../assets/github_icon.svg'
 import profilePic from '../assets/profile_pic.jpg'
 
-type HeaderProps = {
-  profileOpen: boolean
-  onToggleProfile: () => void
-  onCloseProfile: () => void
-}
+function Header() {
+  const [profileOpen, setProfileOpen] = useState(false)
+  const onToggleProfile = () => setProfileOpen(prev => !prev)
+  const onCloseProfile = () => setProfileOpen(false)
 
-function Header({ profileOpen, onToggleProfile, onCloseProfile }: HeaderProps) {
   return (
     <header className="border-b border-rich-mahogany/20 bg-parchment/95 backdrop-blur-md">
       <div className="mx-auto flex h-[108px] w-full max-w-[1920px] items-center justify-between px-6 sm:px-10 lg:px-16">
-        <div className="flex items-center gap-2 text-1xl font-black tracking-[0.12em] text-rich-mahogany sm:text-2xl">
+        <div className="flex items-center gap-2 text-xl font-black tracking-[0.12em] text-rich-mahogany sm:text-2xl">
           <a href="https://fessior.com/" target="_blank" rel="noopener">
             <img
               src={devcampLogo}
-              className="cursor-pointer mr-8 inline-block h-full w-auto cursor-pointer transition hover:scale-120"
+              className="cursor-pointer mr-8 inline-block h-full w-auto transition hover:scale-105"
               alt="Devcamp logo"
             />
           </a>
@@ -82,4 +81,4 @@ function Header({ profileOpen, onToggleProfile, onCloseProfile }: HeaderProps) {
   )
 }
 
-export default Header
+export default memo(Header)

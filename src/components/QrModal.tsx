@@ -1,17 +1,18 @@
 import { QRCodeCanvas } from 'qrcode.react'
+import { type RefObject } from 'react'
 import copyIcon from '../assets/copy-outline.png'
 import downloadIcon from '../assets/file_download.svg'
 
 type QrModalProps = {
   shortened: string
   copySuccess: string
-  canvasId: string
+  canvasRef: RefObject<HTMLCanvasElement | null>
   onClose: () => void
   onCopy: () => void
   onDownload: () => void
 }
 
-function QrModal({ shortened, copySuccess, canvasId, onClose, onCopy, onDownload }: QrModalProps) {
+function QrModal({ shortened, copySuccess, canvasRef, onClose, onCopy, onDownload }: QrModalProps) {
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
@@ -32,7 +33,7 @@ function QrModal({ shortened, copySuccess, canvasId, onClose, onCopy, onDownload
         <div className="relative flex h-[180px] items-end justify-center bg-rich-mahogany">
           <div className="absolute top-12 rounded-xl bg-parchment p-3 shadow-lg">
             <QRCodeCanvas
-              id={canvasId}
+              ref={canvasRef}
               value={shortened}
               size={140}
               bgColor="#EEEDE9"
