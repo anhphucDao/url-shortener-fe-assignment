@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ShortenModal from '../components/ShortenModal'
 import './App.css'
 
 const validateUrl = (value: string) => {
@@ -18,6 +19,8 @@ const validateUrl = (value: string) => {
 
 function App() {
   const [urlValue, setUrlValue] = useState('')
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [shortenedUrl, setShortenedUrl] = useState('')
 
   const handleShortenClick = () => {
     const validationResult = validateUrl(urlValue)
@@ -32,7 +35,39 @@ function App() {
       return
     }
 
-    console.log('Valid URL provided:', urlValue)
+    const trimmedValue = urlValue.trim()
+    setShortenedUrl(trimmedValue)
+    setIsModalOpen(true)
+  }
+
+  const handleModalClose = () => {
+    setIsModalOpen(false)
+  }
+
+  const handleCopyShortenedUrl = async () => {
+    if (!shortenedUrl) {
+      return
+    }
+
+    try {
+      if (navigator?.clipboard?.writeText) {
+        await navigator.clipboard.writeText(shortenedUrl)
+      } else {
+        const textarea = document.createElement('textarea')
+        textarea.value = shortenedUrl
+        textarea.style.position = 'fixed'
+        textarea.style.opacity = '0'
+        document.body.appendChild(textarea)
+        textarea.focus()
+        textarea.select()
+        document.execCommand('copy')
+        document.body.removeChild(textarea)
+      }
+      alert('Shortened URL copied to clipboard.')
+    } catch (error) {
+      console.error('Failed to copy shortened URL:', error)
+      alert('Unable to copy the shortened URL. Please copy it manually.')
+    }
   }
 
   return (
@@ -102,6 +137,12 @@ function App() {
           </div>
         </div>
       </section>
+      <ShortenModal
+        isOpen={isModalOpen}
+        shortenedUrl={shortenedUrl}
+        onClose={handleModalClose}
+        onCopy={handleCopyShortenedUrl}
+      />
     </main>
   )
 }
