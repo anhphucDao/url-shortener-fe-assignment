@@ -1,11 +1,18 @@
 type ShortenModalProps = {
   isOpen: boolean
   shortenedUrl: string
+  isCopySuccess: boolean
   onClose: () => void
   onCopy: () => void
 }
 
-const ShortenModal = ({ isOpen, shortenedUrl, onClose, onCopy }: ShortenModalProps) => {
+const ShortenModal = ({
+  isOpen,
+  shortenedUrl,
+  isCopySuccess,
+  onClose,
+  onCopy,
+}: ShortenModalProps) => {
   if (!isOpen) {
     return null
   }
@@ -266,30 +273,48 @@ const ShortenModal = ({ isOpen, shortenedUrl, onClose, onCopy }: ShortenModalPro
               aria-label="Copy shortened URL"
               onClick={onCopy}
             >
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="shorten-modal__copy-icon"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8 7V5C8 3.89543 8.89543 3 10 3H18C19.1046 3 20 3.89543 20 5V13C20 14.1046 19.1046 15 18 15H16"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <rect
-                  x="4"
-                  y="7"
-                  width="12"
-                  height="14"
-                  rx="2"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-              </svg>
+              {isCopySuccess ? (
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="shorten-modal__copy-icon"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 6L9 17L4 12"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="shorten-modal__copy-icon"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8 7V5C8 3.89543 8.89543 3 10 3H18C19.1046 3 20 3.89543 20 5V13C20 14.1046 19.1046 15 18 15H16"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <rect
+                    x="4"
+                    y="7"
+                    width="12"
+                    height="14"
+                    rx="2"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                </svg>
+              )}
             </button>
           </div>
         </div>
