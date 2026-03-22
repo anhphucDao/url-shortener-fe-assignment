@@ -154,7 +154,7 @@
   }
 
   .shorten-modal__copy {
-    @apply inline-flex h-[24px] w-[24px] items-center justify-center text-white bg-primary-500 rounded-[8px] h-[40px] w-[40px];
+    @apply inline-flex items-center justify-center text-white bg-primary-500 rounded-[8px] h-[40px] w-[40px];
   }
 
   .shorten-modal__copy-icon {
