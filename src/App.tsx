@@ -8,6 +8,7 @@ import ShortenModal from './components/ShortenModal'
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isFocus, setIsFocus] = useState(false);
 
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center">
@@ -34,7 +35,7 @@ function App() {
         <p className="text-[20px] font-bold text-primary-500">Your long URL</p>
 
         <div className="flex flex-row justify-between">
-          <div className="flex flex-row w-[85%] border rounded-lg border-[#E3E3E3] p-2 gap-2 items-center">
+          <div className={`flex flex-row w-[85%] border-2 rounded-lg ${isFocus ? 'border-[#0b2878] border-2' : 'border-[#E3E3E3]'} p-2 gap-2 items-center`}>
             <FontAwesomeIcon
               icon={faLink}
               className="w-5 h-5 text-primary-500 pr-2 border-r-2 border-[#E3E3E3]"
@@ -42,6 +43,8 @@ function App() {
             <input
               className="flex-1 outline-none"
               placeholder="Input the URL you want to shorten."
+              onFocus={() => setIsFocus(true)}
+              onBlur={() => setIsFocus(false)}
             />
           </div>
 
