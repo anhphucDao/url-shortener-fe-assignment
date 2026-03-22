@@ -54,7 +54,10 @@ function App() {
               />
             </svg>
           </div>
-          <span className="url-header__text">Sign in</span>
+          <div className="url-header__meta">
+            <span className="url-header__text">Username</span>
+            <span className="url-header__subtext">Personal</span>
+          </div>
         </div>
       </header>
       <section className="frame-5522-wrapper">

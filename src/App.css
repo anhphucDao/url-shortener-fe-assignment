@@ -10,35 +10,43 @@
   }
 
   .url-header__signin {
-    @apply flex h-[40px] w-[148px] items-center gap-[10px] rounded-[25.5px] border border-primary-500 bg-white pl-[0.5px] pr-[14px] sm:h-[51px] sm:w-[198px] sm:gap-[14px] sm:pr-[20px];
+    @apply flex h-[52px] w-[199px] items-center gap-[12px] rounded-[9999px] border border-primary-500 bg-white pl-[0px] pr-[16px];
   }
 
   .url-header__icon {
-    @apply flex h-[40px] w-[40px] items-center justify-center text-primary-500 sm:h-[52px] sm:w-[52px];
+    @apply flex h-[52px] w-[52px] items-center justify-center text-primary-500;
   }
 
   .url-header__icon-svg {
-    @apply h-[40px] w-[40px] sm:h-[52px] sm:w-[52px];
+    @apply h-[52px] w-[52px];
+  }
+
+  .url-header__meta {
+    @apply flex flex-col;
   }
 
   .url-header__text {
-    @apply text-[11px] font-medium text-[#5B5B5B] sm:text-[12px];
+    @apply text-[20px] font-medium leading-[1.47] tracking-[0.02em] text-[#5B5B5B];
+  }
+
+  .url-header__subtext {
+    @apply text-[12px] font-normal leading-[1.47] tracking-[0.02em] text-[#5B5B5B];
   }
 
   .frame-5522 {
-    @apply mx-auto flex w-full max-w-[894px] flex-col items-center gap-[25px];
+    @apply mx-auto flex w-full max-w-[832px] flex-col items-center gap-[10px];
   }
 
   .frame-5522-wrapper {
-    @apply flex min-h-screen items-center justify-center px-[24px] pb-[18px] -translate-y-[250px];
+    @apply flex min-h-screen items-start justify-center px-[24px] pb-[18px] pt-[252px];
   }
 
   .frame-5522__title {
-    @apply text-center text-[36px] font-semibold leading-[1.2] text-primary-500;
+    @apply text-center text-[60px] font-bold leading-[1.083] text-primary-500;
   }
 
   .frame-5522__subtitle {
-    @apply max-w-[760px] text-center text-[16px] font-medium text-primary-300;
+    @apply max-w-[832px] text-center text-[28px] font-normal leading-[2.32] text-primary-300;
   }
 
   .frame-5522__card {
@@ -46,39 +54,39 @@
   }
 
   .frame-5522__card-head {
-    @apply flex items-center px-[12px] py-[10px];
+    @apply flex items-center px-[16px] py-[12px];
   }
 
   .frame-5522__card-text {
-    @apply text-[14px] font-semibold text-primary-500;
+    @apply text-[16px] font-semibold text-primary-500;
   }
 
   .frame-5522__controls {
-    @apply flex items-center justify-between gap-[16px] px-[12px] pb-[10px];
+    @apply flex items-center justify-between gap-[16px] px-[16px] pb-[16px];
   }
 
   .frame-5522__input {
-    @apply flex h-[42px] flex-1 items-center gap-[10px] rounded-[8px] border border-[#7E7E7E]/30 bg-white px-[10px];
+    @apply flex h-[80px] flex-1 items-center gap-[16px] rounded-[12px] border border-[#7E7E7E]/30 bg-white px-[16px];
   }
 
   .frame-5522__input-icon {
-    @apply flex h-[18px] w-[18px] items-center justify-center text-primary-500;
+    @apply flex h-[24px] w-[24px] items-center justify-center text-primary-500;
   }
 
   .frame-5522__input-icon-svg {
-    @apply h-[18px] w-[18px];
+    @apply h-[24px] w-[24px];
   }
 
   .frame-5522__input-divider {
-    @apply h-[26px] w-px bg-[#696969]/30;
+    @apply h-[36px] w-px bg-[#696969]/30;
   }
 
   .frame-5522__input-text {
-    @apply min-w-0 flex-1 bg-transparent text-[14px] font-medium text-primary-300 placeholder:text-primary-300 focus:outline-none;
+    @apply min-w-0 flex-1 bg-transparent text-[18px] font-medium text-primary-300 placeholder:text-primary-300 focus:outline-none;
   }
 
   .frame-5522__button {
-    @apply h-[42px] w-[98px] rounded-[8px] bg-primary-500 text-[14px] font-semibold text-white active:brightness-95;
+    @apply h-[80px] w-[140px] rounded-[12px] bg-primary-500 text-[18px] font-semibold text-white active:brightness-95;
   }
 }
  
