@@ -36,7 +36,7 @@ function App() {
       if (toastTimerRef.current) clearTimeout(toastTimerRef.current)
       toastTimerRef.current = setTimeout(() => setToastError(''), TOAST_ERROR_DURATION_MS)
 
-      setShowPopup(true) //just for demo of QR UI, will be removed when backend is ready
+      setShowPopup(true) //NOTE: just for demo of QR UI, will be removed when backend is ready
     } finally {
       setLoading(false)
     }
@@ -72,7 +72,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-parchment text-rich-mahogany">
+    <div className="min-h-screen bg-white text-brand-navy">
       <Header />
 
       <main className="mx-auto flex min-h-[calc(100vh-108px)] w-full max-w-[1920px] items-center justify-center px-4 py-1 sm:px-8 lg:px-12">

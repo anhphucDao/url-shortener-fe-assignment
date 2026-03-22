@@ -9,9 +9,9 @@ function Header() {
   const onCloseProfile = () => setProfileOpen(false)
 
   return (
-    <header className="border-b border-rich-mahogany/20 bg-parchment/95 backdrop-blur-md">
+    <header className="border-b border-brand-navy/20 bg-white/95 backdrop-blur-md">
       <div className="mx-auto flex h-[108px] w-full max-w-[1920px] items-center justify-between px-6 sm:px-10 lg:px-16">
-        <div className="flex items-center gap-2 text-xl font-black tracking-[0.12em] text-rich-mahogany sm:text-2xl">
+        <div className="flex items-center gap-2 text-xl font-black tracking-[0.12em] text-brand-navy sm:text-2xl">
           <a href="https://fessior.com/" target="_blank" rel="noopener">
             <img
               src={devcampLogo}
@@ -19,7 +19,7 @@ function Header() {
               alt="Devcamp logo"
             />
           </a>
-          <span className="truncate whitespace-nowrap text-sm font-black tracking-[0.1em] text-rich-mahogany sm:text-xl lg:text-2xl lg:tracking-[0.12em]">
+          <span className="truncate whitespace-nowrap text-sm font-black tracking-[0.1em] text-brand-navy sm:text-xl lg:text-2xl lg:tracking-[0.12em]">
             Fessior DevCamp 2026
           </span>
         </div>
@@ -28,7 +28,7 @@ function Header() {
           <button
             type="button"
             onClick={onToggleProfile}
-            className="flex cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-rich-mahogany/40 bg-rich-mahogany/10 pr-5 text-base font-semibold text-rich-mahogany transition-transform duration-200 hover:scale-110"
+            className="flex cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-brand-navy/40 bg-brand-navy/10 pr-5 text-base font-semibold text-brand-navy transition-transform duration-200 hover:scale-110"
             aria-haspopup="menu"
             aria-expanded={profileOpen}
             aria-label="Open profile menu"
@@ -50,12 +50,12 @@ function Header() {
           </button>
 
           {profileOpen && (
-            <div className="absolute right-0 top-[calc(100%+10px)] z-30 w-[220px] rounded-2xl border border-rich-mahogany/20 bg-parchment p-2 shadow-xl">
+            <div className="absolute right-0 top-[calc(100%+10px)] z-30 w-[220px] rounded-2xl border border-brand-navy/20 bg-white p-2 shadow-xl">
               <a
                 href="https://github.com/dhp-exe"
                 target="_blank"
                 rel="noopener"
-                className="block rounded-xl px-4 py-3 text-sm font-semibold text-rich-mahogany transition hover:bg-rich-mahogany/10"
+                className="block rounded-xl px-4 py-3 text-sm font-semibold text-brand-navy transition hover:bg-brand-navy/10"
                 onClick={onCloseProfile}
               >
                 <div className="flex items-center gap-2">
@@ -66,9 +66,9 @@ function Header() {
 
               <button
                 type="button"
-                className="flex w-full items-center gap-2 rounded-xl px-4 py-3 text-left text-sm font-semibold text-rich-mahogany transition hover:bg-rich-mahogany/10"
+                className="flex w-full items-center gap-2 rounded-xl px-4 py-3 text-left text-sm font-semibold text-brand-navy transition hover:bg-brand-navy/10"
               >
-                <span aria-hidden="true" className="text-base text-rich-mahogany/80">
+                <span aria-hidden="true" className="text-base text-brand-navy/80">
                   ⎋
                 </span>
                 <span>Logout</span>

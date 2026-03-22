@@ -10,23 +10,23 @@ type UrlFormProps = {
 function UrlForm({ url, loading, onUrlChange, onSubmit }: UrlFormProps) {
   return (
     <section className="flex w-full max-w-[832px] flex-col justify-between gap-5 lg:h-[301px]">
-      <h2 className="text-center text-4xl font-black text-rich-mahogany sm:text-5xl">
+      <h2 className="text-center text-4xl font-black text-brand-navy sm:text-5xl">
         Devcamp URL Shortener
       </h2>
-      <p className="mt-5 text-center text-sm text-rich-mahogany/90 sm:text-xl">
+      <p className="mt-5 text-center text-sm text-brand-navy/90 sm:text-xl">
         Simple, Easy, Organized. Shortens the link in one click
       </p>
 
-      <div className="w-full max-w-[800px] rounded-2xl border border-rich-mahogany/15 bg-parchment p-5 shadow-[0_20px_60px_-22px_rgba(55,27,23,0.35)] backdrop-blur-sm sm:p-7">
+      <div className="w-full max-w-[800px] rounded-2xl border border-brand-navy/15 bg-white p-5 shadow-[0_20px_60px_-22px_rgba(11,40,120,0.35)] backdrop-blur-sm sm:p-7">
         <div className="mx-auto w-full max-w-[744px]">
-          <p className="mb-4 font-extrabold text-rich-mahogany">Your long URL</p>
+          <p className="mb-4 font-extrabold text-brand-navy">Your long URL</p>
 
           <form
             className="flex w-full flex-col gap-4 sm:flex-row sm:items-center"
             onSubmit={onSubmit}
           >
-            <div className="flex h-14 w-full min-w-0 flex-1 items-center rounded-xl border border-rich-mahogany/20 bg-parchment px-4">
-              <span className="text-rich-mahogany/90" aria-hidden="true">
+            <div className="flex h-14 w-full min-w-0 flex-1 items-center rounded-xl border border-brand-navy/20 bg-white px-4">
+              <span className="text-brand-navy/90" aria-hidden="true">
                 <svg
                   width="20"
                   height="20"
@@ -40,7 +40,7 @@ function UrlForm({ url, loading, onUrlChange, onSubmit }: UrlFormProps) {
                 </svg>
               </span>
               <input
-                className="ml-3 h-full w-full border-l border-rich-mahogany/20 bg-transparent pl-3 text-base font-medium text-rich-mahogany focus-within:ring-2 focus-within:ring-rich-mahogany focus:outline-none"
+                className="ml-3 h-full w-full border-l border-brand-navy/20 bg-transparent pl-3 text-base font-medium text-brand-navy focus-within:ring-2 focus-within:ring-brand-navy focus:outline-none"
                 type="url"
                 placeholder="Paste your long URL here"
                 value={url}
@@ -50,14 +50,14 @@ function UrlForm({ url, loading, onUrlChange, onSubmit }: UrlFormProps) {
             </div>
 
             <button
-              className="cursor-pointer flex h-14 w-full flex-shrink-0 items-center justify-center gap-2 rounded-xl bg-rich-mahogany px-8 text-2xl font-bold text-parchment transition hover:scale-105 hover:bg-rich-mahogany-dark focus:outline-none focus:ring-4 focus:ring-rich-mahogany/30 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100 disabled:hover:bg-rich-mahogany sm:w-auto sm:min-w-[132px] sm:text-base"
+              className="cursor-pointer flex h-14 w-full flex-shrink-0 items-center justify-center gap-2 rounded-xl bg-brand-navy px-8 text-2xl font-bold text-white transition hover:scale-105 hover:bg-brand-navy/90 focus:outline-none focus:ring-4 focus:ring-brand-navy/30 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100 disabled:hover:bg-brand-navy sm:w-auto sm:min-w-[132px] sm:text-base"
               type="submit"
               disabled={loading}
               aria-busy={loading}
             >
               {loading && (
                 <span
-                  className="h-4 w-4 animate-spin rounded-full border-2 border-parchment/40 border-t-parchment"
+                  className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white"
                   aria-hidden="true"
                 />
               )}
