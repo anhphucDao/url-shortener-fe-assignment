@@ -6,7 +6,7 @@ function App() {
           <img src="./src/assets/devcamp_logo_navy 1.svg" alt="Devcamp Logo" />
         </div>
 
-        <div className="flex items-center gap-2 w-[200px] border-2 border-blue-0B2878 rounded-full bg-gray-100">
+        <div className="flex items-center gap-2 w-[200px] border-2 border-[#0B2878] rounded-full bg-gray-100">
           <button className="text-primary-500 font-semibold">
             <img src="./src/assets/Vector.svg" alt="Vector" />
           </button>
@@ -18,32 +18,25 @@ function App() {
         </div>
       </header>
 
-      <main className="min-h-screen flex flex-col items-center justify-center mt-[20px]">
+      <main className="min-h-screen flex flex-col items-center justify-center">
         <h1 className="text-4xl font-bold text-primary-500 mb-[10px]">Devcamp URL Shortener</h1>
 
         <p className="text-lg text-primary-500 mb-[10px]">
           Simplify, Organize, and Share: URL Management Made Easy
         </p>
 
-        <div
-          style={{
-            backgroundColor: 'transparent',
-            padding: '16px',
-            width: '600px',
-            height: '70px',
-          }}
-        >
+        <div className="p-4 w-[600px]">
           <div
             className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.08),0_-2px_10px_rgba(0,0,0,0.05)] p-6"
             style={{
               padding: '20px 28px',
             }}
           >
-            <form>
+            <form className="flex flex-col gap-2">
               <label className="font-semibold text-primary-500">Your long URL</label>
 
-              <div className="flex justify-end gap-4">
-                <div className="w-[608px] h-[42px] border border-gray-300 rounded-lg flex items-center px-3 bg-gray-50">
+              <div className="flex items-center gap-10">
+                <div className="flex-1 h-[42px] border border-gray-300 rounded-lg flex items-center px-3 bg-gray-50">
                   <img src="./src/assets/VectorLink.svg" alt="link" className="w-4 h-4 mr-3" />
 
                   <input
