@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <img src="./Asset/PrometheusLogo.png" alt="Prometheus Logo" id="webLogo" />
+      <div class="userLogin">
+        <img src="./Asset/UserLogo.png" alt="User Logo" id="userLogo" />
+        <div class="subUserText">
+          <p class="personalText">Personal</p>
+          <h6 class="usernameText">Username</h6>
+        </div>
+      </div>
+    </header>
+    <main id="mainContent">
+      <div class="headContent">
+        <h1 class="mainText">Devcamp URL Shortener</h1>
+        <p class="convenientText">
+          Simplify, Organize, and Share: URL Management Made Easy
+        </p>
+      </div>
+      <div class="shortenerUI">
+        <label class="textUI">Your long URL</label>
+        <div class="featureUI">
+          <div class="inputWarraper">
+            <span class="icon">🔗</span>
+            <div class="divider"></div>
+            <input
+              type="text"
+              placeholder="Input the URL you want to shorten"
+              class="inputBox"
+            />
+          </div>
+          <button class="shortenButton" onclick="openImgOverlay()">
+            Shorten
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <div id="imageOverlay" class="overlay">
+      <div class="subDiv">
+        <button class="exitIcon" onclick="closeImgOverlay()">
+          <img
+            src="./Asset/CloseIcon.png"
+            alt="closeIcon"
+            class="closeIcon"
+          />
+        </button>
+
+        <img src="./Asset/qrCodeLeft.png" alt="" class="qrDecorLeft" />
+        <img src="./Asset/qrCodeRight.png" alt="" class="qrDecorRight"/>
+        <div class="backgroundRotate"></div>
+
+        <div class="subContent">
+          <div class="qrPic">
+            <div class="fullQR">
+              <img src="./Asset/qr.png" alt="" class = "qrCode">
+              <div class="downloadButton" onclick="downloadQrImg()"> 
+                <!-- <button class="dowloadFeature"> -->
+                  <img src="./Asset/DownloadButton.png" alt="Download Button" class="dowloadFeature" >
+                <!-- </button> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="linkContent">
+            <h4>Link shortened!</h4>
+            <p>Access the My <a>URLs</a> page to view statistics on your shortened links</p>
+          </div>
+
+          <div class="shortenlinkBox">
+            <div class="contentBox">
+              <p class="generatedLink">https://furl.one/myshortenlink</p>
+            </div>
+            <button class="copyLinkButton" onclick="copyShortenLink()">
+              <img src="./Asset/CopyIcon.png" alt="Copy" class="copyFeature" >
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
