@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+.app-container {
+  display: flex;
+  flex-direction: column; /* Xếp các phần tử theo hàng dọc */
+  align-items: center;    /* Căn giữa tất cả theo chiều ngang */
+  min-height: 100vh;      /* Cao bằng toàn bộ màn hình */
+  background-color: #f8fafc; /* Màu nền xám nhạt */
+  padding: 20px;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between; /* Đẩy logo sang trái, user sang phải */
+  align-items: center;
+  width: 100%;
+  margin-bottom: 80px;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 8px 16px;
+  border-radius: 50px; /* Bo tròn hoàn toàn hai đầu */
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.user-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-status {
+  font-size: 10px;
+  color: Darkgrey;
+  text-transform: uppercase;
+}
+
+.user-name {
+  font-size: 16px;
+  color: #1e293b;
+}
+
+.logo{
+  width: 150px;
+}
+
+.shortener-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background-color: white;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.main-title{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: blue;
+  font-size: 40px;
+}
+
+.sub-title{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: rgb(65, 134, 157);
+  font-size: 20px;
+}
+
+.shortener-box{
+  width: 100%;
+  max-width: 600px;
+
+  padding: 10px;
+  border-radius: 10px;
+
+  box-shadow: 0 25px 50px 5px rgba(0, 0, 0, 0.25);
+}
+
+.input-label{
+  text-align: left; 
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: navy;
+
+}
+
+.input-group {
+  display: flex;
+  gap: 15px; 
+  width: 100%; 
+  justify-content: center; 
+}
+
+.input-field-wrapper {
+  position: relative; 
+  flex-grow: 1; 
+}
+
+.link-symbol {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%); /* Căn giữa icon theo chiều dọc */
+  color: #94a3b8;
+}
+
+.url-input{
+  width: 100%;
+  padding: 15px 15px 15px 45px; /* Padding trái to hơn để nhường chỗ cho icon */
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+  outline: none; /* Tắt viền xanh mặc định khi click */
+  transition: border-color 0.3s;
+}
+
+.submit-btn{
+  background-color: #0b2878;
+  color: white;
+  border-radius: 10px;
+  padding: 0 20px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.submit-btn:hover {
+  background-color: red; /* Đổi màu đen khi di chuột vào */
+}
+
+
