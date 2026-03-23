@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { CloseIcon } from '../assets/icons/CloseIcon'
 import { CopyIcon } from '../assets/icons/CopyIcon'
 import { DownloadIcon } from '../assets/icons/DownloadIcon'
+import { Button } from './Button'
 const COPY_TIMEOUT = 2000
 type PopUpProps = {
   isShown: boolean
@@ -33,12 +34,12 @@ export const PopUp = ({ isShown, onClose }: PopUpProps) => {
     <div className="fixed inset-0 z-25 flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/30" onClick={onClose} />
       <div className="relative bg-white rounded-xl shadow-2xl w-full max-w-100 overflow-hidden animate-in fade-in zoom-in duration-300">
-        <button
+        <Button
           onClick={onClose}
           className="absolute top-3 right-3 z-10 bg-white hover:bg-primary-300 cursor-pointer text-neutral-500 hover:text-white rounded-full p-1 transition-colors"
         >
           <CloseIcon />
-        </button>
+        </Button>
 
         <div className="bg-primary-500 h-32 relative flex justify-center">
           <div className="absolute top-10 bg-white p-3 rounded-xl shadow-lg border border-primary-100">
@@ -64,12 +65,12 @@ export const PopUp = ({ isShown, onClose }: PopUpProps) => {
               <span className="text-primary-500 text-sm truncate flex-1 text-left border border-primary-500 rounded-lg p-2 pl-3 h-full flex items-center">
                 {SHORT_URL}
               </span>
-              <button
+              <Button
                 className="bg-primary-500 text-white p-2.5 rounded-md transition-colors hover:bg-primary-300 cursor-pointer duration-100 hover:text-primary-500 hover:scale-105"
                 onClick={handleCopy}
               >
                 <CopyIcon />
-              </button>
+              </Button>
             </div>
 
             <div

@@ -28,7 +28,7 @@ export const ShortenContainer = () => {
               className="w-full outline-none text-slate-600 placeholder:text-slate-300 bg-transparent"
             />
           </div>
-          <Button onClick={handleShowPop} />
+          <Button onClick={handleShowPop}>Shorten</Button>
         </div>
       </div>
       <PopUp isShown={showPop} onClose={handleClosePop} />
