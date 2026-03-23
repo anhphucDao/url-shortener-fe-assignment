@@ -1,20 +1,34 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { CloseIcon } from '../assets/icons/CloseIcon'
 import { CopyIcon } from '../assets/icons/CopyIcon'
 import { DownloadIcon } from '../assets/icons/DownloadIcon'
-export const PopUp = ({ isShown, onClose }) => {
-  const [copied, setCopied] = useState(false)
-
+const COPY_TIMEOUT = 2000
+type PopUpProps = {
+  isShown: boolean
+  onClose: () => void
+}
+export const PopUp = ({ isShown, onClose }: PopUpProps) => {
+  const [copied, setCopied] = useState<boolean>(false)
+  const timeoutRef = useRef<number | null>(null)
+  const SHORT_URL = import.meta.env.VITE_SHORT_URL
+  useEffect(() => {
+    return () => clearTimeout(timeoutRef.current)
+  }, [])
   if (!isShown) return null
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText('https://furl.one/myshortenlink')
-    setCopied(true)
-    setTimeout(() => {
-      setCopied(false)
-    }, 2000)
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(SHORT_URL)
+      setCopied(true)
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+      timeoutRef.current = setTimeout(() => {
+        setCopied(false)
+      }, COPY_TIMEOUT)
+    } catch (err) {
+      console.error(err)
+    }
   }
-
   return (
     <div className="fixed inset-0 z-25 flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/30" onClick={onClose} />
@@ -48,10 +62,10 @@ export const PopUp = ({ isShown, onClose }) => {
           <div className="relative">
             <div className="flex items-center gap-2 bg-white">
               <span className="text-primary-500 text-sm truncate flex-1 text-left border border-primary-500 rounded-lg p-2 pl-3 h-full flex items-center">
-                https://furl.one/myshortenlink
+                {SHORT_URL}
               </span>
               <button
-                className="bg-primary-500 text-white p-2.5 rounded-md hover:bg-primary-700 transition-colors hover:bg-primary-300 cursor-pointer duration-100 hover:text-primary-500 hover:scale-105"
+                className="bg-primary-500 text-white p-2.5 rounded-md transition-colors hover:bg-primary-300 cursor-pointer duration-100 hover:text-primary-500 hover:scale-105"
                 onClick={handleCopy}
               >
                 <CopyIcon />
