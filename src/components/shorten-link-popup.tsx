@@ -1,3 +1,4 @@
+import CardDecoration from './card-decoration'
 type shortenLinkPopupProps = {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
   responseData: string
@@ -36,19 +37,19 @@ function ShortenLinkPopup({
       onClick={() => {
         setLoading(false)
         setResponseData(null)
+        setImageLoaded(false)
       }}
     >
       <div
         className=" bg-white py-8 px-10 rounded-xl flex flex-col items-center overflow-hidden justify-center relative max-w-100"
         onClick={e => e.stopPropagation()}
       >
-        <img src="../public/cardbg.svg" className="absolute w-full top-0 " />
-        <img src="../public/qricon.svg" className="absolute -left-7 top-8" />
-        <img src="../public/qricon.svg" className="absolute -right-7 top-17" />
+        <CardDecoration />
         <button
           onClick={() => {
             setLoading(false)
             setResponseData(null)
+            setImageLoaded(false)
           }}
           className="bg-white rounded-full z-10 p-1.5 absolute top-3 right-3 hover:cursor-pointer"
         >
