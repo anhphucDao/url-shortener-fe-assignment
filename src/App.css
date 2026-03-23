@@ -2,19 +2,19 @@
 
 .app-container {
   display: flex;
-  flex-direction: column; /* Xếp các phần tử theo hàng dọc */
-  align-items: center;    /* Căn giữa tất cả theo chiều ngang */
-  min-height: 100vh;      /* Cao bằng toàn bộ màn hình */
-  background-color: #f8fafc; /* Màu nền xám nhạt */
+  flex-direction: column;
+  align-items: center;    
+  min-height: 100vh;      
+  background-color: #f8fafc; 
   padding: 20px;
 }
 
 .top-nav {
   display: flex;
-  justify-content: space-between; /* Đẩy logo sang trái, user sang phải */
+  justify-content: space-between; 
   align-items: center;
   width: 100%;
-  margin-bottom: 80px;
+  margin-bottom: 90px;
 }
 
 .user-card {
@@ -22,7 +22,7 @@
   align-items: center;
   background-color: white;
   padding: 8px 16px;
-  border-radius: 50px; /* Bo tròn hoàn toàn hai đầu */
+  border-radius: 50px; 
   border: 1px solid #e2e8f0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
@@ -100,9 +100,9 @@ header {
 
 .input-group {
   display: flex;
+  justify-content: center; 
   gap: 15px; 
   width: 100%; 
-  justify-content: center; 
 }
 
 .input-field-wrapper {
@@ -114,17 +114,16 @@ header {
   position: absolute;
   left: 15px;
   top: 50%;
-  transform: translateY(-50%); /* Căn giữa icon theo chiều dọc */
+  transform: translateY(-50%); 
   color: #94a3b8;
 }
 
 .url-input{
   width: 100%;
-  padding: 15px 15px 15px 45px; /* Padding trái to hơn để nhường chỗ cho icon */
+  padding: 15px 15px 15px 45px; 
   border-radius: 12px;
   border: 1px solid #e2e8f0;
   font-size: 14px;
-  outline: none; /* Tắt viền xanh mặc định khi click */
   transition: border-color 0.3s;
 }
 
@@ -138,7 +137,72 @@ header {
 }
 
 .submit-btn:hover {
-  background-color: red; /* Đổi màu đen khi di chuột vào */
+  background-color: red; 
 }
 
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; 
+}
+
+.modal-box {
+  background-color: white;
+  padding: 40px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-title {
+  color: blue;
+  margin-bottom: 20px;
+}
+
+.result-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.result-input {
+  flex-grow: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px dashed blue;
+  background-color: #f0f7ff;
+  color: blue;
+  font-weight: bold;
+}
+
+.copy-btn {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.copy-btn:hover {
+  background-color: red;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: gray;
+  text-decoration: underline;
+  cursor: pointer;
+}
 
