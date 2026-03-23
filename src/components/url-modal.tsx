@@ -1,5 +1,5 @@
 import { shortenUrl } from '../services/shorten-api'
-type urlModalProps = {
+interface UrlModalProps {
   inputUrl: string
   setInputUrl: React.Dispatch<React.SetStateAction<string>>
   isLoading: boolean
@@ -14,7 +14,7 @@ function UrlModal({
   setLoading,
   setError,
   setResponseData,
-}: urlModalProps) {
+}: UrlModalProps) {
   const handleShorten = async () => {
     setLoading(true)
     setError(false)

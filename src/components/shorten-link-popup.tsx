@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import CardDecoration from './card-decoration'
-type shortenLinkPopupProps = {
+interface ShortenLinkPopupProps {
   responseData: string
   imageLoaded: boolean
   setImageLoaded: React.Dispatch<React.SetStateAction<boolean>>
@@ -17,7 +17,7 @@ function ShortenLinkPopup({
   setCopied,
   setError,
   resetStates,
-}: shortenLinkPopupProps) {
+}: ShortenLinkPopupProps) {
   const TIMEOUT_CONST = 2000
   useEffect(() => {
     if (!isCopied) return

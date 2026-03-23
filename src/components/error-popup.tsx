@@ -1,7 +1,7 @@
-type errorPopupProps = {
+interface ErrorPopupProps {
   resetStates: () => void
 }
-function ErrorPopup({ resetStates }: errorPopupProps) {
+function ErrorPopup({ resetStates }: ErrorPopupProps) {
   return (
     <div
       className="flex items-center justify-center flex-col min-h-screen min-w-screen absolute z-10 bg-[rgba(220,220,220,0.5)]"
