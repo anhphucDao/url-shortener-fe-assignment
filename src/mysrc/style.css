@@ -1,0 +1,334 @@
+body
+{
+    font-family: 'Baloo Chettan 2', Arial, Helvetica, sans-serif;
+}
+
+
+
+#webLogo
+{
+    width: 10%;
+    height: 10%;
+    display: flex;
+    padding: 20px 17px;
+}
+header
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: center;
+}
+.userLogin
+{
+    display: flex;
+    border-radius: 9999px;
+    border: 2px solid #0b2878;
+    column-count: 2;
+    align-items: center;
+}
+.subUserText
+{
+    padding-left: 5px;
+    display: flex;
+    margin-top: .125rem;
+    margin-bottom: .125rem;
+    flex-direction: column;
+}
+.personalText, .usernameText
+{
+    margin: 0;
+    color: #808080;
+}
+
+#userLogo
+{
+    display: flex;
+    width: 40%;
+    height: 40%;
+}
+
+#mainContent
+{
+    margin: 0% 25% 0px;
+    display: flex;
+    text-align: center;
+    justify-items:center;
+    flex-direction: column;
+    color: #0b2878;
+
+}
+.featureUI
+{
+    display: flex;
+    justify-items: center;
+    justify-content: space-between;
+}
+.inputBox
+{
+    border-style: none;
+    flex:1;
+    border: none;
+    outline: none;
+}
+.inputWarraper
+{
+    display: flex;
+    align-items: center;     
+    border: 0.5px solid #ccc;  
+    border-radius: 8px;       
+    padding: 0 12px;        
+    width: 75%;     
+    height: 30px;
+    margin-left: 4%;
+}
+.inputWarraper:focus-within {
+    border: 1.5px solid #000000; 
+    box-shadow: 0 0 8px rgba(11, 40, 120, 0.2);
+}
+.divider
+{
+    width: 1px;              
+    height: 24px;             
+    background-color: #ccc;   
+    margin: 0 10px;
+}
+.shortenButton
+{
+    font-weight: bold;
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border-style: none;
+    width: 12%;
+    background-color: #0b2878;
+    color: white;
+    cursor: pointer;
+}
+
+.shortenButton:hover
+{
+    background-color: #173a9a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(11, 40, 120, 0.3);
+}
+
+.shortenButton:active {
+    transform: translateY(0);
+}
+
+.convenientText
+{
+    margin-top: 15px;
+    margin-bottom: 5%;
+}
+.mainText
+{
+
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+.textUI
+{
+    padding-top: 3%;
+    padding-left: 4%;
+    padding-bottom: 2%;
+    font-size: large;
+    font-weight: 600;
+    display: flex;
+    justify-content: left;
+}
+.shortenerUI
+{
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    padding-bottom: 5%;
+    width: 100%;
+}
+ 
+
+
+.overlay {
+    display: none;         
+    position: fixed;          
+    z-index: 10;           
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    overflow: auto;           
+}
+.subDiv {
+    background-color: #0b2878;
+    margin: 5% auto;          
+    border-radius: 15px;
+    height: 70%;
+    width: 50%;              
+    max-width: 500px;       
+    max-height: 600px;
+  
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.exitIcon
+{
+    position: absolute;
+    top: 15px;       
+    right: 15px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+}
+.closeIcon
+{
+    height: 50%;
+    width: 50% ;
+}
+.backgroundRotate {
+    position: absolute;
+    background-color: white;
+    width: 150%;      
+    height: 100%;     
+    top: 45%;         
+    left: -25%;       
+    transform: rotate(-7deg); 
+    
+    z-index: 1;    
+}
+.qrDecorLeft
+{
+    width: 50px;
+    height: 80px;
+    position: absolute;
+    margin-top:10%;
+}
+.qrDecorRight
+{
+    width: 50px;
+    height: 80px;
+    position: absolute;
+    margin-top: 15%;
+    right: 0;
+}
+.qrPic
+{
+    display: flex;       
+    justify-content: center; 
+    align-items: center; 
+}
+.fullQR
+{
+    display: flex;       
+    justify-content: center;
+    align-items: center;   
+    width: 250px;      
+    height: 250px;
+    background-color: #f9f9f9; 
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+    
+    position: relative; 
+    margin-top: 10%;   
+
+    z-index: 2;
+    
+}
+.qrCode
+{
+    display: flex;
+    width: 90%;
+    height: 90%;
+}
+.downloadButton
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:   absolute;
+    width: 50px;
+    height: 50px;
+
+    position:absolute;
+    right: -15px;
+    bottom: -15px;
+
+    background-color: #0b2878;
+    border-radius: 1000px;
+    z-index: 3;
+}
+.dowloadFeature
+{
+    width: 60%;
+    height: 60%;
+}
+.linkContent
+{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: #0b2878;
+    z-index: 4;
+}
+.linkContent h4
+{
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+.linkContent p 
+{
+    max-width: 300px;
+    text-align: center;
+}
+
+.shortenlinkBox
+{
+    display: flex;  
+    align-items: stretch;
+    justify-content: center;
+    height: 2.5em;
+}
+.contentBox 
+{
+    display: flex;
+    border: #0b2878 solid;  
+    box-sizing: border-box;  
+    width: 60%;
+    padding-left: 2%;
+    border-radius: 10px;
+    align-items: center; 
+    position: relative;
+    z-index: 5;
+}
+.copyLinkButton
+{
+    border-radius: 12px;
+    background-color: #0b2878;
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12%;
+    margin-left: 2%;
+}
+
+.copyFeature
+{ 
+    display: flex;
+    width: 50%;
+    height: 80%;
+}
