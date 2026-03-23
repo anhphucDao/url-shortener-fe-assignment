@@ -4,12 +4,12 @@ import UrlModal from './components/url-modal'
 import ErrorPopup from './components/error-popup'
 import ShortenLinkPopup from './components/shorten-link-popup'
 function App() {
-  const [inputUrl, setInputUrl] = useState('')
-  const [isLoading, setLoading] = useState(false)
-  const [isError, setError] = useState(false)
+  const [inputUrl, setInputUrl] = useState<string>('')
+  const [isLoading, setLoading] = useState<boolean>(false)
+  const [isError, setError] = useState<boolean>(false)
   const [responseData, setResponseData] = useState<string | null>(null)
-  const [imageLoaded, setImageLoaded] = useState(false)
-  const [isCopied, setCopied] = useState(false)
+  const [imageLoaded, setImageLoaded] = useState<boolean>(false)
+  const [isCopied, setCopied] = useState<boolean>(false)
   const showPopup = useMemo(() => {
     return !isError && isLoading && responseData != null
   }, [isError, isLoading, responseData])

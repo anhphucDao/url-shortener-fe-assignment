@@ -7,6 +7,10 @@ type urlModalProps = {
   setError: React.Dispatch<React.SetStateAction<boolean>>
   setResponseData: React.Dispatch<React.SetStateAction<string | null>>
 }
+interface shortenerResponse {
+  shorturl?: string
+  errormessage?: string
+}
 function UrlModal({
   inputUrl,
   setInputUrl,
@@ -19,20 +23,19 @@ function UrlModal({
     setLoading(true)
     setError(false)
     try {
-      const response = await axios.get(
+      const response = await axios.get<shortenerResponse>(
         `/api/create.php?format=json&url=${encodeURIComponent(inputUrl)}`
       )
       if (response.data.shorturl) {
         setResponseData(response.data.shorturl)
       } else {
         setError(true)
-        console.log(response.data.errormessage)
       }
-    } catch (error) {
+    } catch {
       setError(true)
-      console.log(error)
     }
   }
+  const isDisabled = isLoading || inputUrl == ''
   return (
     <>
       <div className=" flex flex-col md:flex-row items-start bg-white shadow-[0_0_30px] shadow-primary-100/50 rounded-md w-[90%] md:w-[42%] p-5  mt-8 mb-2 md:min-w-187 text-start gap-5">
@@ -55,7 +58,7 @@ function UrlModal({
           </div>
         </div>
         <button
-          disabled={isLoading || inputUrl == ''}
+          disabled={isDisabled}
           onClick={shorten}
           className="md:ml-2 hover:cursor-pointer self-center  md:self-start mt-4 md:mt-0 w-fit h-11 md:relative top-9 items-center rounded-lg py-2 px-6 mr-2 text-shade-white font-bold  bg-primary-500 disabled:bg-primary-300"
         >
