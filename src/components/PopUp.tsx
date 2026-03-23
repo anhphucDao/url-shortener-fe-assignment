@@ -1,5 +1,7 @@
 import { useState } from 'react'
-
+import { CloseIcon } from '../assets/icons/CloseIcon'
+import { CopyIcon } from '../assets/icons/CopyIcon'
+import { DownloadIcon } from '../assets/icons/DownloadIcon'
 export const PopUp = ({ isShown, onClose }) => {
   const [copied, setCopied] = useState(false)
 
@@ -21,19 +23,7 @@ export const PopUp = ({ isShown, onClose }) => {
           onClick={onClose}
           className="absolute top-3 right-3 z-10 bg-white hover:bg-primary-300 cursor-pointer text-neutral-500 hover:text-white rounded-full p-1 transition-colors"
         >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
+          <CloseIcon />
         </button>
 
         <div className="bg-primary-500 h-32 relative flex justify-center">
@@ -43,21 +33,8 @@ export const PopUp = ({ isShown, onClose }) => {
               alt="QR Code"
               className="w-32 h-32"
             />
-            <div className="absolute -bottom-2 -right-2 bg-primary-500 text-white p-1.5 rounded-full border-2 border-white cursor-pointer">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
+            <div className="absolute -bottom-2 -right-2 bg-primary-500 text-white p-1.5 rounded-full border-2 border-white cursor-pointer hover:bg-primary-300 hover:text-primary-500 hover:scale-105 duration-100">
+              <DownloadIcon />
             </div>
           </div>
         </div>
@@ -74,22 +51,10 @@ export const PopUp = ({ isShown, onClose }) => {
                 https://furl.one/myshortenlink
               </span>
               <button
-                className="bg-primary-500 text-white p-2.5 rounded-md hover:bg-primary-700 transition-colors"
+                className="bg-primary-500 text-white p-2.5 rounded-md hover:bg-primary-700 transition-colors hover:bg-primary-300 cursor-pointer duration-100 hover:text-primary-500 hover:scale-105"
                 onClick={handleCopy}
               >
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                </svg>
+                <CopyIcon />
               </button>
             </div>
 
