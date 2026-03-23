@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import Header from './components/header'
 import UrlModal from './components/url-modal'
 import ErrorPopup from './components/error-popup'
@@ -10,7 +10,14 @@ function App() {
   const [responseData, setResponseData] = useState<string | null>(null)
   const [imageLoaded, setImageLoaded] = useState(false)
   const [isCopied, setCopied] = useState(false)
-
+  const showPopup = useMemo(() => {
+    return !isError && isLoading && responseData != null
+  }, [isError, isLoading, responseData])
+  const resetStates = () => {
+    setError(false)
+    setLoading(false)
+    setResponseData(null)
+  }
   return (
     <main className="min-h-screen flex items-center justify-center flex-col text-center">
       <Header />
@@ -28,19 +35,21 @@ function App() {
         setError={setError}
         setResponseData={setResponseData}
       />
-      {isError && <ErrorPopup setError={setError} setLoading={setLoading} />}
-      {!isError && isLoading && responseData != null && (
-        <ShortenLinkPopup
-          imageLoaded={imageLoaded}
-          setImageLoaded={setImageLoaded}
-          isCopied={isCopied}
-          setCopied={setCopied}
-          setLoading={setLoading}
-          responseData={responseData}
-          setResponseData={setResponseData}
-          setError={setError}
-        />
-      )}
+      {isError && <ErrorPopup resetStates={resetStates} />}
+      {
+        //responseData included because Typescript null check do not accept checking inside showPopup
+        showPopup && responseData && (
+          <ShortenLinkPopup
+            imageLoaded={imageLoaded}
+            setImageLoaded={setImageLoaded}
+            isCopied={isCopied}
+            setCopied={setCopied}
+            responseData={responseData}
+            setError={setError}
+            resetStates={resetStates}
+          />
+        )
+      }
     </main>
   )
 }

@@ -1,23 +1,21 @@
 import CardDecoration from './card-decoration'
 type shortenLinkPopupProps = {
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>
   responseData: string
-  setResponseData: React.Dispatch<React.SetStateAction<string | null>>
   imageLoaded: boolean
   setImageLoaded: React.Dispatch<React.SetStateAction<boolean>>
   isCopied: boolean
   setCopied: React.Dispatch<React.SetStateAction<boolean>>
   setError: React.Dispatch<React.SetStateAction<boolean>>
+  resetStates: () => void
 }
 function ShortenLinkPopup({
-  setLoading,
   responseData,
-  setResponseData,
   imageLoaded,
   setImageLoaded,
   isCopied,
   setCopied,
   setError,
+  resetStates,
 }: shortenLinkPopupProps) {
   const handleCopy = async () => {
     if (responseData)
@@ -35,9 +33,7 @@ function ShortenLinkPopup({
     <div
       className="flex items-center justify-center flex-col min-h-screen min-w-screen absolute z-10 bg-[rgba(220,220,220,0.5)]"
       onClick={() => {
-        setLoading(false)
-        setResponseData(null)
-        setImageLoaded(false)
+        resetStates()
       }}
     >
       <div
@@ -47,9 +43,7 @@ function ShortenLinkPopup({
         <CardDecoration />
         <button
           onClick={() => {
-            setLoading(false)
-            setResponseData(null)
-            setImageLoaded(false)
+            resetStates()
           }}
           className="bg-white rounded-full z-10 p-1.5 absolute top-3 right-3 hover:cursor-pointer"
         >

@@ -1,14 +1,12 @@
 type errorPopupProps = {
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>
-  setError: React.Dispatch<React.SetStateAction<boolean>>
+  resetStates: () => void
 }
-function ErrorPopup({ setError, setLoading }: errorPopupProps) {
+function ErrorPopup({ resetStates }: errorPopupProps) {
   return (
     <div
       className="flex items-center justify-center flex-col min-h-screen min-w-screen absolute z-10 bg-[rgba(220,220,220,0.5)]"
       onClick={() => {
-        setError(false)
-        setLoading(false)
+        resetStates()
       }}
     >
       <div
@@ -20,8 +18,7 @@ function ErrorPopup({ setError, setLoading }: errorPopupProps) {
         <button
           className="px-5 py-2 bg-primary-500 font-medium text-white rounded-lg mt-3 hover:cursor-pointer"
           onClick={() => {
-            setError(false)
-            setLoading(false)
+            resetStates()
           }}
         >
           Close
