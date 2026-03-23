@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import CardDecoration from './card-decoration'
 type shortenLinkPopupProps = {
   responseData: string
@@ -17,14 +18,21 @@ function ShortenLinkPopup({
   setError,
   resetStates,
 }: shortenLinkPopupProps) {
+  const TIMEOUT_CONST = 2000
+  useEffect(() => {
+    if (!isCopied) return
+    const timer = setTimeout(() => {
+      setCopied(false)
+    }, TIMEOUT_CONST)
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [isCopied, setCopied])
   const handleCopy = async () => {
     if (responseData)
       try {
         await navigator.clipboard.writeText(responseData)
         setCopied(true)
-        setTimeout(() => {
-          setCopied(false)
-        }, 2000)
       } catch {
         setError(true)
       }
