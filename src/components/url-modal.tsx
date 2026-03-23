@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { shortenUrl } from '../services/shorten-api'
 type urlModalProps = {
   inputUrl: string
   setInputUrl: React.Dispatch<React.SetStateAction<string>>
@@ -6,10 +6,6 @@ type urlModalProps = {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
   setError: React.Dispatch<React.SetStateAction<boolean>>
   setResponseData: React.Dispatch<React.SetStateAction<string | null>>
-}
-interface shortenerResponse {
-  shorturl?: string
-  errormessage?: string
 }
 function UrlModal({
   inputUrl,
@@ -19,18 +15,12 @@ function UrlModal({
   setError,
   setResponseData,
 }: urlModalProps) {
-  const shorten = async () => {
+  const handleShorten = async () => {
     setLoading(true)
     setError(false)
     try {
-      const response = await axios.get<shortenerResponse>(
-        `/api/create.php?format=json&url=${encodeURIComponent(inputUrl)}`
-      )
-      if (response.data.shorturl) {
-        setResponseData(response.data.shorturl)
-      } else {
-        setError(true)
-      }
+      const shortenurl = await shortenUrl(inputUrl)
+      setResponseData(shortenurl)
     } catch {
       setError(true)
     }
@@ -59,7 +49,7 @@ function UrlModal({
         </div>
         <button
           disabled={isDisabled}
-          onClick={shorten}
+          onClick={handleShorten}
           className="md:ml-2 hover:cursor-pointer self-center  md:self-start mt-4 md:mt-0 w-fit h-11 md:relative top-9 items-center rounded-lg py-2 px-6 mr-2 text-shade-white font-bold  bg-primary-500 disabled:bg-primary-300"
         >
           Shorten
