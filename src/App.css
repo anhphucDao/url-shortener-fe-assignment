@@ -1,0 +1,123 @@
+body{
+    margin: 0;
+    font-family:"Inter",sans-serif;
+    background: linear-gradient(135deg, #182235, #1F2A44, #2C3E5E);
+}
+.con{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    backdrop-filter: blur(10px);
+}
+.tit{
+    font-size: 50px;
+    font-weight: bold;
+    color: #C7F464;
+    letter-spacing: 1px;
+}
+.input{
+    width: 500px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: 3px solid #128C7E;
+    outline: none;
+    background: #EAEAEA;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    transition: all 0.1s ease-in-out;
+}
+.input:focus{
+    border: 3px solid #0A6F66;
+    box-shadow: 0 2px 6px rgba(201, 162, 39, 0.25);
+    
+}
+.but{
+    background: #C7F464;
+    color:#1F2328;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(139, 26, 26, 0.25);
+    transition: all 0.1s ease-in-out;
+}
+.but:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 2px 6px 5px rgba(230, 237, 243,0.25);
+}
+.but:active{
+    transform:scale(0.735);
+}
+.fra{
+    margin-top: 10px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background:  #1F2328;
+    border: 3px solid #128C7E;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    backdrop-filter: blur(10px);
+}
+.ans{
+    color: #C7F464;
+    font-weight: 500;
+}
+.but2{
+    background: #C7F464;
+    color: #1F2328;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(201, 162, 39, 0.25);
+    transition: all 0.1s ease-in-out;
+}
+.but2:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 2px 6px 5px rgba(230, 237, 243,0.25);
+}
+.sta{
+    font-weight: 500;
+    color: #C7F464;
+    letter-spacing: 1px;
+}
+.not{
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(
+  135deg,
+  #FFFFFF,
+  #EAEAEA,
+  #CFCFCF
+);
+color: #1F2328;
+padding: 10px 10px;
+border-radius: 10px;
+font-weight: 500;
+letter-spacing: 1px;
+border: 3px solid #0A6F66;
+box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+z-index: 999;
+animation: toastFade 2s ease forwards;
+}
+@keyframes toastFade{
+    0%{
+        opacity: 0;
+    }
+    10%{
+        opacity: 1;
+    }
+    78.75%{
+        opacity:1;
+    }
+    100%{
+        opacity:0;
+    }
+}
+
