@@ -8,27 +8,39 @@ type PopUpProps = {
   isShown: boolean
   onClose: () => void
 }
+type Feedback = {
+  type: 'success' | 'error'
+  message: string
+} | null
 export const PopUp = ({ isShown, onClose }: PopUpProps) => {
-  const [copied, setCopied] = useState<boolean>(false)
+  const [feedback, setFeedback] = useState<Feedback>(null)
   const timeoutRef = useRef<number | null>(null)
   const SHORT_URL = import.meta.env.VITE_SHORT_URL
   useEffect(() => {
-    return () => clearTimeout(timeoutRef.current)
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    }
   }, [])
   if (!isShown) return null
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(SHORT_URL)
-      setCopied(true)
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-      }
-      timeoutRef.current = setTimeout(() => {
-        setCopied(false)
-      }, COPY_TIMEOUT)
-    } catch (err) {
-      console.error(err)
+      setFeedback({
+        type: 'success',
+        message: 'Copied to clipboard!',
+      })
+    } catch {
+      setFeedback({
+        type: 'error',
+        message: 'Failed to copy link. Please try again.',
+      })
     }
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+    }
+    timeoutRef.current = setTimeout(() => {
+      setFeedback(null)
+    }, COPY_TIMEOUT)
   }
   return (
     <div className="fixed inset-0 z-25 flex items-center justify-center p-4">
@@ -74,9 +86,19 @@ export const PopUp = ({ isShown, onClose }: PopUpProps) => {
             </div>
 
             <div
-              className={`absolute -bottom-6 left-0 w-full transition-all duration-300 ${copied ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}
+              className={`absolute -bottom-6 left-0 w-full transition-all duration-300 ${
+                feedback
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 -translate-y-2 pointer-events-none'
+              }`}
             >
-              <p className="text-[10px] font-bold text-green-500">Copied to clipboard!</p>
+              <p
+                className={`text-[10px] font-bold ${
+                  feedback?.type === 'success' ? 'text-green-500' : 'text-red-500'
+                }`}
+              >
+                {feedback?.message}
+              </p>
             </div>
           </div>
         </div>

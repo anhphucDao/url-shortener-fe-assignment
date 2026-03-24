@@ -1,5 +1,6 @@
 import promLogo from '../assets/devcamp_logo_navy 1.svg'
 import { UserIcon } from '../assets/icons/UserIcon'
+
 export const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full h-27 px-6 flex justify-between items-center">
