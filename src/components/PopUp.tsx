@@ -16,6 +16,7 @@ export const PopUp = ({ isShown, onClose }: PopUpProps) => {
   const [feedback, setFeedback] = useState<Feedback>(null)
   const timeoutRef = useRef<number | null>(null)
   const SHORT_URL = import.meta.env.VITE_SHORT_URL
+  const QR_API_URL = import.meta.env.VITE_QR_API_URL
   useEffect(() => {
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current)
@@ -55,11 +56,7 @@ export const PopUp = ({ isShown, onClose }: PopUpProps) => {
 
         <div className="bg-primary-500 h-32 relative flex justify-center">
           <div className="absolute top-10 bg-white p-3 rounded-xl shadow-lg border border-primary-100">
-            <img
-              src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://fessior.com"
-              alt="QR Code"
-              className="w-32 h-32"
-            />
+            <img src={QR_API_URL} alt="QR Code" className="w-32 h-32" />
             <div className="absolute -bottom-2 -right-2 bg-primary-500 text-white p-1.5 rounded-full border-2 border-white cursor-pointer hover:bg-primary-300 hover:text-primary-500 hover:scale-105 duration-100">
               <DownloadIcon />
             </div>
