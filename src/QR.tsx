@@ -1,16 +1,16 @@
 function QR() {
   return (
     <div className="w-full h-full fixed top-0 bg-black/50 flex items-center justify-center">
-      <div className="w-100 h-100 bg-white flex flex-col items-center justify-center rounded-lg p-6 relative overflow-hidden">
+      <div className="w-90 h-100 bg-white flex flex-col items-center justify-center rounded-lg p-6 relative overflow-hidden">
         <img
           src="PNG\download.png"
           alt="QR Code"
-          className="w-40 h-40 absolute top-5 right-75 z-999 opacity-70"
+          className="w-40 h-40 absolute top-5 right-70 z-999 opacity-70"
         />
         <img
           src="PNG\download.png"
           alt="QR Code"
-          className="w-30 h-30 absolute left-85 top-17 z-999 opacity-70"
+          className="w-30 h-30 absolute left-75 top-17 z-999 opacity-70"
         />
         <div className="w-150 h-60 bg-primary-500 absolute bottom-55 transform -rotate-5"></div>
         <span className="w-7 h-7 bg-white absolute top-0 right-0 m-3 p-3 rounded-full flex items-center justify-center cursor-pointer">
