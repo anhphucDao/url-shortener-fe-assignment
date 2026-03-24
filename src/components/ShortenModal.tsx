@@ -6,13 +6,12 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import qrImage from '../assets/qr.png'
 
 interface ShortenModalProps {
-  onClose: () => void
+  onClose: () => void;
+  url: string
 }
 
-function ShortenModal({ onClose }: ShortenModalProps) {
+function ShortenModal({ onClose, url }: ShortenModalProps) {
   const [isCopied, setIsCopied] = useState(false)
-
-  const url = 'https://furl.one/myshortenlink'
 
   const handleCopy = async () => {
     try {
@@ -24,18 +23,18 @@ function ShortenModal({ onClose }: ShortenModalProps) {
         setIsCopied(false)
       }, 2000)
     } catch (err) {
-      console.error('Lỗi khi copy text: ', err)
+      console.error('There is an error: ', err)
     }
   }
 
   return (
     <div className="fixed inset-0 z-50 flex flex-col items-center justify-center">
-      <div className="h-full w-full absolute top-0 bg-[#B3B3B3] opacity-30" />
+      <div className="h-full w-full absolute top-0 bg-neutral-300 opacity-30" />
 
       <div className="relative w-80 h-auto bg-white rounded-xl">
         <div className="w-full h-32 bg-primary-500 rounded-t-xl" />
         <button
-          className="absolute top-4 right-4 h-6 w-6 text-center bg-[#E6E6E6] hover:bg-[#ffffff] rounded-full cursor-pointer"
+          className="absolute top-4 right-4 h-6 w-6 text-center bg-neutral-100 hover:bg-white rounded-full cursor-pointer"
           onClick={onClose}
         >
           X
@@ -55,9 +54,9 @@ function ShortenModal({ onClose }: ShortenModalProps) {
           </p>
 
           <div className="flex flex-row w-full py-4 px-2 mt-4 justify-between">
-            <div className="border border-[#0b2878] px-2 py-0.5 h-auto w-[85%] rounded-lg">
+            <div className="border border-primary-500 px-2 py-0.5 h-auto w-[85%] rounded-lg">
               <text className="text-primary-500 text-[12px] font-medium">
-                https://furl.one/myshortenlink
+                {url.startsWith('http://') || url.startsWith('https://') ? url : 'http://' + url}
               </text>
             </div>
             <button

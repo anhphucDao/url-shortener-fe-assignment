@@ -9,12 +9,18 @@ import ShortenModal from './components/ShortenModal'
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isFocus, setIsFocus] = useState(false);
+  const [url, setUrl] = useState('');
+
+  const handleShortenPress = () => {
+    if (url == '') alert("You must enter an url!");
+    else setIsModalOpen(true);
+  }
 
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center">
-      <div className="absolute top-4 w-full h-10 flex flex-row justify-between mx-4">
+      <header className="absolute top-4 w-full h-10 flex flex-row justify-between mx-4">
         <img src={logoImage} alt="QR Code" className="w-auto h-full object-contain ml-4" />
-        <div className="flex flex-row items-center w-max h-10 border border-[#0b2878] mr-4 pr-6 rounded-full">
+        <div className="flex flex-row items-center w-max h-10 border border-primary-500 mr-4 pr-6 rounded-full">
           <div className="flex h-full w-10 bg-primary-500 rounded-full justify-center items-center">
             <FontAwesomeIcon icon={faUser} className="text-white" />
           </div>
@@ -24,7 +30,7 @@ function App() {
             <span className="text-sm font-bold text-gray-500 leading-none">Username</span>
           </div>
         </div>
-      </div>
+      </header>
 
       <h1 className="text-[40px] font-bold text-primary-500">DevCamp URL Shortener</h1>
       <p className="text-xl font-light text-primary-500 mt-2">
@@ -35,14 +41,16 @@ function App() {
         <p className="text-[20px] font-bold text-primary-500">Your long URL</p>
 
         <div className="flex flex-row justify-between">
-          <div className={`flex flex-row w-[85%] border-2 rounded-lg ${isFocus ? 'border-[#0b2878] border-2' : 'border-[#E3E3E3]'} p-2 gap-2 items-center`}>
+          <div className={`flex flex-row w-[85%] border-2 rounded-lg ${isFocus ? 'border-primary-500 border-2' : 'border-neutral-200'} p-2 gap-2 items-center`}>
             <FontAwesomeIcon
               icon={faLink}
-              className="w-5 h-5 text-primary-500 pr-2 border-r-2 border-[#E3E3E3]"
+              className="w-5 h-5 text-primary-500 pr-2 border-r-2 border-neutral-200"
             />
             <input
               className="flex-1 outline-none"
               placeholder="Input the URL you want to shorten."
+              value={url}
+              onChange={(event) => setUrl(event.target.value)}
               onFocus={() => setIsFocus(true)}
               onBlur={() => setIsFocus(false)}
             />
@@ -50,14 +58,14 @@ function App() {
 
           <button
             className="bg-primary-500 hover:bg-blue-400 focus:outline-2 focus:outline-offset-2 focus:outline-primary-500 text-white font-bold px-5 rounded-lg cursor-pointer"
-            onClick={() => setIsModalOpen(true)}
+            onClick={handleShortenPress}
           >
             Shorten
           </button>
         </div>
       </div>
 
-      {isModalOpen && <ShortenModal onClose={() => setIsModalOpen(false)} />}
+      {isModalOpen && <ShortenModal onClose={() => setIsModalOpen(false)} url={url}/>}
     </main>
   )
 }
