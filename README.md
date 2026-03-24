@@ -170,7 +170,7 @@ When opening your PR, fill in the provided template:
 - **Name** — Dinh Duc Trung
 - **Email** — trung.dinh0706bk@hcmut.edu.vn
 - **Changes** — Built the URL Shortener frontend UI, added URL input validation, showed the shortened-link result in a modal, and implemented clipboard copy feedback for the generated URL
-- **Demo Video** — [Link](/videos/Demo.mov) to a video demonstrating your working application
+- **Demo Video** — [Link](https://github.com/dinhtrung0706/url-shortener-fe-assignment/blob/feature/trung.dinh0706bk%40hcmut.edu.vn/videos/Demo.mov) to a video demonstrating your working application
 
 - Naming your PR: `feat: add URL Shortener frontend assignment by <your_email>` (e.g. `feat: add URL Shortener frontend assignment by john_doe@example.com`)
 
