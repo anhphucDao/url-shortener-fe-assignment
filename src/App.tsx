@@ -2,25 +2,87 @@ import { Link2, X, Copy, ArrowDownToLine } from 'lucide-react'
 import { useState } from 'react'
 import Header from './Components/Header.tsx'
 import Loading from './Components/Loading.tsx'
+// import OutputCard from './Components/OutputCard.tsx'
 function App() {
-  const [input_url, setInput_url] = useState('')
-  const [result_url, setResultUrl] = useState('')
-  const [QR_Code, setQrCode] = useState('')
+  const [inputUrl, setinputUrl] = useState('')
+  const [resultUrl, setResultUrl] = useState('')
+  const [qrCode, setQrCode] = useState('')
   const [isSubmited, setIsSubmited] = useState(false)
 
-  // Delay là hàm nhờ AI đưa ra để mô phỏng quả trình gọi API
+  const delayTime = 1000
   const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
   const handleSubmit = async () => {
     try {
-      if (input_url === '') return
+      if (inputUrl === '') return
       setIsSubmited(true)
-      await delay(1000)
+      await delay(delayTime)
       setResultUrl('https://furl.one/myshortenlink')
       setQrCode('mock_QR.jpg')
     } catch (e) {
       console.log('Error: ', e)
     }
   }
+  const handlePasteClick = async () => {
+    try {
+      setinputUrl(await navigator.clipboard.readText())
+    } catch (err) {
+      console.error('Paste error: ', err)
+      // TODO: Action to show actual error on UI (like a toast) instead of just logging to console
+    }
+  }
+  const handleCopyClick = async () => {
+    try {
+      await navigator.clipboard.writeText(resultUrl)
+      // TODO: Replace alert with a UI toast notification
+      alert('Shortened link is copied!')
+    } catch (err) {
+      console.error('Copy error: ', err)
+      // TODO: Action to show actual error on UI (like a toast) instead of just logging to console
+    }
+  }
+  const handleQuit = () => {
+    setIsSubmited(false)
+    setinputUrl('')
+    setQrCode('')
+  }
+  const modalContent =
+    qrCode !== '' && resultUrl !== '' ? (
+      <div className="relative w-100 h-117 z-31 bg-white rounded-[10px]">
+        {/* Phần xanh xanh */}
+        <div className="w-100 h-49 bg-primary-500 rounded-t-[10px] [clip-path:polygon(0%_0%,100%_0%,100%_80%,0%_100%)]" />
+        <X
+          className="absolute right-3 top-3 bg-neutral-100 rounded-full w-8 h-8 hover:cursor-pointer"
+          onClick={() => handleQuit()}
+        />
+
+        <div className="absolute z-32 w-55 p-3 aspect-square rounded-[10px] bg-white shadow-md shadow-shade-black/20 top-10 justify-self-center">
+          <img className="object-contain rounded-[10px]" src={qrCode} alt="QR Code" />
+          <div className="absolute flex justify-center items-center -bottom-4 -right-4 bg-primary-500 w-10 h-10 rounded-full text-white hover:cursor-pointer border-2 hover:border-primary-500">
+            <ArrowDownToLine />
+          </div>
+        </div>
+        <div className="mt-20 mx-9">
+          <h1 className="text-center text-[24px] text-primary-500 font-bold">Link shortend!</h1>
+          <div className="text-center text-[14px] text-primary-500 font-medium">
+            Access the “My URL” page to view statistics <br /> on your shortened links
+          </div>
+          <div className="flex flex-row mt-5">
+            <input
+              type="text"
+              value={resultUrl}
+              readOnly
+              className="h-10 w-69 focus:outline-none border border-primary-500 rounded-[5px] p-3"
+            />
+            <Copy
+              className="h-10 w-10 rounded-[5px] bg-primary-500 text-white ml-1 p-2 hover:cursor-pointer"
+              onClick={() => handleCopyClick()}
+            />
+          </div>
+        </div>
+      </div>
+    ) : (
+      <Loading />
+    )
   return (
     <>
       <Header />
@@ -43,27 +105,19 @@ function App() {
               <div className="flex flex-row items-center px-1 w-[80%] border rounded-[10px] border-gray-400 divide-x divide-gray-400">
                 <Link2
                   className="sm:w-12 w-8 flex-none mr-1 my-2 hover:cursor-pointer"
-                  onClick={async () => {
-                    try {
-                      setInput_url(await navigator.clipboard.readText())
-                    } catch (err) {
-                      console.error('Paste errer: ', err)
-                    }
-                  }}
+                  onClick={() => handlePasteClick()}
                 />
                 <input
                   className="w-full mx-1 my-2 focus:outline-none"
-                  value={input_url}
-                  onChange={e => setInput_url(e.target.value)}
+                  value={inputUrl}
+                  onChange={e => setinputUrl(e.target.value)}
                   placeholder="Input the URL you want to shorten"
                 />
               </div>
               <button
                 className="w-[20%] rounded-[10px] bg-primary-500 font-bold text-white lg:text-[20px] sm:text-[15px] text-[14px] hover:shadow-[0px_0px_10px] shadow-shade-black/30 hover:cursor-pointer"
                 disabled={isSubmited}
-                onClick={() => {
-                  handleSubmit()
-                }}
+                onClick={() => handleSubmit()}
               >
                 Shorten
               </button>
@@ -74,56 +128,7 @@ function App() {
         {/* Output phase */}
         {isSubmited ? (
           <div className="bg-shade-black/30 z-30 fixed inset-0 flex items-center justify-center">
-            {QR_Code !== '' && result_url !== '' ? (
-              <div className="relative w-100 h-117 z-31 bg-white rounded-[10px]">
-                {/* Phần xanh xanh */}
-                <div className="w-100 h-49 bg-primary-500 rounded-t-[10px] [clip-path:polygon(0%_0%,100%_0%,100%_80%,0%_100%)]" />
-                <X
-                  className="absolute right-3 top-3 bg-neutral-100 rounded-full w-8 h-8 hover:cursor-pointer"
-                  onClick={() => {
-                    setIsSubmited(false)
-                    setInput_url('')
-                    setQrCode('')
-                  }}
-                />
-
-                <div className="absolute z-32 w-55 p-3 aspect-square rounded-[10px] bg-white shadow-md shadow-shade-black/20 top-10 justify-self-center">
-                  <img className="object-contain rounded-[10px]" src={QR_Code} alt="QR Code" />
-                  <div className="absolute flex justify-center items-center -bottom-4 -right-4 bg-primary-500 w-10 h-10 rounded-full text-white hover:cursor-pointer border-2 hover:border-primary-500">
-                    <ArrowDownToLine onClick={() => {}} />
-                  </div>
-                </div>
-                <div className="mt-20 mx-9">
-                  <h1 className="text-center text-[24px] text-primary-500 font-bold">
-                    Link shortend!
-                  </h1>
-                  <div className="text-center text-[14px] text-primary-500 font-medium">
-                    Access the “My URL” page to view statistics <br /> on your shortened links
-                  </div>
-                  <div className="flex flex-row mt-5">
-                    <input
-                      type="text"
-                      value={result_url}
-                      readOnly
-                      className="h-10 w-69 focus:outline-none border border-primary-500 rounded-[5px] p-3"
-                    />
-                    <Copy
-                      className="h-10 w-10 rounded-[5px] bg-primary-500 text-white ml-1 p-2 hover:cursor-pointer"
-                      onClick={() => {
-                        try {
-                          navigator.clipboard.writeText(result_url)
-                          alert('Shorten link is copied !')
-                        } catch (err) {
-                          console.error('Copy errer: ', err)
-                        }
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <Loading />
-            )}
+            {modalContent}
           </div>
         ) : (
           <></>
