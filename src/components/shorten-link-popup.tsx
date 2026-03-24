@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import CardDecoration from './card-decoration'
+import { stopPropagation } from '../utils/events'
 interface ShortenLinkPopupProps {
   responseData: string
   imageLoaded: boolean
@@ -40,19 +41,15 @@ function ShortenLinkPopup({
   return (
     <div
       className="flex items-center justify-center flex-col min-h-screen min-w-screen absolute z-10  bg-primary-100/50"
-      onClick={() => {
-        resetStates()
-      }}
+      onClick={resetStates}
     >
       <div
         className=" bg-white py-8 px-10 rounded-xl flex flex-col items-center overflow-hidden justify-center relative max-w-100"
-        onClick={e => e.stopPropagation()}
+        onClick={stopPropagation}
       >
         <CardDecoration />
         <button
-          onClick={() => {
-            resetStates()
-          }}
+          onClick={resetStates}
           className="bg-white rounded-full z-10 p-1.5 absolute top-3 right-3 hover:cursor-pointer"
         >
           <img src="../public/cancel.svg" />
