@@ -3,7 +3,6 @@ import Popup from './components/Popup'
 import { useState } from 'react'
 function App() {
   const [showPopup, setShowPopup] = useState(false)
-
   return (
     <div className="flex  flex-col h-screen ">
       <Navbar />
@@ -22,7 +21,7 @@ function App() {
             <div>
               <div className="font-semibold text-xl text-primary-500">Your long URL</div>
               <div className="flex items-center justify-between">
-                <div className="flex items-center justify-between border border-gray-200  rounded-md flex-1  ">
+                <div className="flex items-center justify-between border border-gray-200  rounded-md flex-1 focus-within:border-primary-500">
                   <img
                     src="/public/mail.png"
                     alt="mail"
@@ -33,13 +32,13 @@ function App() {
                     type="text"
                     placeholder="Input the URL you want to shorten"
                     className="flex-1 mt-3 mb-3 
-                    text-primary-300"
+                    text-primary-300 focus:outline-none"
                   />
                 </div>
                 <button
                   onClick={() => setShowPopup(true)}
                   className="bg-primary-500 text-white  font-bold  w-24.5 h-10.5 rounded-md ml-9.5 
-                    hover:bg-blue-900 transition-colors"
+                    hover:bg-blue-900 transition-colors hover:cursor-pointer"
                 >
                   Shorten
                 </button>

@@ -23,7 +23,7 @@ function Popup({ show, onClose }: { show: boolean; onClose: () => void }) {
           <button
             onClick={handleDownload}
             className="absolute -bottom-4 -right-4 flex items-center justify-center w-12 h-12 bg-primary-500 
-                    text-white rounded-full  shadow-lg hover:bg-blue-900 transition-colors"
+                    text-white rounded-full  shadow-lg hover:bg-blue-900 transition-colors hover:cursor-pointer"
           >
             <img src="/Downloadbutton.png" alt="Share" className="w-6 h-6" />
           </button>
@@ -31,7 +31,7 @@ function Popup({ show, onClose }: { show: boolean; onClose: () => void }) {
         <button
           onClick={onClose}
           className="absolute top-4 right-4 z-40 flex items-center justify-center 
-                w-8 h-8 bg-gray-100 rounded-full  hover:bg-gray-200 transition-colors"
+                w-8 h-8 bg-gray-100 rounded-full  hover:bg-gray-200 transition-colors hover:cursor-pointer"
         >
           <img src="/Xbutton.png" alt="X" className="w-3 h-3" />
         </button>
