@@ -54,7 +54,7 @@ export default function ShortenerSection() {
         <div className="w-100 h-49 bg-primary-500 rounded-t-[10px] [clip-path:polygon(0%_0%,100%_0%,100%_80%,0%_100%)]" />
         <X
           className="absolute right-3 top-3 bg-neutral-100 rounded-full w-8 h-8 hover:cursor-pointer"
-          onClick={() => handleQuit()}
+          onClick={handleQuit}
         />
 
         <div className="absolute z-32 w-55 p-3 aspect-square rounded-[10px] bg-white shadow-md shadow-shade-black/20 top-10 justify-self-center">
@@ -77,7 +77,7 @@ export default function ShortenerSection() {
             />
             <Copy
               className="h-10 w-10 rounded-[5px] bg-primary-500 text-white ml-1 p-2 hover:cursor-pointer"
-              onClick={() => handleCopyClick()}
+              onClick={handleCopyClick}
             />
           </div>
           <p className="font-medium">{copyStatus}</p>
@@ -104,7 +104,7 @@ export default function ShortenerSection() {
             <div className="flex flex-row items-center px-1 w-[80%] border rounded-[10px] border-gray-400 divide-x divide-gray-400">
               <Link2
                 className="sm:w-12 w-8 flex-none mr-1 my-2 hover:cursor-pointer"
-                onClick={() => handlePasteClick()}
+                onClick={handlePasteClick}
               />
               <input
                 className="w-full mx-1 my-2 focus:outline-none"
@@ -116,7 +116,7 @@ export default function ShortenerSection() {
             <button
               className="w-[20%] rounded-[10px] bg-primary-500 font-bold text-white lg:text-[20px] sm:text-[15px] text-[14px] hover:shadow-[0px_0px_10px] shadow-shade-black/30 hover:cursor-pointer"
               disabled={isSubmited}
-              onClick={() => handleSubmit()}
+              onClick={handleSubmit}
             >
               Shorten
             </button>
