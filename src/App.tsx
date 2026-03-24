@@ -1,8 +1,14 @@
+import Navbar from './components/Navbar'
+import CheckerForm from './components/CheckerForm'
+
 function App() {
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <h1 className="text-3xl font-bold text-primary-500">URL Shortener</h1>
-    </main>
+    <div className="min-h-screen bg-neutral-50 flex flex-col">
+      <Navbar />
+      <main className="flex-1 flex items-center justify-center px-4 py-12">
+        <CheckerForm />
+      </main>
+    </div>
   )
 }
 
