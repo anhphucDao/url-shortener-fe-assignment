@@ -23,6 +23,9 @@ function ShortenLinkPopup({ data, onReset, onError }: ShortenLinkPopupProps) {
       })
     }
   }
+  const renderCopyIcon = () => {
+    return isCopied ? <img src="./tick.svg" alt="Copied" /> : <img src="./copy.svg" alt="Copy" />
+  }
   return (
     <div
       className="flex items-center justify-center flex-col min-h-screen min-w-screen absolute z-10  bg-primary-100/50"
@@ -59,7 +62,7 @@ function ShortenLinkPopup({ data, onReset, onError }: ShortenLinkPopupProps) {
             className={`bg-primary-300 p-1.25 rounded-lg hover:bg-primary-500 hover:cursor-pointer transition-all duration-300 ${isCopied ? 'bg-primary-500' : ''}`}
             onClick={handleCopyData}
           >
-            {isCopied ? <img src="../public/tick.svg" /> : <img src="../public/copy.svg" />}
+            {renderCopyIcon()}
           </button>
         </div>
       </div>

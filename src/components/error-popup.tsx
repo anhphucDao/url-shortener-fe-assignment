@@ -13,7 +13,7 @@ function ErrorPopup({ onReset }: ErrorPopupProps) {
         className="bg-white py-5 px-10 rounded-xl flex flex-col items-center justify-center"
         onClick={stopPropagation}
       >
-        <img src="../public/error.png" className="w-20 h-20 mb-4 " />
+        <img src="./error.png" className="w-20 h-20 mb-4 " />
         <p className="text-primary-500 font-medium ">Something went wrong while shortening</p>
         <button
           className="px-5 py-2 bg-primary-500 font-medium text-white rounded-lg mt-3 hover:cursor-pointer"

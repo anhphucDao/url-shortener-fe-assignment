@@ -15,7 +15,7 @@ function UrlModal({ isLoading, onShorten, setInputUrl, inputUrl }: UrlModalProps
           </h2>
           <div className="w-full flex grow h-11 items-center border border-primary-100/30 rounded-md focus-within:border-primary-500">
             <div className="flex h-[90%] items-center">
-              <img src="../public/link.svg" className="pl-2 h-5" />
+              <img src="./link.svg" className="pl-2 h-5" />
               <div className="h-2/3  w-px bg-primary-100 mx-2"></div>
             </div>
             <input
