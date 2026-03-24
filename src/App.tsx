@@ -1,4 +1,30 @@
+import { useState } from 'react'
+import QR from './QR.js'
+
 function App() {
+  const [url, setUrl] = useState('')
+  const [valid, showResult] = useState(false)
+
+  const UrlValid = (value: string) => {
+    try {
+      new URL(value)
+      return true
+    } catch {
+      return false
+    }
+  }
+
+  const handleValid = () => {
+    console.log(url)
+    if (!UrlValid(url)) {
+      alert('Lỗi')
+      showResult(false)
+      return
+    } else {
+      showResult(true)
+    }
+  }
+
   return (
     <main className="min-h-screen flex flex-col gap-5 items-center justify-center">
       <h1 className="text-5xl font-bold text-primary-500">URL Shortener</h1>
@@ -19,15 +45,22 @@ function App() {
           <input
             type="text"
             id="urlInput"
+            value={url}
+            onChange={e => setUrl(e.target.value)}
             placeholder="Input the URL you want to shorten"
             className="border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-1 focus:ring-primary-500 flex-1 pl-10"
             required
           />
-          <button className="ml-4 bg-primary-500 text-white py-2 px-4 rounded-md hover:bg-primary-600 transition-colors cursor-pointer">
+          <button
+            className="ml-4 bg-primary-500 text-white py-2 px-4 rounded-md hover:bg-primary-600 transition-colors cursor-pointer"
+            onClick={handleValid}
+          >
             Shorten
           </button>
         </div>
       </div>
+
+      <QR isValid={valid} />
     </main>
   )
 }

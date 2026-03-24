@@ -1,6 +1,8 @@
-function QR() {
+function QR({ isValid }: { isValid: boolean }) {
   return (
-    <div className="w-full h-full fixed top-0 bg-black/50 flex items-center justify-center">
+    <div
+      className={`${isValid ? 'fixed' : 'hidden'} w-full h-full top-0 bg-black/50 flex items-center justify-center`}
+    >
       <div className="w-90 h-100 bg-white flex flex-col items-center justify-center rounded-lg p-6 relative overflow-hidden">
         <img
           src="PNG\download.png"
