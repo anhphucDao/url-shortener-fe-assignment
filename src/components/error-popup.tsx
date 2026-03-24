@@ -4,7 +4,7 @@ interface ErrorPopupProps {
 function ErrorPopup({ resetStates }: ErrorPopupProps) {
   return (
     <div
-      className="flex items-center justify-center flex-col min-h-screen min-w-screen absolute z-10 bg-[rgba(220,220,220,0.5)]"
+      className="flex items-center justify-center flex-col min-h-screen min-w-screen absolute z-10 bg-primary-100/50"
       onClick={() => {
         resetStates()
       }}
