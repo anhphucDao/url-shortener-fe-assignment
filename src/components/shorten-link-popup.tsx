@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import CardDecoration from './card-decoration'
 import { stopPropagation } from '../utils/events'
+import CancelButton from './cancel-button'
 interface ShortenLinkPopupProps {
   responseData: string
   imageLoaded: boolean
@@ -48,22 +49,17 @@ function ShortenLinkPopup({
         onClick={stopPropagation}
       >
         <CardDecoration />
-        <button
-          onClick={resetStates}
-          className="bg-white rounded-full z-10 p-1.5 absolute top-3 right-3 hover:cursor-pointer"
-        >
-          <img src="../public/cancel.svg" />
-        </button>
+        <CancelButton resetStates={resetStates} />
         <div className="p-5 bg-white rounded-xl shadow-[0_0_25px] shadow-gray-500 relative">
           <img
-            src={`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(responseData)}&size=200x200`}
+            src={`${import.meta.env.QR_CODE_API_URL}/?data=${encodeURIComponent(responseData)}&size=200x200`}
             className={`transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'} md:w-50  md:h-50`}
             onLoad={() => setImageLoaded(true)}
           />
           <a
             download="qrcode.png"
             target="_blank"
-            href={`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(responseData)}&size=200x200`}
+            href={`${import.meta.env.QR_CODE_API_URL}/?data=${encodeURIComponent(responseData)}&size=200x200`}
             className="absolute -bottom-3 -right-3 p-1 bg-primary-500 rounded-[50%] hover:cursor-pointer shrink"
           >
             <img src="../public/download.svg" />
