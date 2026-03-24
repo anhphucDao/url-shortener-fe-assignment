@@ -1,23 +1,12 @@
-import { useMemo, useState } from 'react'
 import Header from './components/header'
 import UrlModal from './components/url-modal'
 import ErrorPopup from './components/error-popup'
 import ShortenLinkPopup from './components/shorten-link-popup'
+import useShortenUrl from './utils/useShortenUrl'
 function App() {
-  const [inputUrl, setInputUrl] = useState<string>('')
-  const [isLoading, setLoading] = useState<boolean>(false)
-  const [isError, setError] = useState<boolean>(false)
-  const [responseData, setResponseData] = useState<string | null>(null)
-  const [imageLoaded, setImageLoaded] = useState<boolean>(false)
-  const [isCopied, setCopied] = useState<boolean>(false)
-  const showPopup = useMemo(() => {
-    return !isError && isLoading && responseData != null
-  }, [isError, isLoading, responseData])
-  const resetStates = () => {
-    setError(false)
-    setLoading(false)
-    setResponseData(null)
-  }
+  const { isLoading, resetStates, handleShorten, setInputUrl, inputUrl, urlState, setUrlState } =
+    useShortenUrl()
+
   return (
     <main className="min-h-screen flex items-center justify-center flex-col text-center">
       <Header />
@@ -28,28 +17,15 @@ function App() {
         Simplify, Organize, and Share: URL Management Made Easy
       </h2>
       <UrlModal
-        inputUrl={inputUrl}
+        onShorten={handleShorten}
         setInputUrl={setInputUrl}
         isLoading={isLoading}
-        setLoading={setLoading}
-        setError={setError}
-        setResponseData={setResponseData}
+        inputUrl={inputUrl}
       />
-      {isError && <ErrorPopup resetStates={resetStates} />}
-      {
-        //responseData included because Typescript null check do not accept checking inside showPopup
-        showPopup && responseData && (
-          <ShortenLinkPopup
-            imageLoaded={imageLoaded}
-            setImageLoaded={setImageLoaded}
-            isCopied={isCopied}
-            setCopied={setCopied}
-            responseData={responseData}
-            setError={setError}
-            resetStates={resetStates}
-          />
-        )
-      }
+      {urlState.error && <ErrorPopup onReset={resetStates} />}
+      {urlState.data && (
+        <ShortenLinkPopup data={urlState.data} onReset={resetStates} onError={setUrlState} />
+      )}
     </main>
   )
 }

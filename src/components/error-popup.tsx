@@ -1,13 +1,13 @@
 import { stopPropagation } from '../utils/events'
 
 interface ErrorPopupProps {
-  resetStates: () => void
+  onReset: () => void
 }
-function ErrorPopup({ resetStates }: ErrorPopupProps) {
+function ErrorPopup({ onReset }: ErrorPopupProps) {
   return (
     <div
       className="flex items-center justify-center flex-col min-h-screen min-w-screen absolute z-10 bg-primary-100/50"
-      onClick={resetStates}
+      onClick={onReset}
     >
       <div
         className="bg-white py-5 px-10 rounded-xl flex flex-col items-center justify-center"
@@ -17,7 +17,7 @@ function ErrorPopup({ resetStates }: ErrorPopupProps) {
         <p className="text-primary-500 font-medium ">Something went wrong while shortening</p>
         <button
           className="px-5 py-2 bg-primary-500 font-medium text-white rounded-lg mt-3 hover:cursor-pointer"
-          onClick={resetStates}
+          onClick={onReset}
         >
           Close
         </button>

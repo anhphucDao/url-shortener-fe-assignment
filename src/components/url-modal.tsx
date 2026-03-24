@@ -1,30 +1,10 @@
-import { shortenUrl } from '../services/shorten-api'
 interface UrlModalProps {
-  inputUrl: string
-  setInputUrl: React.Dispatch<React.SetStateAction<string>>
   isLoading: boolean
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>
-  setError: React.Dispatch<React.SetStateAction<boolean>>
-  setResponseData: React.Dispatch<React.SetStateAction<string | null>>
+  onShorten: () => void
+  setInputUrl: React.Dispatch<React.SetStateAction<string>>
+  inputUrl: string
 }
-function UrlModal({
-  inputUrl,
-  setInputUrl,
-  isLoading,
-  setLoading,
-  setError,
-  setResponseData,
-}: UrlModalProps) {
-  const handleShorten = async () => {
-    setLoading(true)
-    setError(false)
-    try {
-      const shortenurl = await shortenUrl(inputUrl)
-      setResponseData(shortenurl)
-    } catch {
-      setError(true)
-    }
-  }
+function UrlModal({ isLoading, onShorten, setInputUrl, inputUrl }: UrlModalProps) {
   const isDisabled = isLoading || inputUrl == ''
   return (
     <>
@@ -49,7 +29,7 @@ function UrlModal({
         </div>
         <button
           disabled={isDisabled}
-          onClick={handleShorten}
+          onClick={onShorten}
           className="md:ml-2 hover:cursor-pointer self-center  md:self-start mt-4 md:mt-0 w-fit h-11 md:relative top-9 items-center rounded-lg py-2 px-6 mr-2 text-shade-white font-bold  bg-primary-500 disabled:bg-primary-300"
         >
           Shorten
