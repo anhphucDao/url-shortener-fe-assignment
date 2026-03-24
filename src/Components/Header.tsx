@@ -7,14 +7,14 @@ export default function Header() {
           href="https://fessior.com/dev-camp/2026"
           target="_blank"
         >
-          <img className="h-full ml-3" src="/Logo_DemCamp2026.png" alt="demo" />
+          <img className="h-full ml-3" src="/Logo_DevCamp2026.png" alt="demo" />
         </a>
         <div className="flex lg:h-[8vh] h-[6vh] w-[30%]  min-w-40 border border-primary-500 bg-white justify-self-end mr-4 rounded-full">
           <img
             className="h-full aspect-ratio-square rounded-fuil self-center"
             src="/default-avatar.png"
           />
-          <div className="text-[rgb(91,91,91)] ml-4">
+          <div className="text-primary-500 ml-4">
             <div className="lg:text-[15px] text-[10px]">Personal</div>
             <div className="lg:text-[20px] text-[14px]">Username</div>
           </div>
