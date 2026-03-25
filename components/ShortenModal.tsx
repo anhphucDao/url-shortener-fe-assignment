@@ -224,9 +224,8 @@ const ShortenModal = ({
               </g>
             </svg>
           </div>
-          <button
+          <Button
             className="shorten-modal__close"
-            type="button"
             onClick={onClose}
             aria-label="Close modal"
           >
@@ -245,7 +244,7 @@ const ShortenModal = ({
                 strokeLinejoin="round"
               />
             </svg>
-          </button>
+          </Button>
           <div className="shorten-modal__qr">
             <img
               src="/image 101.png"
