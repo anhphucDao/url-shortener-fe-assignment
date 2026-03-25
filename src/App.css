@@ -89,6 +89,10 @@
     @apply h-[42px] w-[98px] rounded-[12px] bg-primary-500 text-[16px] font-semibold text-white active:brightness-95 ml-[38px];
   }
 
+  .frame-5522__error {
+    @apply px-[16px] pb-[16px] text-sm text-red-500;
+  }
+
   .shorten-modal {
     @apply fixed inset-0 z-40 flex items-start justify-center bg-black/30 px-[24px] py-[40px];
   }
@@ -133,10 +137,6 @@
     @apply relative z-20 mx-auto flex h-[220px] w-[220px] items-center justify-center overflow-hidden rounded-[8px] bg-white shadow-[0_4px_12px_rgba(11,40,120,0.16)] mb-8;
   }
 
-  /* .shorten-modal__qr-placeholder {
-    @apply text-[20px] font-semibold text-primary-500/80;
-  } */
-
   .shorten-modal__confirmation {
     @apply relative mx-auto flex w-full max-w-[400px] flex-col items-center rounded-[8px] bg-white px-[24px] py-[24px] shadow-[0_4px_12px_rgba(11,40,120,0.16)] h-full max-h-[469px] overflow-hidden;
   }
@@ -159,5 +159,9 @@
 
   .shorten-modal__copy-icon {
     @apply h-[24px] w-[24px];
+  }
+
+  .shorten-modal__error {
+    @apply mt-[12px] text-sm text-danger-500;
   }
 }

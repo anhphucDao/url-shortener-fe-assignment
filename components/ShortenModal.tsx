@@ -4,6 +4,7 @@ interface ShortenModalProps {
   isOpen: boolean
   shortenedUrl: string
   isCopySuccess: boolean
+  copyError?: string | null
   onClose: () => void
   onCopy: () => void
 }
@@ -12,6 +13,7 @@ const ShortenModal = ({
   isOpen,
   shortenedUrl,
   isCopySuccess,
+  copyError,
   onClose,
   onCopy,
 }: ShortenModalProps) => {
@@ -306,6 +308,7 @@ const ShortenModal = ({
               )}
             </Button>
           </div>
+          {copyError && <p className="shorten-modal__error">{copyError}</p>}
         </div>
       </div>
     </div>

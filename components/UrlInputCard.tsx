@@ -4,11 +4,17 @@ import Button from './Button'
 
 type UrlInputCardProps = {
   urlValue: string
+  errorMessage?: string | null
   onUrlChange: (event: ChangeEvent<HTMLInputElement>) => void
   onShorten: () => void
 }
 
-const UrlInputCard = ({ urlValue, onUrlChange, onShorten }: UrlInputCardProps) => {
+const UrlInputCard = ({
+  urlValue,
+  errorMessage,
+  onUrlChange,
+  onShorten,
+}: UrlInputCardProps) => {
   return (
     <section className="frame-5522-wrapper">
       <div className="frame-5522">
@@ -49,6 +55,7 @@ const UrlInputCard = ({ urlValue, onUrlChange, onShorten }: UrlInputCardProps) =
               Shorten
             </Button>
           </div>
+          {errorMessage && <p className="frame-5522__error">{errorMessage}</p>}
         </div>
       </div>
     </section>
