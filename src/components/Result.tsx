@@ -16,9 +16,10 @@ const ResultModal = ({ shortUrl, onClose }: ResultModalProps) => {
       
       <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md relative overflow-hidden animate-scaleIn">
         
-        <button 
+        <button  
           onClick={onClose}
           className="absolute top-4 right-4 text-neutral-400 hover:text-neutral-600 transition-colors p-1 rounded-full hover:bg-neutral-100"
+          title="Close"
         >
           <CloseIcon className="w-5 h-5" />
         </button>
