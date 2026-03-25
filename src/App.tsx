@@ -15,8 +15,8 @@ function App() {
         </div>
         <div className="p-4">
           <div
-            className="flex  flex-col justify-center w-200 h-29.75 rounded-lg bg-white shadow-[0_0px_50px_rgba(11,40,120,0.4)]  
-                            border border-[#7E7E7E]/30 px-7 py-5"
+            className="flex  flex-col justify-center w-200 h-29.75 rounded-lg bg-white shadow-[0_0px_40px] shadow-primary-500/70  
+                            border border-neutral-100 px-7 py-5"
           >
             <div>
               <div className="font-semibold text-xl text-primary-500">Your long URL</div>
