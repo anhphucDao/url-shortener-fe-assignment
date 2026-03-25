@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { Button } from './Button'
-import { PopUp } from './PopUp'
-import { LinkIcon } from '../assets/icons/LinkIcon'
+import { Button } from '../Button/Button'
+import { PopUp } from '../PopUp/PopUp'
+import { LinkIcon } from '../../assets/icons/LinkIcon'
 export const ShortenContainer = () => {
   const [showPop, setShowPop] = useState(false)
   const handleShowPop = () => setShowPop(true)

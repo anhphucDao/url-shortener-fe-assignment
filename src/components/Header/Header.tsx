@@ -1,5 +1,5 @@
-import promLogo from '../assets/devcamp_logo_navy 1.svg'
-import { UserIcon } from '../assets/icons/UserIcon'
+import promLogo from '../../assets/devcamp_logo_navy 1.svg'
+import { UserIcon } from '../../assets/icons/UserIcon'
 
 export const Header = () => {
   return (
