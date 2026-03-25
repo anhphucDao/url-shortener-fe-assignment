@@ -1,7 +1,7 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
-
+import { ButtonVariant } from '../shared/types/button'
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'icon' | 'rounded'
+  variant?: ButtonVariant
   children: ReactNode
 }
 

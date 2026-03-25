@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'lucide-react'
 import Button from './Button'
 import Input from './Input'
+import { ButtonVariant } from '../shared/types/button'
 interface ShortenerFormProps {
   onSubmit: (url: string) => void
 }
@@ -36,7 +37,7 @@ export default function ShortenerForm({ onSubmit }: ShortenerFormProps) {
             className="flex-1 py-3 text-neutral-900 text-base placeholder-neutral-400"
           />
         </div>
-        <Button type="submit" variant="primary">
+        <Button type="submit" variant={ButtonVariant.Primary}>
           Shorten
         </Button>
       </form>

@@ -2,6 +2,7 @@ import { QRCodeSVG } from 'qrcode.react'
 import { X, Copy, Check, QrCodeIcon, Download } from 'lucide-react'
 import Button from './Button'
 import Input from './Input'
+import { ButtonVariant } from '../shared/types/button'
 import { useCopyToClipboard } from '../hooks/useCopyToClipboard'
 export interface ResultModalProps {
   isOpen: boolean
@@ -25,7 +26,7 @@ export default function ResultModal({ isOpen, onClose, shortUrl }: ResultModalPr
       <div className="bg-white rounded-2xl w-full max-w-sm flex flex-col relative overflow-hidden shadow-2xl">
         <Button
           onClick={onClose}
-          variant="icon"
+          variant={ButtonVariant.Icon}
           className="absolute top-4 right-4 z-10 !bg-white !text-neutral-500 hover:!text-neutral-900 rounded-full p-1 shadow-sm"
           aria-label="Close modal"
         >
@@ -41,7 +42,7 @@ export default function ResultModal({ isOpen, onClose, shortUrl }: ResultModalPr
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 bg-white p-3 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
             <QRCodeSVG value={shortUrl} size={140} />
 
-            <Button variant="rounded" aria-label="Download QR Code">
+            <Button variant={ButtonVariant.Rounded} aria-label="Download QR Code">
               <Download className="w-4 h-4" />
             </Button>
           </div>
@@ -65,7 +66,11 @@ export default function ResultModal({ isOpen, onClose, shortUrl }: ResultModalPr
               className="flex-1 border-2 border-primary-500 text-primary-500 font-semibold rounded-lg py-2.5 px-3 text-sm"
             />
 
-            <Button onClick={handleCopyClick} variant="icon" title="Copy to clipboard">
+            <Button
+              onClick={handleCopyClick}
+              variant={ButtonVariant.Icon}
+              title="Copy to clipboard"
+            >
               {renderCopyIcon}
             </Button>
           </div>
