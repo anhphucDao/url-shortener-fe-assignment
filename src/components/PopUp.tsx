@@ -4,6 +4,8 @@ import { CopyIcon } from '../assets/icons/CopyIcon'
 import { DownloadIcon } from '../assets/icons/DownloadIcon'
 import { Button } from './Button'
 const COPY_TIMEOUT = 2000
+const SHORT_URL = import.meta.env.VITE_SHORT_URL
+const QR_API_URL = import.meta.env.VITE_QR_API_URL
 type PopUpProps = {
   isShown: boolean
   onClose: () => void
@@ -15,8 +17,6 @@ type Feedback = {
 export const PopUp = ({ isShown, onClose }: PopUpProps) => {
   const [feedback, setFeedback] = useState<Feedback>(null)
   const timeoutRef = useRef<number | null>(null)
-  const SHORT_URL = import.meta.env.VITE_SHORT_URL
-  const QR_API_URL = import.meta.env.VITE_QR_API_URL
   useEffect(() => {
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current)
