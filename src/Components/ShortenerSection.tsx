@@ -1,7 +1,7 @@
 import { Link2, X, Copy, ArrowDownToLine } from 'lucide-react'
 import Loading from './Loading.tsx'
 import { useUrlShortener } from '../Hooks/useUrlShortener.ts'
-
+import Input from './Input.tsx'
 export default function ShortenerSection() {
   const {
     inputUrl,
@@ -60,6 +60,7 @@ export default function ShortenerSection() {
   ) : (
     <></>
   )
+
   return (
     <main className="min-h-screen flex flex-col gap-8 items-center justify-center font-sans">
       <div className="flex flex-col items-center justify-center text-primary-500">
@@ -69,7 +70,7 @@ export default function ShortenerSection() {
         </p>
       </div>
       {/* Input phase */}
-      <div className="w-[60%] min-w-100 lg:h-38 h-26 shadow-[0px_0px_20px] shadow-shade-black/30 rounded-card flex items-center justify-center">
+      <div className="w-[60%] min-w-100 lg:h-38 h-26 shadow-md shadow-shade-black/30 rounded-card flex items-center justify-center">
         <div className=" w-[90%]">
           <p className="font-semibold lg:text-[20px] sm:text-[17px] text-[14px] text-primary-500">
             Your long URL
@@ -80,15 +81,14 @@ export default function ShortenerSection() {
                 className="sm:w-12 w-8 flex-none mr-1 my-2 hover:cursor-pointer"
                 onClick={() => handlePasteClick()}
               />
-              <input
-                className="w-full mx-1 my-2 focus:outline-none"
+              <Input
                 value={inputUrl}
-                onChange={e => setInputUrl(e.target.value)}
+                onChange={setInputUrl}
                 placeholder="Input the URL you want to shorten"
               />
             </div>
             <button
-              className="w-[20%] rounded-card bg-primary-500 font-bold text-white lg:text-[20px] sm:text-[15px] text-[14px] hover:shadow-[0px_0px_10px] shadow-shade-black/30 hover:cursor-pointer"
+              className="w-[20%] rounded-card bg-primary-500 font-bold text-white lg:text-[20px] sm:text-[15px] text-[14px] hover:shadow-md shadow-shade-black/30 hover:cursor-pointer"
               disabled={isSubmited}
               onClick={() => handleSubmit()}
             >

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { DELAY_TIME } from '../Constants/constants.ts'
+import { DELAY_TIME } from '../Constants/DelayTime.ts'
 
 export const useUrlShortener = () => {
   const [inputUrl, setInputUrl] = useState('')
