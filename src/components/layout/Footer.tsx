@@ -13,6 +13,7 @@ export const Footer = () => {
                 className="w-full h-full object-contain"
               />
             </div>
+
             <h3 className="ms-2 text-3xl font-bold text-primary-500">Fessior Community</h3>
           </div>
           <p className="mb-5 text-justify leading-7 text-neutral-700 md:me-5 lg:me-0">
@@ -32,6 +33,7 @@ export const Footer = () => {
             >
               <img src="/icons/footer/facebook.svg" alt="facebook" className="h-full w-auto" />
             </a>
+
             <a
               href="https://furl.one/discord"
               target="_blank"
@@ -40,6 +42,7 @@ export const Footer = () => {
             >
               <img src="/icons/footer/discord.svg" alt="discord" className="h-full w-auto" />
             </a>
+
             <a
               href="https://www.linkedin.com/company/gdschcmut/mycompany/"
               target="_blank"

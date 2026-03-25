@@ -5,15 +5,18 @@ export const Header = () => {
       className="fixed top-0 z-50 flex w-full items-center justify-between bg-white p-5 shadow-[0px_6px_15px_rgba(64,79,104,0.05)] md:py-3.5 lg:px-7 lg:py-5"
     >
       {/* Logo Section */}
+
       <a
         href="https://fessior.com/"
         className="flex items-center text-xl font-bold text-primary-500 md:text-2xl lg:text-3xl shrink-0"
       >
         <img src="/icons/fessior_navy.svg" alt="Fessior Logo" className="h-9 w-auto md:h-10 me-2" />
+
         <h4 className="hidden sm:block">Fessior Tools</h4>
       </a>
 
       {/* Navigation */}
+
       <nav className="hidden grow items-center justify-end md:flex">
         <div className="flex gap-6 lg:gap-8 px-5">
           <a
@@ -22,18 +25,21 @@ export const Header = () => {
           >
             Home
           </a>
+
           <a
             href="https://fessior.com/tools/url-shortener/generate"
             className="text-lg font-bold text-primary-500 border-b-2 border-primary-500 pb-1"
           >
             URL Shortener
           </a>
+
           <a
             href="https://fessior.com/tools/qr-code/generate"
             className="text-lg hover:underline text-neutral-600 transition-all"
           >
             QR Generator
           </a>
+
           <a
             href="https://fessior.com/about-us"
             className="text-lg hover:underline text-neutral-600 transition-all"

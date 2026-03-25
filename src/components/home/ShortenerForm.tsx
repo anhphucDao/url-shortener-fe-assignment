@@ -9,7 +9,7 @@ export const ShortenerForm = () => {
         <div className="md:flex items-start">
           <div className="grow">
             <h6 className="mb-2 text-lg font-medium text-neutral-900 md:text-xl lg:text-2xl">
-              Your long URL
+              long URL
             </h6>
 
             {/* Input URL */}
