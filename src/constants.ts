@@ -1,0 +1,2 @@
+export const COPY_SUCCESS_RESET_DELAY_MS = 2000
+export const COPY_ERROR_RESET_DELAY_MS = 4000
