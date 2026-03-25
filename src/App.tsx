@@ -5,7 +5,7 @@ import Result from './components/Result'
 
 function App() {
   const [showResult, setShowResult] = useState(true); 
-  const [shortenedUrl, setShortenedUrl] = useState('https://furl.one/myshortenlink');
+  const [shortenedUrl/*, setShortenedUrl*/] = useState('https://furl.one/myshortenlink');
 
   return (
     <div className="min-h-screen flex flex-col">
