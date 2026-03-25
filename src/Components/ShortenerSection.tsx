@@ -2,6 +2,8 @@ import { Link2, X, Copy, ArrowDownToLine } from 'lucide-react'
 import Loading from './Loading.tsx'
 import { useUrlShortener } from '../Hooks/useUrlShortener.ts'
 import Input from './Input.tsx'
+import { DELAY_TIME, DEMO_URL, DEMO_QR_CODE } from '../Constants/DemoConst.ts'
+
 export default function ShortenerSection() {
   const {
     inputUrl,
@@ -10,12 +12,49 @@ export default function ShortenerSection() {
     isSubmited,
     copyStatus,
     pasteStatus,
-    handleSubmit,
-    handleQuit,
+    setResultUrl,
+    setQrCode,
     setInputUrl,
-    handleCopyClick,
-    handlePasteClick,
+    setIsSubmited,
+    setCopyStatus,
+    setPasteStatus,
   } = useUrlShortener()
+
+  const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
+  const handleSubmit = async () => {
+    try {
+      if (inputUrl === '') return
+      setIsSubmited(true)
+      setPasteStatus('')
+      await delay(DELAY_TIME)
+      setResultUrl(DEMO_URL)
+      setQrCode(DEMO_QR_CODE)
+    } catch (e) {
+      console.log('Error: ', e)
+    }
+  }
+  const handlePasteClick = async () => {
+    try {
+      setInputUrl(await navigator.clipboard.readText())
+      setPasteStatus('Paste successfull !')
+    } catch (err) {
+      setPasteStatus('Paste error: ' + err)
+    }
+  }
+  const handleCopyClick = async () => {
+    try {
+      await navigator.clipboard.writeText(resultUrl)
+      setCopyStatus('Shorten link is copied !')
+    } catch (err) {
+      setCopyStatus('Copy error: ' + err)
+    }
+  }
+  const handleQuit = () => {
+    setIsSubmited(false)
+    setInputUrl('')
+    setQrCode('')
+    setCopyStatus('')
+  }
 
   const modalContent = isSubmited ? (
     <div className="bg-shade-black/30 z-30 fixed inset-0 flex items-center justify-center">
