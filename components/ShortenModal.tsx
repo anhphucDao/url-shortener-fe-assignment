@@ -219,18 +219,6 @@ const ShortenModal = ({
                 />
               </g>
             </svg>
-            {/* <img
-              src="/Component 24.svg"
-              alt=""
-              aria-hidden="true"
-              className="shorten-modal__rectangle-515-item shorten-modal__rectangle-515-item--24"
-            />
-            <img
-              src="/Component 25.svg"
-              alt=""
-              aria-hidden="true"
-              className="shorten-modal__rectangle-515-item shorten-modal__rectangle-515-item--25"
-            /> */}
           </div>
           <button
             className="shorten-modal__close"
