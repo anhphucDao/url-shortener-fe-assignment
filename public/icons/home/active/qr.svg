@@ -1,0 +1,18 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="13.3333" height="3.33333" fill="#0B2878"/>
+<rect x="3.33301" width="13.3333" height="3.33333" transform="rotate(90 3.33301 0)" fill="#0B2878"/>
+<rect width="13.3333" height="3.33333" transform="matrix(-1 0 0 1 60 0)" fill="#0B2878"/>
+<rect width="13.3333" height="3.33333" transform="matrix(0 1 1 0 56.667 0)" fill="#0B2878"/>
+<rect x="60" y="60" width="13.3333" height="3.33333" transform="rotate(180 60 60)" fill="#0B2878"/>
+<rect x="56.667" y="60" width="13.3333" height="3.33333" transform="rotate(-90 56.667 60)" fill="#0B2878"/>
+<rect width="13.3333" height="3.33333" transform="matrix(1 0 0 -1 0 60)" fill="#0B2878"/>
+<rect width="13.3333" height="3.33333" transform="matrix(0 -1 -1 0 3.33301 60)" fill="#0B2878"/>
+<rect x="7.16699" y="7.1665" width="19" height="19" stroke="#0B2878"/>
+<rect x="33.833" y="7.1665" width="19" height="19" fill="white" stroke="#0B2878"/>
+<rect x="33.833" y="33.8333" width="5.66667" height="5.66667" stroke="#0B2878"/>
+<rect x="33.833" y="47.1667" width="5.66667" height="5.66666" stroke="#0B2878"/>
+<rect x="40.5" y="40.5" width="5.66667" height="5.66667" stroke="#0B2878"/>
+<rect x="47.167" y="33.8333" width="5.66666" height="5.66667" stroke="#0B2878"/>
+<rect x="47.167" y="47.1667" width="5.66666" height="5.66666" stroke="#0B2878"/>
+<rect x="7.16699" y="33.8333" width="19" height="19" stroke="#0B2878"/>
+</svg>
