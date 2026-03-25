@@ -77,4 +77,12 @@
   --color-brand-navy: #0b2878;
   --color-brand-pink: #ff2d55;
   --color-brand-gray: #656c73;
+
+/* ── Rounded Card ────────────────────────────────────── */
+  --radius-card: 10px;
+
+}
+
+@utility clip-banner {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0% 100%);
 }
