@@ -20,15 +20,23 @@ export function ShortenPopup({
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(shortenedUrl)
-      // Could add toast notification here
     } catch (err) {
       console.error('Failed to copy:', err)
     }
   }
 
   const handleDownload = () => {
-    // Could implement QR code download functionality here
-    console.log('Download QR code')
+    try {
+      const link = document.createElement('a')
+      link.href = qrCode
+      link.download = 'qrcode.svg'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      console.log('QR code downloaded successfully')
+    } catch (err) {
+      console.error('Failed to download QR code:', err)
+    }
   }
 
   return (
@@ -54,7 +62,6 @@ export function ShortenPopup({
 
             <div className="w-40 h-40 absolute left-1/2 top-[70%] -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg p-2 shadow-lg">
               <img src={qrCode} className="w-full h-full" />
-              {/* Download button */}
               <button
                 onClick={handleDownload}
                 className="absolute -bottom-3 -right-3 w-10 h-10 bg-primary-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-primary-600 transition-colors"
@@ -69,7 +76,7 @@ export function ShortenPopup({
             Access the 'My URL' page to view statistics on your shortened links
           </p>
           <div className="px-4">
-            <div className="flex items-center gap-2 mb-6">
+            <div className="flex items-center gap-2">
               <div className="flex-1 bg-gray-100 rounded-lg px-4 py-3 flex items-center border border-blue-800">
                 <input
                   type="text"
