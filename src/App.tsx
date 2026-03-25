@@ -1,9 +1,9 @@
-import Header from './components/header'
-import UrlModal from './components/url-modal'
-import ErrorPopup from './components/error-popup'
-import ShortenLinkPopup from './components/shorten-link-popup'
-import useShortenUrl from './utils/useShortenUrl'
-import HeroSection from './components/hero-section'
+import Header from './components/Header'
+import UrlModal from './components/UrlModal'
+import ErrorPopup from './components/ErrorPopup'
+import ShortenLinkPopup from './components/ShortenLinkPopup'
+import useShortenUrl from './hooks/useShortenUrl'
+import HeroSection from './components/HeroSection'
 function App() {
   const { isLoading, resetStates, handleShorten, setInputUrl, inputUrl, urlState, setUrlState } =
     useShortenUrl()

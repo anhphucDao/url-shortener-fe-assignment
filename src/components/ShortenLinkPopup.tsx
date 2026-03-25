@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import CardDecoration from './card-decoration'
+import CardDecoration from './CardDecoration'
 import { stopPropagation } from '../utils/events'
-import CancelButton from './cancel-button'
+import Button from './Button'
 import CustomLink from './CustomLink'
-import useCopy from '../utils/useCopy'
-import { type UrlState } from '../utils/useShortenUrl'
+import useCopy from '../hooks/useCopy'
+import { type UrlState } from '../hooks/useShortenUrl'
 interface ShortenLinkPopupProps {
   data: string
   onReset: () => void
@@ -24,7 +24,7 @@ function ShortenLinkPopup({ data, onReset, onError }: ShortenLinkPopupProps) {
     }
   }
   const renderCopyIcon = () => {
-    return isCopied ? <img src="./tick.svg" alt="Copied" /> : <img src="./copy.svg" alt="Copy" />
+    return isCopied ? './tick.svg' : './copy.svg'
   }
   return (
     <div
@@ -36,7 +36,13 @@ function ShortenLinkPopup({ data, onReset, onError }: ShortenLinkPopupProps) {
         onClick={stopPropagation}
       >
         <CardDecoration />
-        <CancelButton onReset={onReset} />
+        <Button
+          onClick={onReset}
+          className="bg-white z-10 absolute top-3 right-3"
+          shape="round"
+          size="sm"
+          icon="/cancel.svg"
+        />
         <div className="p-5 bg-white rounded-xl shadow-[0_0_25px] shadow-gray-500 relative">
           <img
             src={`${import.meta.env.VITE_QR_CODE_API_URL}/?data=${encodeURIComponent(data)}&size=200x200`}
@@ -58,12 +64,14 @@ function ShortenLinkPopup({ data, onReset, onError }: ShortenLinkPopupProps) {
           <p className="text-primary-500 border px-4 py-1 border-black rounded-lg font-medium text-start grow w-fit">
             {data}
           </p>
-          <button
-            className={`bg-primary-300 p-1.25 rounded-lg hover:bg-primary-500 hover:cursor-pointer transition-all duration-300 ${isCopied ? 'bg-primary-500' : ''}`}
+          <Button
+            className={`bg-primary-300 hover:bg-primary-500 ${isCopied ? 'bg-primary-500' : ''}`}
+            shape="square"
+            size="sm"
+            width="fit"
             onClick={handleCopyData}
-          >
-            {renderCopyIcon()}
-          </button>
+            icon={renderCopyIcon()}
+          />
         </div>
       </div>
     </div>
