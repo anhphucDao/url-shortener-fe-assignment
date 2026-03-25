@@ -15,7 +15,6 @@ function App() {
   }
 
   const handleValid = () => {
-    console.log(url)
     if (!UrlValid(url)) {
       alert('Lỗi')
       showResult(false)
