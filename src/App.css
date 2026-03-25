@@ -1,0 +1,97 @@
+.Logo {
+  width: 96px;
+  height: 74px;
+  margin-left: 40px;
+  margin-top: 17px;
+}
+
+.container {
+  background-color: #ffffff;
+  min-height: 100vh; /* full màn hình */
+}
+
+.Main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.Title {
+  font-size: 60px;
+  font-family:
+    Baloo Chettan 2,
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+  font-weight: bold;
+  align-items: center;
+  color: #305cde;
+}
+
+.Word {
+  font-size: 28px;
+  font-family:
+    Baloo Chettan 2,
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+  align-items: center;
+  color: #305cde;
+}
+
+.Box {
+  width: 800px; /* chiều rộng */
+  height: 119px; /* chiều cao */
+  background-color: #ffffff; /* fill */
+  border: 2px solid rgba(126, 126, 126, 0.3); /* stroke */
+  border-radius: 10px; /* bo góc */
+  padding: 20px; /* khoảng cách bên trong */
+  margin: 20px; /* khoảng cách bên ngoài */
+  text-align: center; /* căn giữa chữ */
+}
+
+.URL_Text {
+  font-size: 20px;
+  font-family:
+    Baloo Chettan 2,
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+  font-weight: 600;
+  text-align: left;
+  color: #305cde;
+}
+
+.Box_URL {
+  width: 744px;
+  height: 42px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  gap: 20px;
+}
+
+.Input_URL {
+  display: flex;
+  width: 608px;
+  border: 2px solid rgba(126, 126, 126, 0.3);
+  width: 100%;
+}
+.Button {
+  width: 150px;
+  height: 42px;
+  background-color: #305cde;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  font-family:
+    Baloo Chettan 2,
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
