@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCopy } from '@fortawesome/free-solid-svg-icons'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import qrImage from '../assets/qr.png'
 
 interface ShortenModalProps {
@@ -37,7 +38,7 @@ function ShortenModal({ onClose, url }: ShortenModalProps) {
           className="absolute top-4 right-4 h-6 w-6 text-center bg-neutral-100 hover:bg-white rounded-full cursor-pointer"
           onClick={onClose}
         >
-          X
+          <FontAwesomeIcon icon={faXmark} />
         </button>
 
         <div className="flex flex-col items-center px-6">
