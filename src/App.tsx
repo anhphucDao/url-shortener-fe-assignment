@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Result from './components/Result'
 
 function App() {
-  const [showResult, setShowResult] = useState(true); 
+  const [showResult, setShowResult] = useState(false); 
   const [shortenedUrl/*, setShortenedUrl*/] = useState('https://furl.one/myshortenlink');
 
   return (
