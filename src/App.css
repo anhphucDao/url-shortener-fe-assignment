@@ -137,6 +137,18 @@
     @apply relative z-20 mx-auto flex h-[220px] w-[220px] items-center justify-center overflow-hidden rounded-[8px] bg-white shadow-[0_4px_12px_rgba(11,40,120,0.16)] mb-8;
   }
 
+  .shorten-modal__qr-placeholder {
+    @apply h-full w-full object-cover;
+  }
+
+  .shorten-modal__download {
+    @apply absolute bottom-[1px] right-[1px] z-10 inline-flex h-[36px] w-[36px] items-center justify-center rounded-full bg-primary-500 text-white shadow-[0_4px_12px_rgba(11,40,120,0.25)] transition hover:brightness-110;
+  }
+
+  .shorten-modal__download-icon {
+    @apply h-[20px] w-[20px];
+  }
+
   .shorten-modal__confirmation {
     @apply relative mx-auto flex w-full max-w-[400px] flex-col items-center rounded-[8px] bg-white px-[24px] py-[24px] shadow-[0_4px_12px_rgba(11,40,120,0.16)] h-full max-h-[469px] overflow-hidden;
   }

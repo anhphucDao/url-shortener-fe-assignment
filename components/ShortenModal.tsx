@@ -1,3 +1,4 @@
+import useQrDownload from '../src/hooks/useQrDownload'
 import Button from './Button'
 import ShortenModalDecoration from './ShortenModalDecoration'
 
@@ -18,6 +19,8 @@ const ShortenModal = ({
   onClose,
   onCopy,
 }: ShortenModalProps) => {
+  const { qrImageRef, downloadQrImage } = useQrDownload()
+
   if (!isOpen) {
     return null
   }
@@ -27,11 +30,7 @@ const ShortenModal = ({
       <div className="shorten-modal__container">
         <div className="shorten-modal__confirmation">
           <ShortenModalDecoration />
-          <Button
-            className="shorten-modal__close"
-            onClick={onClose}
-            aria-label="Close modal"
-          >
+          <Button className="shorten-modal__close" onClick={onClose} aria-label="Close modal">
             <svg
               aria-hidden="true"
               viewBox="0 0 24 24"
@@ -50,10 +49,45 @@ const ShortenModal = ({
           </Button>
           <div className="shorten-modal__qr">
             <img
+              ref={qrImageRef}
               src="/image 101.png"
               alt="QR code for shortened URL"
               className="shorten-modal__qr-placeholder"
             />
+            <Button
+              className="shorten-modal__download"
+              aria-label="Download QR code"
+              onClick={downloadQrImage}
+            >
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="shorten-modal__download-icon"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 5V14"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M8.5 11L12 14.5L15.5 11"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M5 19H19"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </Button>
           </div>
           <div className="shorten-modal__title">Link shortened!</div>
           <div className="shorten-modal__subtitle">
