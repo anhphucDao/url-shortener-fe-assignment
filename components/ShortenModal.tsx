@@ -1,4 +1,4 @@
-type ShortenModalProps = {
+interface ShortenModalProps {
   isOpen: boolean
   shortenedUrl: string
   isCopySuccess: boolean
