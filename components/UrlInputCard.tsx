@@ -1,5 +1,7 @@
 import type { ChangeEvent } from 'react'
 
+import Button from './Button'
+
 type UrlInputCardProps = {
   urlValue: string
   onUrlChange: (event: ChangeEvent<HTMLInputElement>) => void
@@ -43,9 +45,9 @@ const UrlInputCard = ({ urlValue, onUrlChange, onShorten }: UrlInputCardProps) =
                 onChange={onUrlChange}
               />
             </div>
-            <button className="frame-5522__button" type="button" onClick={onShorten}>
+            <Button className="frame-5522__button" onClick={onShorten}>
               Shorten
-            </button>
+            </Button>
           </div>
         </div>
       </div>

@@ -1,3 +1,5 @@
+import Button from './Button'
+
 interface ShortenModalProps {
   isOpen: boolean
   shortenedUrl: string
@@ -255,9 +257,8 @@ const ShortenModal = ({
           </div>
           <div className="shorten-modal__url-row">
             <span className="shorten-modal__url-text">{shortenedUrl}</span>
-            <button
+            <Button
               className="shorten-modal__copy"
-              type="button"
               aria-label="Copy shortened URL"
               onClick={onCopy}
             >
@@ -303,7 +304,7 @@ const ShortenModal = ({
                   />
                 </svg>
               )}
-            </button>
+            </Button>
           </div>
         </div>
       </div>
