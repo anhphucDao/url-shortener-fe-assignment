@@ -65,5 +65,4 @@ function QR({
     </div>
   )
 }
-
 export default QR
