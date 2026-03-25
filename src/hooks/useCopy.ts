@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react'
-function useCopy() {
+import { TIME_OUT_CONST } from '../constants'
+interface useCopyProps {
+  handleCopy: (data: string) => Promise<void>
+  isCopied: boolean
+}
+function useCopy(): useCopyProps {
   const [isCopied, setCopied] = useState<boolean>(false)
-  const TIMEOUT_CONST = 2000
   useEffect(() => {
     if (!isCopied) return
     const timer = setTimeout(() => {
       setCopied(false)
-    }, TIMEOUT_CONST)
+    }, TIME_OUT_CONST)
     return () => {
       clearTimeout(timer)
     }

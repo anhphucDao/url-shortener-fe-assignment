@@ -5,6 +5,7 @@ import Button from './Button'
 import CustomLink from './CustomLink'
 import useCopy from '../hooks/useCopy'
 import { type UrlState } from '../hooks/useShortenUrl'
+import { QR_API_URL } from '../constants'
 interface ShortenLinkPopupProps {
   data: string
   onReset: () => void
@@ -45,14 +46,14 @@ function ShortenLinkPopup({ data, onReset, onError }: ShortenLinkPopupProps) {
         />
         <div className="p-5 bg-white rounded-xl shadow-[0_0_25px] shadow-gray-500 relative">
           <img
-            src={`${import.meta.env.VITE_QR_CODE_API_URL}/?data=${encodeURIComponent(data)}&size=200x200`}
+            src={`${QR_API_URL}/?data=${encodeURIComponent(data)}&size=200x200`}
             className={`transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'} md:w-50  md:h-50`}
             onLoad={() => setImageLoaded(true)}
           />
           <CustomLink
             download="qrcode.png"
             target="_blank"
-            href={`${import.meta.env.VITE_QR_CODE_API_URL}/?data=${encodeURIComponent(data)}&size=200x200`}
+            href={`${QR_API_URL}/?data=${encodeURIComponent(data)}&size=200x200`}
             className="absolute -bottom-3 -right-3 "
           />
         </div>

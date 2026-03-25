@@ -4,7 +4,16 @@ export interface UrlState {
   data: string | null
   error: string | null
 }
-function useShortenUrl() {
+interface useShortenUrlProps {
+  isLoading: boolean
+  handleShorten: () => Promise<void>
+  resetStates: () => void
+  setInputUrl: React.Dispatch<React.SetStateAction<string>>
+  inputUrl: string
+  urlState: UrlState
+  setUrlState: React.Dispatch<React.SetStateAction<UrlState>>
+}
+function useShortenUrl(): useShortenUrlProps {
   const [inputUrl, setInputUrl] = useState('')
   const [isLoading, setLoading] = useState<boolean>(false)
   const [urlState, setUrlState] = useState<UrlState>({
