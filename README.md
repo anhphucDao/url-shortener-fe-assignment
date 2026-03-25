@@ -160,17 +160,17 @@ Connect your UI to the backend built in the **companion BE assignment** to creat
 
 ### Requirements
 
-- [x] Record and attach a **demo video** showing your working application
-- [x] Open a **Pull Request into the `main` branch** of this repository
+- [ ] Record and attach a **demo video** showing your working application
+- [ ] Open a **Pull Request into the `main` branch** of this repository
 
 ### Pull Request
 
 When opening your PR, fill in the provided template:
 
-- **Name** — Dinh Duc Trung
-- **Email** — trung.dinh0706bk@hcmut.edu.vn
-- **Changes** — Built the URL Shortener frontend UI, added URL input validation, showed the shortened-link result in a modal, and implemented clipboard copy feedback for the generated URL
-- **Demo Video** — [Link](https://github.com/dinhtrung0706/url-shortener-fe-assignment/blob/feature/trung.dinh0706bk%40hcmut.edu.vn/videos/Demo.mov) to a video demonstrating your working application
+- **Name** — your full name
+- **Email** — the email address you used to register for DevCamp
+- **Changes** — what you built or changed
+- **Demo Video** — link or attachment of your demo recording
 
 - Naming your PR: `feat: add URL Shortener frontend assignment by <your_email>` (e.g. `feat: add URL Shortener frontend assignment by john_doe@example.com`)
 
