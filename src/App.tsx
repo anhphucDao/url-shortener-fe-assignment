@@ -2,7 +2,7 @@ function App() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center">
       <div className="text-center mb-10">
-        <h1 className="text-5xl font-bold text-primary-500 mb-4">Devcamp URL Shortener</h1>
+        <h1 className="text-5xl font-bold text-primary-500 mb-4">URL Shortener</h1>
         <h2 className="text-lg text-primary-300">
           Simplify, Organize, and Share: URL Management Made Easy
         </h2>
