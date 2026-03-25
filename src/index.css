@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
+
 @theme {
   /* ── Typography ──────────────────────────────────────────── */
   --font-sans: 'Baloo Chettan 2', ui-sans-serif, system-ui, sans-serif;
