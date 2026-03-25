@@ -31,7 +31,7 @@ function App() {
                   <input
                     type="text"
                     placeholder="Input the URL you want to shorten"
-                    className="flex-1 mt-3 mb-3 
+                    className="flex-1 mt-3 mb-3 placeholder-opacity-100 
                     text-primary-300 focus:outline-none"
                   />
                 </div>

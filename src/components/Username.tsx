@@ -4,11 +4,8 @@ function Username() {
       <img src="/avatar.png" alt="Avatar" className="h-13 w-13 " />
 
       <div className="flex flex-col ml-3">
-        <div className=" text-xs font-regular text-[#5B5B5B] tracking-[0.02em]">Personal</div>
-        <div className="font-baloo text-xl font-medium text-[#5B5B5B] tracking-[0.02em]">
-          {' '}
-          Username
-        </div>
+        <div className=" text-xs font-regular text-neutral-600 ">Personal</div>
+        <div className="font-baloo text-xl font-medium text-neutral-600 "> Username</div>
       </div>
     </div>
   )
