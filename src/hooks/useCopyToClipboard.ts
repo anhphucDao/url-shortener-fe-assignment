@@ -1,6 +1,10 @@
 import { useState, useRef, useEffect } from 'react'
-
-export function useCopyToClipboard(timeout = 2000) {
+interface CopyToClipboardReturn {
+  isCopied: boolean
+  copy: (text: string) => Promise<void>
+  error: string | null
+}
+export function useCopyToClipboard(timeout = 2000): CopyToClipboardReturn {
   const [isCopied, setIsCopied] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
   const timeoutRef = useRef<number | null>(null)
