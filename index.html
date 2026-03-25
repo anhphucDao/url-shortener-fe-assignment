@@ -1,24 +1,13 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <title>Website for DevCamp 2026 Training</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevCamp URL Shortener</title>
   </head>
   <body>
-    <h1>DevCamp URL Shortener</h1>
-    <p id="intro">Give me your long URL and I'll shorten it for you!</p>
-    <div> 
-      <h2>Enter your URL:  </h2>
-      <div>
-        <input type="text" id="longURL" placeholder="Input your long URL here">
-        <button id="shortenButton">Shorten</button>
-      </div>  
-      <h2>Result: </h2>
-      <p id="shortURLResult"></p>
-    </div>
-    <img src="gura_left_rbg.png" class="gura-left" >
-    <img src="gura_f_rbg.png" class="gura-f" >
-    <img src="gura_rawr_rbg.png" class="gura-rawr" >
-    <script src="script.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
