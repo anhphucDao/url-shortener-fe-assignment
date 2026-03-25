@@ -78,3 +78,209 @@
   --color-brand-pink: #ff2d55;
   --color-brand-gray: #656c73;
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Cực kỳ quan trọng để không bị tràn màn hình */
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Ngăn chặn thanh cuộn ngang xuất hiện */
+    /* Áp dụng font Baloo Chettan 2 cho toàn bộ trang */
+    font-family: 'Baloo Chettan 2', cursive; 
+    background-color: #ffffff;
+}
+
+
+h1 {
+    color: #0B2878; /* Màu Primary 500 từ hình 2 của bạn */
+    font-weight: 800;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* FIX Ở ĐÂY: Sử dụng 100% để luôn khít màn hình */
+    width: 100%; 
+    height: 108px;
+    padding: 0 40px; /* Giữ khoảng cách X:40 từ lề vào logo */
+    
+    background: #FFFFFF;
+    border-bottom: 1px solid #E6E6E6;
+    
+    /* Loại bỏ các dòng dịch chuyển cũ nếu có */
+    position: relative;
+    margin: 0 auto;
+}
+
+/* Phần Logo */
+.logo img {
+    width: 96px;
+    height: 74px;
+    object-fit: contain;
+    margin-top: 17px; /* Vị trí Y: 17 từ Figma */
+}
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    border: 1.5px solid #E6E6E6; /* Viền xám nhạt */
+    border-radius: 50px; /* Bo tròn hoàn toàn 2 đầu */
+    background-color: #FFFFFF;
+}
+
+/* Tùy chỉnh icon hình người */
+.profile-icon {
+    font-size: 40px; /* Độ to của icon */
+    color: #0B2878; /* Màu xanh Navy chuẩn của GDSC HCMUT */
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 30;
+    width: 120px;
+}
+
+.profile-label {
+    font-size: 10px;
+    color: #808080; /* Màu xám nhạt cho chữ Personal */
+    margin-bottom: -2px;
+}
+
+.username {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333; /* Màu đen xám cho tên */
+}
+/* Container chính để căn giữa nội dung */
+/* ── Main Content Layout ─────────────────────────────────── */
+.main-content {
+    display: flex;
+    justify-content: center; 
+    /* Vị trí Y: 252 từ Figma - Chiều cao Navbar 108 = 144px */
+    padding-top: 144px; 
+    width: 100%;
+    background-color: #FFFFFF;
+}
+
+.hero-container {
+    width: 832px; /* Thông số W từ Figma */
+    text-align: center;
+}
+
+/* ── Typography ─────────────────────────────────────────── */
+.hero-container h1 {
+    font-size: 48px;
+    font-weight: 800;
+    color: #0B2878; /* Primary 500 */
+    margin-bottom: 10px;
+}
+
+.hero-container p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #0B2878; /* Primary 500 */
+    margin-bottom: 48px;
+}
+
+/* ── Shortener Box (Khối màu trắng 832x301) ─────────────── */
+.shortener-box {
+    width: 100%;
+    background: #FFFFFF; /* Shade White */
+    padding: 32px;
+    border-radius: 12px;
+    /* Đổ bóng nhẹ chuẩn UI */
+    box-shadow: 0 0 25px 5px rgba(11, 40, 120, 0.1);
+    text-align: left;
+    border: 1px solid #E6E6E6; /* Neutral 100 */
+    
+}
+
+.input-label {
+    display: block;
+    font-weight: 600;
+    color: #0B2878; /* Primary 500 */
+    margin-bottom: 12px;
+    font-size: 20px;
+    
+}
+
+.input-group {
+    display: flex;
+    gap: 16px;
+    width: 744px; /* Fix chiều rộng 744px như Figma */
+    height: 42px; /* Fix chiều cao 42px như Figma */
+}
+
+
+
+.link-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #B3B3B3; /* Neutral 300 */
+}
+
+/* 1. Cấu trúc nhóm Input - Quan trọng nhất */
+.input-group {
+    display: flex;          /* Chuyển sang dạng hàng ngang */
+    align-items: center;    /* Căn giữa theo chiều dọc */
+    gap: 16px;              /* Khoảng cách giữa ô input và nút bấm */
+    width: 744px;           /* Độ rộng chuẩn theo Figma của bạn */
+    height: 42px;           /* Chiều cao chuẩn 42px */
+    margin: 0 auto;         /* Căn giữa toàn bộ khối này */
+}
+
+/* 2. Thẻ bao quanh ô input - Phải có flex: 1 */
+.input-wrapper {
+    position: relative;
+    flex: 1;                /* Lệnh này giúp nó tự động kéo dài ra hết mức có thể */
+    height: 100%;           /* Cao bằng input-group */
+}
+
+/* 3. Ô input thực tế */
+.input-wrapper input {
+    width: 100%;            /* Dài 100% theo input-wrapper */
+    height: 100%;           /* Cao 100% */
+    padding: 0 12px 0 40px; /* Padding trái 40px để không đè lên icon link */
+    
+    border: 1px solid #E6E6E6;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+/* 4. Icon link bên trong ô input */
+.input-wrapper i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #B3B3B3;
+}
+
+/* ── Button Shorten ─────────────────────────────────────── */
+.btn-shorten {
+    background-color: #0B2878; /* Brand Navy / Primary 500 */
+    color: #FFFFFF;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+}
+
+.btn-shorten:hover {
+    background-color: #6D7EAE; /* Primary 300 để làm sáng nút khi hover */
+}

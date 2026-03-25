@@ -8,11 +8,41 @@
       href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-
+    <link rel="stylesheet" href="/src/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>url-shortener-fe-assignment</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <header class="navbar">
+        <div class="logo">
+            <img src="devcamp_logo_navy 1.png" alt="Prometheus Logo">
+        </div>
+        <div class="user-profile">
+            <i class="fas fa-user-circle"></i>
+            <div class="user-info">
+                <span class="label">Personal</span>
+                <span class="username">Username</span>
+            </div>
+        </div>
+    </header>
+    <main class="main-content">
+    <div class="hero-container">
+        <h1>Devcamp URL Shortener</h1>
+        <p>Simplify, Organize, and Share: URL Management Made Easy</p>
+        
+        <div class="shortener-box">
+            <label class="input-label">Your long URL</label>
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <i class="fas fa-link"></i>
+                    <input type="url" placeholder="Input the URL you want to shorten">
+                </div>
+                <button class="btn-shorten">Shorten</button>
+            </div>
+        </div>
+    </div>
+</main>
   </body>
 </html>
