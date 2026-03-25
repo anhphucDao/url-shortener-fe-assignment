@@ -78,3 +78,13 @@
   --color-brand-pink: #ff2d55;
   --color-brand-gray: #656c73;
 }
+
+body {
+  background-color: rgb(255, 255, 255);
+  font-family: 'Inter', sans-serif; 
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
