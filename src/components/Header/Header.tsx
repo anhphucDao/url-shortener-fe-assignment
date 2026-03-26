@@ -13,7 +13,7 @@ export const Header = () => {
       >
         <UserIcon className="text-primary-500 scale-125" />
         <div className="flex flex-col leading-tight">
-          <p className="text-[11px] text-neutral-500">Personal</p>
+          <p className="text-xs text-neutral-500">Personal</p>
           <p className="text-md font-semibold text-neutral-500">Username</p>
         </div>
       </a>
