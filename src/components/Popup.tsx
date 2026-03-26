@@ -1,4 +1,5 @@
 import Button from './Button'
+import Input from './Input'
 import CopyButton from './CopyButton'
 import { DEFAULT_SHORTEN_LINK } from '../utils/constants'
 import DownloadButton from './DownloadButton'
@@ -15,7 +16,7 @@ function Popup({ show, onClose }: { show: boolean; onClose: () => void }) {
         <div className="bg-white w-55 h-55 rounded-lg z-30 absolute top-0 left-0 mt-10 ml-22.5 shadow-lg ">
           <img src="/qrtest.png" alt="QR code" className="w-50 h-50 mx-2 my-2" />
           <DownloadButton
-            fileUrl="/QRtest.png"
+            fileUrl="/qrtest.png"
             fileName="QR_Code_Furl.png"
             className="absolute -bottom-4 -right-4 w-10 h-10 shadow-lg p-3"
           />
@@ -34,12 +35,11 @@ function Popup({ show, onClose }: { show: boolean; onClose: () => void }) {
             Access the “My URL” page to view statistics on your shortened links
           </div>
           <div className="flex items-center justify-center mt-4 ">
-            <input
-              type="text"
+            <Input
               value={DEFAULT_SHORTEN_LINK}
               readOnly
-              className="flex flex-1 border border-primary-500 rounded-lg 
-              font-medium text-[16px] text-primary-500 h-10 px-3 "
+              className="border border-primary-500 rounded-lg 
+              font-medium text-[16px] h-10 p-3 "
             />
             <CopyButton textToCopy={DEFAULT_SHORTEN_LINK} />
           </div>

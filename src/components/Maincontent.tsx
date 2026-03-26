@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import Input from './Input'
 import Button from './Button'
 
 interface MainContentProperties {
@@ -5,6 +7,7 @@ interface MainContentProperties {
 }
 
 function MainContent({ onOpenPopup }: MainContentProperties) {
+  const [url, setUrl] = useState('')
   return (
     <main className="flex flex-1 flex-col items-center justify-center mb-40">
       <h1 className="text-[60px] font-bold text-primary-500">Devcamp URL Shortener</h1>
@@ -25,10 +28,11 @@ function MainContent({ onOpenPopup }: MainContentProperties) {
                   className="w-5 h-5 flex items-center mt-2.75 mb-2.75 ml-2"
                 />
                 <div className="w-px h-6.5 bg-neutral-300 mx-3"></div>
-                <input
-                  type="text"
+                <Input
                   placeholder="Input the URL you want to shorten"
-                  className="flex-1 mt-3 mb-3 placeholder-opacity-100 text-primary-300 focus:outline-none"
+                  value={url}
+                  onChange={e => setUrl(e.target.value)}
+                  className="py-3 placeholder-opacity-100 "
                 />
               </div>
               <Button
