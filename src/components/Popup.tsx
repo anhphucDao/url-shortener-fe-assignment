@@ -1,16 +1,9 @@
 import Button from './Button'
 import CopyButton from './CopyButton'
+import { DEFAULT_SHORTEN_LINK } from '../utils/constants'
+import DownloadButton from './DownloadButton'
 
 function Popup({ show, onClose }: { show: boolean; onClose: () => void }) {
-  const shortenLink = 'https://furl.one/myshortenlink'
-  const handleDownload = () => {
-    const link = document.createElement('a')
-    link.href = '/QRtest.png'
-    link.download = 'QR_Code_Furl.png'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-  }
   if (!show) return null
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
@@ -21,10 +14,9 @@ function Popup({ show, onClose }: { show: boolean; onClose: () => void }) {
         <img src="/qrright.png" className="absolute right-0 z-10 w-13 h-20 mt-16" />
         <div className="bg-white w-55 h-55 rounded-lg z-30 absolute top-0 left-0 mt-10 ml-22.5 shadow-lg ">
           <img src="/qrtest.png" alt="QR code" className="w-50 h-50 mx-2 my-2" />
-          <Button
-            onClick={handleDownload}
-            shape="circle"
-            useImage="/downloadbutton.png"
+          <DownloadButton
+            fileUrl="/QRtest.png"
+            fileName="QR_Code_Furl.png"
             className="absolute -bottom-4 -right-4 w-10 h-10 shadow-lg p-3"
           />
         </div>
@@ -44,12 +36,12 @@ function Popup({ show, onClose }: { show: boolean; onClose: () => void }) {
           <div className="flex items-center justify-center mt-4 ">
             <input
               type="text"
-              value={shortenLink}
+              value={DEFAULT_SHORTEN_LINK}
               readOnly
               className="flex flex-1 border border-primary-500 rounded-lg 
-                                   font-medium text-[16px] text-primary-500 h-10 px-3 "
+              font-medium text-[16px] text-primary-500 h-10 px-3 "
             />
-            <CopyButton textToCopy={shortenLink} />
+            <CopyButton textToCopy={DEFAULT_SHORTEN_LINK} />
           </div>
         </div>
       </div>

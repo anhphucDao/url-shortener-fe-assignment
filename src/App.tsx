@@ -22,13 +22,13 @@ function App() {
             <div>
               <div className="font-semibold text-xl text-primary-500">Your long URL</div>
               <div className="flex items-center justify-between">
-                <div className="flex items-center justify-between border border-gray-200  rounded-md flex-1 focus-within:border-primary-500">
+                <div className="flex items-center justify-between border border-neutral-300  rounded-md flex-1 focus-within:border-primary-500">
                   <img
                     src="/public/mail.png"
                     alt="mail"
                     className="w-5 h-5 flex items-center mt-2.75 mb-2.75 ml-2  "
                   />
-                  <div className="w-px h-6.5 bg-gray-300 mx-3"></div>
+                  <div className="w-px h-6.5 bg-neutral-300 mx-3"></div>
                   <input
                     type="text"
                     placeholder="Input the URL you want to shorten"
