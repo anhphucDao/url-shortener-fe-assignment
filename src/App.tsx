@@ -1,8 +1,11 @@
+import { Header } from './components/Header/Header'
+import { ShortenContainer } from './components/ShortenContainer/ShortenContainer'
 function App() {
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <h1 className="text-3xl font-bold text-primary-500">URL Shortener</h1>
-    </main>
+    <div className="min-h-screen flex items-center justify-center flex-col">
+      <Header />
+      <ShortenContainer />
+    </div>
   )
 }
 
