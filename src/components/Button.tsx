@@ -1,7 +1,15 @@
+import {
+  type ButtonShapeType,
+  type ButtonWidthType,
+  type ButtonSizeType,
+  ButtonShape,
+  ButtonWidth,
+  ButtonSize,
+} from '../types/ButtonVariants'
 interface ButtonProps {
-  shape?: 'round' | 'square'
-  width?: 'fit' | 'full'
-  size?: 'sm' | 'md' | 'lg'
+  shape?: ButtonShapeType
+  width?: ButtonWidthType
+  size?: ButtonSizeType
   onClick: () => void
   className?: string
   disabled?: boolean
@@ -11,9 +19,9 @@ interface ButtonProps {
 function Button({
   children,
   className,
-  shape = 'square',
-  width = 'fit',
-  size = 'sm',
+  shape = ButtonShape.square,
+  width = ButtonWidth.fit,
+  size = ButtonSize.sm,
   onClick,
   disabled = false,
   icon,
