@@ -3,10 +3,9 @@ import { CloseIcon } from '../../assets/icons/CloseIcon'
 import { CopyIcon } from '../../assets/icons/CopyIcon'
 import { DownloadIcon } from '../../assets/icons/DownloadIcon'
 import { Button } from '../Button/Button'
+import { SHORT_URL, QR_API_URL, COPY_TIMEOUT } from '../../constants/url'
 import './PopUp.css'
-const COPY_TIMEOUT = 2000
-const SHORT_URL = import.meta.env.VITE_SHORT_URL
-const QR_API_URL = import.meta.env.VITE_QR_API_URL
+
 type PopUpProps = {
   isShown: boolean
   onClose: () => void
