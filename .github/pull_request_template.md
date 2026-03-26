@@ -13,5 +13,3 @@
 ### Demo Video
 
 <!-- Attach or paste a link to your demo video (required for submission) -->
-
-

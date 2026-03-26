@@ -1,11 +1,13 @@
+import Button from '../Reusable/Button'
+
 function CloseButton({ onClose }: { onClose?: () => void }) {
   return (
-    <button
+    <Button
       onClick={onClose}
-      className="w-[32px] h-[32px] absolute top-[12px] right-[12px] text-gray-800 bg-gray-100 rounded-full text-base flex items-center justify-center hover:scale-105 active:scale-95"
+      className="w-[32px] h-[32px] absolute top-[12px] right-[12px] text-gray-800 bg-gray-300 rounded-full text-base"
     >
       <img src="/images/close.svg" className="w-[20px] h-[20px]" />
-    </button>
+    </Button>
   )
 }
 export default CloseButton
