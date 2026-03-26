@@ -1,15 +1,21 @@
+import Button from './Button'
 function CopyButton({ textToCopy }: { textToCopy: string }) {
-  const handleCopy = () => {
-    navigator.clipboard.writeText(textToCopy)
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(textToCopy)
+      console.log('Text copied to clipboard: ', textToCopy)
+      alert('Link copied to clipboard!')
+    } catch (err) {
+      console.error('Failed to copy text: ', err)
+    }
   }
   return (
-    <button
+    <Button
       onClick={handleCopy}
-      className="flex items-center justify-center bg-primary-500 w-10 h-10 rounded-lg ml-1 
-      hover:bg-blue-900 transition-colors hover:cursor-pointer"
-    >
-      <img src="/Copybutton.png" alt="Copy" className="w-6 h-6" />
-    </button>
+      shape="quadrilateral"
+      useImage="/copybutton.png"
+      className="w-10 h-10 ml-1 p-2"
+    ></Button>
   )
 }
 

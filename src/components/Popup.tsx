@@ -1,3 +1,4 @@
+import Button from './Button'
 import CopyButton from './CopyButton'
 
 function Popup({ show, onClose }: { show: boolean; onClose: () => void }) {
@@ -20,21 +21,20 @@ function Popup({ show, onClose }: { show: boolean; onClose: () => void }) {
         <img src="/qrright.png" className="absolute right-0 z-10 w-13 h-20 mt-16" />
         <div className="bg-white w-55 h-55 rounded-lg z-30 absolute top-0 left-0 mt-10 ml-22.5 shadow-lg ">
           <img src="/qrtest.png" alt="QR code" className="w-50 h-50 mx-2 my-2" />
-          <button
+          <Button
             onClick={handleDownload}
-            className="absolute -bottom-4 -right-4 flex items-center justify-center w-12 h-12 bg-primary-500 
-                    text-white rounded-full  shadow-lg hover:bg-blue-900 transition-colors hover:cursor-pointer"
-          >
-            <img src="/downloadbutton.png" alt="Share" className="w-6 h-6" />
-          </button>
+            shape="circle"
+            useImage="/downloadbutton.png"
+            className="absolute -bottom-4 -right-4 w-10 h-10 shadow-lg p-3"
+          />
         </div>
-        <button
+        <Button
           onClick={onClose}
-          className="absolute top-4 right-4 z-40 flex items-center justify-center 
-                w-8 h-8 bg-gray-100 rounded-full  hover:bg-gray-200 transition-colors hover:cursor-pointer"
-        >
-          <img src="/xbutton.png" alt="X" className="w-3 h-3" />
-        </button>
+          variant="gray"
+          shape="circle"
+          useImage="/xbutton.png"
+          className="absolute top-4 right-4 z-40 w-8 h-8 p-2"
+        />
 
         <div className="absolute bottom-15 w-full text-center px-8 z-20">
           <div className=" text-[24px] font-bold text-primary-500 ">Link shortened!</div>

@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar'
 import Popup from './components/Popup'
+import Button from './components/Button'
 import { useState } from 'react'
 function App() {
   const [showPopup, setShowPopup] = useState(false)
@@ -35,13 +36,13 @@ function App() {
                     text-primary-300 focus:outline-none"
                   />
                 </div>
-                <button
+                <Button
                   onClick={() => setShowPopup(true)}
-                  className="bg-primary-500 text-white  font-bold  w-24.5 h-10.5 rounded-md ml-9.5 
-                    hover:bg-blue-900 transition-colors hover:cursor-pointer"
+                  shape="quadrilateral"
+                  className="w-24.5 h-10.5 ml-9.5 text-[16px]"
                 >
                   Shorten
-                </button>
+                </Button>
               </div>
             </div>
           </div>
