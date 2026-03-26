@@ -1,4 +1,5 @@
 import Button from './Button'
+import { downloadFile } from '../utils/downloadlogic'
 
 interface DownloadButtonProps {
   fileUrl: string
@@ -7,12 +8,7 @@ interface DownloadButtonProps {
 }
 function DownloadButton({ fileUrl, fileName, className = '' }: DownloadButtonProps) {
   const handleDownload = () => {
-    const link = document.createElement('a')
-    link.href = fileUrl
-    link.download = fileName
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+    downloadFile(fileUrl, fileName)
   }
 
   return (

@@ -4,7 +4,12 @@ import CopyButton from './CopyButton'
 import { DEFAULT_SHORTEN_LINK } from '../utils/constants'
 import DownloadButton from './DownloadButton'
 
-function Popup({ show, onClose }: { show: boolean; onClose: () => void }) {
+interface PopupProperties {
+  show: boolean
+  onClose: () => void
+}
+
+function Popup({ show, onClose }: PopupProperties) {
   if (!show) return null
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
