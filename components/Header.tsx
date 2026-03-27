@@ -1,4 +1,4 @@
-import UserAvatarIcon from './UserAvatarIcon'
+import { UserAvatarIcon } from './Icons'
 
 const Header = () => {
   return (

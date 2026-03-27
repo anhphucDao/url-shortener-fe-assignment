@@ -1,17 +1,18 @@
-export type UrlValidationResult = 'blank' | 'invalid' | 'valid'
+import { UrlValidationResult } from '../../types/types'
 
 const validateUrlValue = (value: string): UrlValidationResult => {
   const trimmedValue = value.trim()
 
   if (!trimmedValue) {
-    return 'blank'
+    // return UrlValidationResult.Blank
+    return UrlValidationResult.Blank
   }
 
   try {
     new URL(trimmedValue)
-    return 'valid'
+    return UrlValidationResult.Valid
   } catch {
-    return 'invalid'
+    return UrlValidationResult.Invalid
   }
 }
 
