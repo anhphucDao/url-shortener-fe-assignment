@@ -1,4 +1,8 @@
-const useClipboard = () => {
+interface UseClipboardReturn {
+  copyText: (text: string) => Promise<boolean>
+}
+
+const useClipboard = (): UseClipboardReturn => {
   const copyText = async (text: string): Promise<boolean> => {
     if (!text) {
       return false
