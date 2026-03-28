@@ -32,7 +32,7 @@ const ShortenModal = ({
         <div className="shorten-modal__confirmation">
           <ShortenModalDecoration />
           <Button className="shorten-modal__close" onClick={onClose} aria-label="Close modal">
-            <CloseIcon />
+            <CloseIcon className="shorten-modal__close-icon" />
           </Button>
           <div className="shorten-modal__qr">
             <img
@@ -46,7 +46,7 @@ const ShortenModal = ({
               aria-label="Download QR code"
               onClick={downloadQrImage}
             >
-              <DownloadIcon />
+              <DownloadIcon className="shorten-modal__download-icon" />
             </Button>
           </div>
           <div className="shorten-modal__title">Link shortened!</div>
@@ -60,7 +60,7 @@ const ShortenModal = ({
               aria-label="Copy shortened URL"
               onClick={onCopy}
             >
-              {isCopySuccess ? <CheckIcon /> : <CopyIcon />}
+              {isCopySuccess ? <CheckIcon className="shorten-modal__copy-icon" /> : <CopyIcon className="shorten-modal__copy-icon" />}
             </Button>
           </div>
           {copyError && <p className="shorten-modal__error">{copyError}</p>}

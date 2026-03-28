@@ -6,7 +6,7 @@ const Header = () => {
       <img src="/devcamp_logo_navy 1.png" alt="Devcamp" className="url-header__logo" />
       <div className="url-header__signin">
         <div className="url-header__icon">
-          <UserAvatarIcon />
+          <UserAvatarIcon className="url-header__icon-svg" />
         </div>
         <div className="url-header__meta">
           <span className="url-header__text">Username</span>

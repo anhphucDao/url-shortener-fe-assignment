@@ -7,7 +7,6 @@ export const CloseIcon = ({ ...props }: IconProps) => {
     <svg
       aria-hidden="true"
       viewBox="0 0 24 24"
-      className="shorten-modal__close-icon"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
@@ -28,7 +27,6 @@ export const DownloadIcon = ({ ...props }: IconProps) => {
     <svg
       aria-hidden="true"
       viewBox="0 0 24 24"
-      className="shorten-modal__download-icon"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
@@ -57,7 +55,6 @@ export const CheckIcon = ({ ...props }: IconProps) => {
     <svg
       aria-hidden="true"
       viewBox="0 0 24 24"
-      className="shorten-modal__copy-icon"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
@@ -78,7 +75,6 @@ export const CopyIcon = ({ ...props }: IconProps) => {
     <svg
       aria-hidden="true"
       viewBox="0 0 24 24"
-      className="shorten-modal__copy-icon"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
@@ -100,7 +96,6 @@ export const LinkIcon = ({ ...props }: IconProps) => {
     <svg
       aria-hidden="true"
       viewBox="0 0 17 17"
-      className="frame-5522__input-icon-svg"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
@@ -118,7 +113,6 @@ export const UserAvatarIcon = ({ ...props }: IconProps) => {
   return (
     <svg
       aria-hidden="true"
-      className="url-header__icon-svg"
       viewBox="0 0 52 52"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -128,6 +122,206 @@ export const UserAvatarIcon = ({ ...props }: IconProps) => {
         d="M26 0C11.648 0 0 11.648 0 26C0 40.352 11.648 52 26 52C40.352 52 52 40.352 52 26C52 11.648 40.352 0 26 0ZM26 7.8C30.32 7.8 33.8 11.284 33.8 15.6C33.8 19.916 30.32 23.4 26 23.4C21.68 23.4 18.2 19.916 18.2 15.6C18.2 11.284 21.68 7.8 26 7.8ZM26 44.72C19.5 44.72 13.752 41.392 10.4 36.348C10.48 31.174 20.8 28.34 26 28.34C31.168 28.34 41.52 31.174 41.6 36.348C38.248 41.392 32.5 44.72 26 44.72Z"
         fill="currentColor"
       />
+    </svg>
+  )
+}
+
+export const QRDecorationIcon_1 = ({ ...props }: IconProps) => {
+  return (
+    <svg
+      width="52"
+      height="80"
+      viewBox="0 0 52 80"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <g opacity="0.2">
+        <rect x="0.5" y="0.5" width="16.7778" height="3.44444" fill="white" stroke="white" />
+        <rect
+          x="3.94446"
+          y="0.5"
+          width="16.7778"
+          height="3.44444"
+          transform="rotate(90 3.94446 0.5)"
+          fill="white"
+          stroke="white"
+        />
+        <rect
+          x="0.5"
+          y="-0.5"
+          width="16.7778"
+          height="3.44444"
+          transform="matrix(1 0 0 -1 0 79)"
+          fill="white"
+          stroke="white"
+        />
+        <rect
+          x="-0.5"
+          y="-0.5"
+          width="16.7778"
+          height="3.44444"
+          transform="matrix(0 -1 -1 0 3.44446 79)"
+          fill="white"
+          stroke="white"
+        />
+        <rect
+          x="9.38889"
+          y="9.38892"
+          width="25.6667"
+          height="25.6667"
+          fill="white"
+          stroke="white"
+        />
+        <rect
+          x="44.9445"
+          y="9.38892"
+          width="25.6667"
+          height="25.6667"
+          fill="white"
+          stroke="white"
+        />
+        <rect
+          x="44.9445"
+          y="44.9445"
+          width="7.88889"
+          height="7.88889"
+          fill="white"
+          stroke="white"
+        />
+        <rect
+          x="44.9445"
+          y="62.7222"
+          width="7.88889"
+          height="7.88889"
+          fill="white"
+          stroke="white"
+        />
+        <rect
+          x="9.38889"
+          y="44.9445"
+          width="25.6667"
+          height="25.6667"
+          fill="white"
+          stroke="white"
+        />
+      </g>
+    </svg>
+  )
+}
+
+export const QRDecorationIcon_2 = ({ ...props }: IconProps) => {
+  return (
+    <svg
+      width="52"
+      height="80"
+      viewBox="0 0 52 80"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <g opacity="0.3">
+        <rect
+          x="-0.5"
+          y="0.5"
+          width="16.7778"
+          height="3.44444"
+          transform="matrix(-1 0 0 1 51 0)"
+          fill="white"
+          stroke="white"
+        />
+        <rect
+          x="0.5"
+          y="0.5"
+          width="16.7778"
+          height="3.44444"
+          transform="matrix(0 1 1 0 47.5556 0)"
+          fill="white"
+          stroke="white"
+        />
+        <rect
+          x="51.5"
+          y="79.5"
+          width="16.7778"
+          height="3.44444"
+          transform="rotate(180 51.5 79.5)"
+          fill="white"
+          stroke="white"
+        />
+        <rect
+          x="48.0556"
+          y="79.5"
+          width="16.7778"
+          height="3.44444"
+          transform="rotate(-90 48.0556 79.5)"
+          fill="white"
+          stroke="white"
+        />
+        <rect
+          x="-18.6111"
+          y="9.38892"
+          width="25.6667"
+          height="25.6667"
+          fill="white"
+          stroke="white"
+        />
+        <rect
+          x="16.9444"
+          y="9.38892"
+          width="25.6667"
+          height="25.6667"
+          fill="white"
+          stroke="white"
+        />
+        <rect
+          x="16.9444"
+          y="44.9445"
+          width="7.88889"
+          height="7.88889"
+          fill="white"
+          stroke="white"
+        />
+        <rect
+          x="16.9444"
+          y="62.7222"
+          width="7.88889"
+          height="7.88889"
+          fill="white"
+          stroke="white"
+        />
+        <rect
+          x="25.8333"
+          y="53.8333"
+          width="7.88889"
+          height="7.88889"
+          fill="white"
+          stroke="white"
+        />
+        <rect
+          x="34.7222"
+          y="44.9445"
+          width="7.88889"
+          height="7.88889"
+          fill="white"
+          stroke="white"
+        />
+        <rect
+          x="34.7222"
+          y="62.7222"
+          width="7.88889"
+          height="7.88889"
+          fill="white"
+          stroke="white"
+        />
+        <rect
+          x="-18.6111"
+          y="44.9445"
+          width="25.6667"
+          height="25.6667"
+          fill="white"
+          stroke="white"
+        />
+      </g>
     </svg>
   )
 }

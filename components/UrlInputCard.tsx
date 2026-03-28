@@ -30,7 +30,7 @@ const UrlInputCard = ({
           <div className="frame-5522__controls">
             <div className="frame-5522__input">
               <div className="frame-5522__input-icon">
-                <LinkIcon />
+                <LinkIcon className="frame-5522__input-icon-svg" />
               </div>
               <div className="frame-5522__input-divider" />
               <input
