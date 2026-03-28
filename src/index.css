@@ -11,7 +11,7 @@
   --color-neutral-300: #b3b3b3;
   --color-neutral-400: #999999;
   --color-neutral-500: #808080;
-  --color-neutral-600: #666666;
+  --color-neutral-600: #696969;
   --color-neutral-700: #4d4d4d;
   --color-neutral-800: #333333;
   --color-neutral-900: #1a1a1a;
@@ -24,7 +24,9 @@
 
   /* ── Secondary ───────────────────────────────────────────── */
   --color-secondary-100: #ddeeff;
+  --color-secondary-200: #7e7e7e;
   --color-secondary-300: #c5e2ff;
+  --color-secondary-400: #5b5b5b;
   --color-secondary-500: #8bc5ff;
   --color-secondary-700: #53a9ff;
   --color-secondary-900: #359aff;
