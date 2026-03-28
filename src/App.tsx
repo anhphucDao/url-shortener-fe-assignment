@@ -27,16 +27,14 @@ function App() {
 
     try {
       throw new Error('Backend not connected yet')
-      // setShortened(normalizedUrl)
-      // setShowPopup(true)
-      // setCopySuccess('')
     } catch (error) {
       console.error('Failed to shorten URL:', error)
       setToastError('Cannot connect to the server. Please try again.')
       if (toastTimerRef.current) clearTimeout(toastTimerRef.current)
       toastTimerRef.current = setTimeout(() => setToastError(''), TOAST_ERROR_DURATION_MS)
 
-      setShowPopup(true) //NOTE: just for demo of QR UI, will be removed when backend is ready
+      setShortened('This is a demo shortened URL')
+      setShowPopup(true) //NOTE: just for demo of QR UI
     } finally {
       setLoading(false)
     }
@@ -55,8 +53,6 @@ function App() {
   const qrCanvasRef = useRef<HTMLCanvasElement>(null)
 
   function handleDownloadQr() {
-    if (!shortened) return
-
     const canvas = qrCanvasRef.current
 
     if (!canvas) return

@@ -1,4 +1,5 @@
 import type { FormEvent } from 'react'
+import Input from './Input'
 
 type UrlFormProps = {
   url: string
@@ -39,8 +40,8 @@ function UrlForm({ url, loading, onUrlChange, onSubmit }: UrlFormProps) {
                   <path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 0 0 7.07 7.07L14 20" />
                 </svg>
               </span>
-              <input
-                className="ml-3 h-full w-full border-l border-brand-navy/20 bg-transparent pl-3 text-base font-medium text-brand-navy focus-within:ring-2 focus-within:ring-brand-navy focus:outline-none"
+              <Input
+                variant="url"
                 type="url"
                 placeholder="Paste your long URL here"
                 value={url}
