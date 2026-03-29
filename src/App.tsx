@@ -1,8 +1,19 @@
+import Navbar from './components/Navbar'
+import Title from './components/Title'
+import InputSection from './components/InputSection'
+import ShortenModal from './components/ShortenModal'
+import { useState } from 'react'
 function App() {
+  const [showModal, setShowModal] = useState(false)
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <h1 className="text-3xl font-bold text-primary-500">URL Shortener</h1>
-    </main>
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-1 flex flex-col items-center justify-center gap-8 px-4">
+        <Title />
+        <InputSection onShorten={() => setShowModal(true)} />
+      </main>
+      <ShortenModal isOpen={showModal} onClose={() => setShowModal(false)} />
+    </div>
   )
 }
 
