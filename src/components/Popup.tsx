@@ -15,7 +15,7 @@ function Popup({ show, onClose }: PopupProperties) {
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="absolute inset-0 bg-black/40 " onClick={onClose}></div>
       <div className="flex flex-col relative items-start  z-10 bg-white w-100 h-120 rounded-lg overflow-hidden ">
-        <img src="/bgPopup.png" alt="BG" className="absolute top-0 left-0  " />
+        <img src="/bgpopup.png" alt="BG" className="absolute top-0 left-0  " />
         <img src="/qrleft.png" className="absolute left-0 z-10 w-13 h-20 mt-8" />
         <img src="/qrright.png" className="absolute right-0 z-10 w-13 h-20 mt-16" />
         <div className="bg-white w-55 h-55 rounded-lg z-30 absolute top-0 left-0 mt-10 ml-22.5 shadow-lg ">
