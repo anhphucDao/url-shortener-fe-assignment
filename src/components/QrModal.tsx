@@ -1,5 +1,5 @@
 import { QRCodeCanvas } from 'qrcode.react'
-import { type RefObject } from 'react'
+import { useRef } from 'react'
 import copyIcon from '../assets/copy-outline.png'
 import downloadIcon from '../assets/file_download.svg'
 import { CircleButton, SquareButton } from './Button'
@@ -8,13 +8,28 @@ import Input from './Input'
 type QrModalProps = {
   shortened: string
   copySuccess: string
-  canvasRef: RefObject<HTMLCanvasElement | null>
   onClose: () => void
   onCopy: () => void
-  onDownload: () => void
 }
 
-function QrModal({ shortened, copySuccess, canvasRef, onClose, onCopy, onDownload }: QrModalProps) {
+function QrModal({ shortened, copySuccess, onClose, onCopy }: QrModalProps) {
+  const qrCanvasRef = useRef<HTMLCanvasElement>(null)
+
+  function handleDownloadQr() {
+    const canvas = qrCanvasRef.current
+
+    if (!canvas) return
+
+    const pngUrl = canvas.toDataURL('image/png')
+    const link = document.createElement('a')
+
+    link.href = pngUrl
+    link.download = 'shortened-url-qr.png'
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+  }
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
@@ -35,7 +50,7 @@ function QrModal({ shortened, copySuccess, canvasRef, onClose, onCopy, onDownloa
         <div className="relative flex h-[180px] items-end justify-center bg-brand-navy">
           <div className="absolute top-12 rounded-xl bg-white p-3 shadow-lg">
             <QRCodeCanvas
-              ref={canvasRef}
+              ref={qrCanvasRef}
               value={shortened}
               size={140}
               bgColor="#FFFFFF"
@@ -45,7 +60,7 @@ function QrModal({ shortened, copySuccess, canvasRef, onClose, onCopy, onDownloa
             />
             <CircleButton
               type="button"
-              onClick={onDownload}
+              onClick={handleDownloadQr}
               aria-label="Download QR code"
               className="absolute bottom-0 right-0 h-10 w-10 translate-x-1/2 translate-y-1/2 border-2 border-white bg-brand-navy text-white"
             >
