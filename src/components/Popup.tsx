@@ -43,8 +43,7 @@ function Popup({ show, onClose }: PopupProperties) {
             <Input
               value={DEFAULT_SHORTEN_LINK}
               readOnly
-              className="border border-primary-500 rounded-lg 
-              font-medium text-[16px] h-10 p-3 "
+              className="border border-primary-500 rounded-lg font-medium text-[16px] h-10 p-3 "
             />
             <Button
               Type="copy"
