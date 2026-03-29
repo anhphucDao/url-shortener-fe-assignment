@@ -8,9 +8,9 @@ function App() {
   const { isLoading, resetStates, handleShorten, setInputUrl, inputUrl, urlState, setUrlState } =
     useShortenUrl()
   const renderPopup = () => {
-    if (urlState.data)
+    if (urlState.isSuccess === false) return <ErrorPopup onReset={resetStates} />
+    if (urlState.isSuccess && urlState.data)
       return <ShortenLinkPopup data={urlState.data} onReset={resetStates} onError={setUrlState} />
-    if (urlState.error) return <ErrorPopup onReset={resetStates} />
   }
   return (
     <main className="min-h-screen flex items-center justify-center flex-col text-center">

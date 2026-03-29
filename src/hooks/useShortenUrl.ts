@@ -3,6 +3,7 @@ import { shortenUrl } from '../services/shorten-api'
 export interface UrlState {
   data: string | null
   error: string | null
+  isSuccess: boolean | null
 }
 interface useShortenUrlProps {
   isLoading: boolean
@@ -19,27 +20,46 @@ function useShortenUrl(): useShortenUrlProps {
   const [urlState, setUrlState] = useState<UrlState>({
     data: null,
     error: null,
+    isSuccess: null,
   })
   const handleShorten = async () => {
     setLoading(true)
     try {
       const shortenurl = await shortenUrl(inputUrl)
-      setUrlState({
-        data: shortenurl,
-        error: null,
-      })
-    } catch {
-      setUrlState({
-        data: null,
-        error: 'Something went wrong',
-      })
+      if (shortenurl.isSuccess) {
+        setUrlState({
+          data: shortenurl.data,
+          error: null,
+          isSuccess: true,
+        })
+      } else {
+        setUrlState({
+          data: null,
+          error: shortenurl.errormessage,
+          isSuccess: false,
+        })
+      }
+    } catch (error) {
+      if (error instanceof Error)
+        setUrlState({
+          data: null,
+          error: error.message,
+          isSuccess: false,
+        })
+      else
+        setUrlState({
+          data: null,
+          error: 'Unexpected error happen',
+          isSuccess: false,
+        })
     }
+    setLoading(false)
   }
   const resetStates = () => {
-    setLoading(false)
     setUrlState({
       data: null,
       error: null,
+      isSuccess: null,
     })
   }
   return { isLoading, handleShorten, resetStates, setInputUrl, inputUrl, urlState, setUrlState }

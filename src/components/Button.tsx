@@ -5,7 +5,7 @@ import {
   ButtonShape,
   ButtonWidth,
   ButtonSize,
-} from '../types/ButtonVariants'
+} from '../types/buttonVariants.ts'
 interface ButtonProps {
   shape?: ButtonShapeType
   width?: ButtonWidthType
@@ -15,6 +15,11 @@ interface ButtonProps {
   disabled?: boolean
   children?: React.ReactNode
   icon?: string
+}
+const sizeAttr = {
+  sm: ' h-8 text-sm',
+  md: ' h-10 text-md',
+  lg: ' h-12 text-lg',
 }
 function Button({
   children,
@@ -26,11 +31,6 @@ function Button({
   disabled = false,
   icon,
 }: ButtonProps) {
-  const sizeAttr = {
-    sm: ' h-8 text-sm',
-    md: ' h-10 text-md',
-    lg: ' h-12 text-lg',
-  }
   const BaseClassName =
     (shape === 'round' ? ' rounded-full' : ' rounded-lg') +
     (width === 'fit' ? ' w-fit' : ' w-full') +
