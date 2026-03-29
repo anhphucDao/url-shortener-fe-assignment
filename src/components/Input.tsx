@@ -13,7 +13,7 @@ function Input({ placeholder, value, readOnly, onChange, className }: InputPrope
       value={value}
       readOnly={readOnly}
       onChange={onChange}
-      className={`flex flex-1 text-primary-500 focus:outline-none transition-all ${className}`}
+      className={`flex flex-1 text-primary-500 focus:outline-none transition-all${className}`}
     />
   )
 }

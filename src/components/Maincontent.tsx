@@ -32,7 +32,7 @@ function MainContent({ onOpenPopup }: MainContentProperties) {
                   placeholder="Input the URL you want to shorten"
                   value={url}
                   onChange={e => setUrl(e.target.value)}
-                  className="py-3 placeholder-opacity-100 "
+                  className="py-3 placeholder:text-primary-100"
                 />
               </div>
               <Button
