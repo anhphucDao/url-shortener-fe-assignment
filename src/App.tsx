@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css'
 function App() {
   const [showPopup, setShowPopup] = useState(false)
   return (
-    <div className="flex  flex-col h-screen ">
+    <div className="flex flex-col h-screen ">
       <Navbar />
       <Maincontent onOpenPopup={() => setShowPopup(true)} />
       <Popup show={showPopup} onClose={() => setShowPopup(false)} />

@@ -40,8 +40,7 @@ function Button({
     circle: 'rounded-full',
   }
 
-  const finalClassName = `${baseClass} ${variantClass[variant]} ${shapeClass[shape]} 
-                          ${disabledClass} ${className}`
+  const finalClassName = `${baseClass} ${variantClass[variant]} ${shapeClass[shape]} ${disabledClass} ${className}`
   const handleLogic = async () => {
     if (Type === 'copy' && textToCopy) {
       try {

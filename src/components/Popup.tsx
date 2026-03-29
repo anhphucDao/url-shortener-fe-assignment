@@ -11,8 +11,8 @@ function Popup({ show, onClose }: PopupProperties) {
   if (!show) return null
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
-      <div className="absolute inset-0 bg-black/40 " onClick={onClose}></div>
-      <div className="flex flex-col relative items-start  z-10 bg-white w-100 h-120 rounded-lg overflow-hidden ">
+      <div className="absolute inset-0 bg-black/40" onClick={onClose}></div>
+      <div className="flex flex-col relative items-start z-10 bg-white w-100 h-120 rounded-lg overflow-hidden ">
         <img src="/bgpopup.png" alt="BG" className="absolute top-0 left-0  " />
         <img src="/qrleft.png" className="absolute left-0 z-10 w-13 h-20 mt-8" />
         <img src="/qrright.png" className="absolute right-0 z-10 w-13 h-20 mt-16" />
@@ -35,7 +35,7 @@ function Popup({ show, onClose }: PopupProperties) {
         />
 
         <div className="absolute bottom-15 w-full text-center px-8 z-20">
-          <div className=" text-[24px] font-bold text-primary-500 ">Link shortened!</div>
+          <div className=" text-[24px] font-bold text-primary-500">Link shortened!</div>
           <div className="text-[14px] font-medium text-primary-500 mx-8">
             Access the “My URL” page to view statistics on your shortened links
           </div>
@@ -43,7 +43,7 @@ function Popup({ show, onClose }: PopupProperties) {
             <Input
               value={DEFAULT_SHORTEN_LINK}
               readOnly
-              className="border border-primary-500 rounded-lg font-medium text-[16px] h-10 p-3 "
+              className="border border-primary-500 rounded-lg font-medium text-[16px] h-10 p-3"
             />
             <Button
               Type="copy"
