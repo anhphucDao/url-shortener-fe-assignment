@@ -53,7 +53,6 @@ function App() {
     }
 
     setInputError(null)
-    // const trimmedValue = urlValue.trim()
     setShortenedUrl('localhost:3000/shortened-url')
     setIsModalOpen(true)
   }
