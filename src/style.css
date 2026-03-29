@@ -1,10 +1,10 @@
-/* Dark blue: #030391 | Blue: #1488DB | White: #fefefa */
+/* Dark blue: #030391 | Blue: #1488DB */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Myriad Pro", "Arial", "Nunito";
+  font-family: 'Myriad Pro', 'Arial', 'Nunito';
 }
 
 /* NAVBAR */
@@ -182,7 +182,7 @@
   display: block;
 }
 
-/* NÚT DOWNLOAD TRÊN QR */
+/* DOWNLOAD QR */
 .download-qr {
   position: absolute;
   right: -10px;
