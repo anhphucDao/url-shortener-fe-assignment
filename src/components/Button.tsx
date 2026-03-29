@@ -21,7 +21,7 @@ function Button({
     'flex items-center justify-center font-bold transition-colors hover:cursor-pointer'
   const variantClass = {
     blue: 'bg-primary-500 text-white hover:bg-primary-100 ',
-    gray: 'bg-neutral-100  hover:bg-neutral-300 ',
+    gray: 'bg-neutral-100 text-white hover:bg-neutral-300 ',
   }
   const disabledClass = disabled ? 'cursor-not-allowed' : 'hover:cursor-pointer'
   const shapeClass = {

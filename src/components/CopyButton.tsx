@@ -1,5 +1,8 @@
 import Button from './Button'
-function CopyButton({ textToCopy }: { textToCopy: string }) {
+interface CopyButtonProperties {
+  textToCopy: string
+}
+function CopyButton({ textToCopy }: CopyButtonProperties) {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(textToCopy)
