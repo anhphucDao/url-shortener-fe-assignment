@@ -4,7 +4,6 @@ const validateUrlValue = (value: string): UrlValidationResult => {
   const trimmedValue = value.trim()
 
   if (!trimmedValue) {
-    // return UrlValidationResult.Blank
     return UrlValidationResult.Blank
   }
 
