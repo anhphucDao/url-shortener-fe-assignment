@@ -197,6 +197,57 @@
   transform: scale(0.97);
 }
 
+/* ===== LOGO LINK ===== */
+.navbar-logo-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.navbar-logo-link:hover::after {
+  content: 'This is the riel link';
+  position: absolute;
+  bottom: -28px;
+  left: 0;
+  background: #0B2878;
+  color: white;
+  font-family: 'Baloo Chettan 2', cursive;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  z-index: 20;
+}
+
+/* ===== ERROR MESSAGE ===== */
+.error-msg {
+  font-family: 'Baloo Chettan 2', cursive;
+  font-size: 13px;
+  color: #dc2626;
+  margin: 8px 0 0 0;
+  padding-left: 4px;
+}
+
+.url-input-error {
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12) !important;
+}
+
+/* ===== COPIED NOTIFICATION ===== */
+.copied-msg {
+  font-family: 'Baloo Chettan 2', cursive;
+  font-size: 13px;
+  color: #16a34a;
+  margin: 10px 0 0 0;
+  text-align: center;
+  animation: fadeUp 0.3s ease-out;
+}
+
+.copy-check {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 /* ===== MODAL ===== */
 .modal-overlay {
   position: fixed;
@@ -262,7 +313,7 @@
   bottom: -1px;
   left: 0;
   right: 0;
-  height: 40px;
+  height: 30px;
   background: white;
   clip-path: polygon(0 100%, 100% 0, 100% 100%);
 }
@@ -296,12 +347,20 @@
   padding: 8px;
 }
 
-/* Download button - right below QR code */
-.modal-download-btn {
-  position: absolute;
+/* Download button wrapper */
+.modal-download-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -24px;
+  padding: 0 32px;
+  position: relative;
   z-index: 10;
-  right: 32px;
-  top: 195px;
+  box-sizing: border-box;
+}
+
+/* Download button */
+.modal-download-btn {
   width: 40px;
   height: 40px;
   background: #0B2878;

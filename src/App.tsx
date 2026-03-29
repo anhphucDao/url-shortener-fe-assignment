@@ -8,6 +8,7 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [copied, setCopied] = useState(false)
   const [longUrl, setLongUrl] = useState('')
+  const [errorMsg, setErrorMsg] = useState('')
   const timeoutRef = useRef<TimeoutId | null>(null)
 
   useEffect(() => {
@@ -18,15 +19,36 @@ function App() {
     }
   }, [])
 
-  const handleShorten = () => {
-    if (longUrl.trim()) {
-      setIsModalOpen(true)
+  const isValidUrl = (url: string): boolean => {
+    try {
+      const parsed = new URL(url)
+      return parsed.protocol === 'http:' || parsed.protocol === 'https:'
+    } catch {
+      return false
     }
+  }
+
+  const handleShorten = () => {
+    // Empty input
+    if (!longUrl.trim()) {
+      setErrorMsg('Please enter a URL')
+      return
+    }
+
+    // Not a valid URL
+    if (!isValidUrl(longUrl.trim())) {
+      setErrorMsg('This is not a valid URL')
+      return
+    }
+
+    // Valid URL - open modal
+    setErrorMsg('')
+    setIsModalOpen(true)
   }
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText('https://short.url/abc123')
+      await navigator.clipboard.writeText('https://furl.one/myshortenlink')
       setCopied(true)
 
       if (timeoutRef.current) {
@@ -43,7 +65,15 @@ function App() {
   return (
     <div className="app-container">
       <nav className="navbar">
-        <img src="/src/assets/devcamp_logo.svg" alt="Fessior Devcamp 2026 Prometheus" className="navbar-logo-img" />
+        <a
+          href="https://fessior.com/tools/url-shortener/generate"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="navbar-logo-link"
+          title="This is the riel tool"
+        >
+          <img src="/src/assets/devcamp_logo.svg" alt="Fessior Devcamp 2026 Prometheus" className="navbar-logo-img" />
+        </a>
         <div className="navbar-user">
           <img src="/src/assets/Avatar_icon.svg" alt="User Avatar" className="user-avatar-img" />
           <div className="user-info">
@@ -69,8 +99,11 @@ function App() {
                 type="text"
                 placeholder="Input the URL you want to shorten"
                 value={longUrl}
-                onChange={(e) => setLongUrl(e.target.value)}
-                className="url-input"
+                onChange={(e) => {
+                  setLongUrl(e.target.value)
+                  if (errorMsg) setErrorMsg('')
+                }}
+                className={`url-input ${errorMsg ? 'url-input-error' : ''}`}
               />
             </div>
             <button
@@ -80,6 +113,10 @@ function App() {
               Shorten
             </button>
           </div>
+          {/* Error message */}
+          {errorMsg && (
+            <p className="error-msg">{errorMsg}</p>
+          )}
         </div>
       </main>
 
@@ -117,10 +154,12 @@ function App() {
               <img src="/src/assets/QR_code_sample(scan it pls).png" alt="QR Code" className="modal-qr-img" />
             </div>
 
-            {/* Download button - outside qr-section so it's not clipped */}
-            <a href="/src/assets/QR_code_sample(scan it pls).png" download className="modal-download-btn">
-              <img src="/src/assets/Download_icon.svg" alt="Download" width="24" height="24" />
-            </a>
+            {/* Download button wrapper */}
+            <div className="modal-download-wrapper">
+              <a href="/src/assets/QR_code_sample(scan it pls).png" download className="modal-download-btn">
+                <img src="/src/assets/Download_icon.svg" alt="Download" width="24" height="24" />
+              </a>
+            </div>
 
             {/* Info Section */}
             <div className="modal-info-section">
@@ -139,9 +178,17 @@ function App() {
                   onClick={handleCopy}
                   className={`modal-copy-btn ${copied ? 'modal-copy-btn-copied' : ''}`}
                 >
-                  <img src="/src/assets/Copy_icon.svg" alt="Copy" width="20" height="20" />
+                  {copied
+                    ? <span className="copy-check">✓</span>
+                    : <img src="/src/assets/Copy_icon.svg" alt="Copy" width="20" height="20" />
+                  }
                 </button>
               </div>
+
+              {/* Copy notification */}
+              {copied && (
+                <p className="copied-msg">Link copied to clipboard!</p>
+              )}
             </div>
           </div>
         </div>
