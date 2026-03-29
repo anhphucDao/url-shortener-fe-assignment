@@ -29,19 +29,15 @@ function App() {
   }
 
   const handleShorten = () => {
-    // Empty input
     if (!longUrl.trim()) {
       setErrorMsg('Please enter a URL')
       return
     }
 
-    // Not a valid URL
     if (!isValidUrl(longUrl.trim())) {
       setErrorMsg('This is not a valid URL')
       return
     }
-
-    // Valid URL - open modal
     setErrorMsg('')
     setIsModalOpen(true)
   }
@@ -56,7 +52,7 @@ function App() {
       }
       timeoutRef.current = setTimeout(() => {
         setCopied(false)
-      }, 3000)
+      }, 3636)
     } catch (err) {
       console.error('Failed to copy:', err)
     }
