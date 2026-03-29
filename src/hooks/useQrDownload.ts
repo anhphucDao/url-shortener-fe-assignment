@@ -20,6 +20,18 @@ const useQrDownload = () => {
 
     const downloadLink = document.createElement('a')
     downloadLink.href = new URL(imageUrl, window.location.href).href
+    // Get QR code image filename from URL or use default if not available
+    // Psudocode:
+    // const fetchImageName = async () => {
+    //   try {
+    //     const response = await fetch(imageUrl, { method: 'GET' })
+    //     const jsonResponse = await response.json()
+    //     return jsonResponse.filename || QR_DOWNLOAD_FILE_NAME
+    //   } catch (error) {
+    //     console.error('Failed to fetch QR code image name:', error)
+    //     return QR_DOWNLOAD_FILE_NAME
+    //   }
+    // }
     downloadLink.download = QR_DOWNLOAD_FILE_NAME
     document.body.appendChild(downloadLink)
     downloadLink.click()

@@ -53,6 +53,15 @@ function App() {
     }
 
     setInputError(null)
+    // call API to shorten the URL here and set the shortened URL state
+    // Psuedocode:
+    // const response = await shortenUrlApi(urlValue)
+    // if (response.success) {
+    //   setShortenedUrl(response.shortenedUrl)
+    //   setIsModalOpen(true)
+    // } else {
+    //   setInputError('Failed to shorten the URL. Please try again.')
+    // }
     setShortenedUrl('localhost:3000/shortened-url')
     setIsModalOpen(true)
   }
