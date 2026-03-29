@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;500;600;700;800&display=swap');
+
+/* --- RESET VÀ CƠ BẢN (REUSE TỪ TRƯỚC) --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Baloo Chettan 2', sans-serif;
+}
+
+body {
+  background-color: #fafbfc;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.app-container.modal-active header,
+.app-container.modal-active main {
+  pointer-events: none;
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: transparent;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0b287d;
+}
+
+.logo-icon {
+  font-size: 24px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-top {
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.logo-bottom {
+  font-size: 14px;
+  font-weight: 900;
+  color: #0066ff;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #0b287d;
+  border-radius: 30px;
+  padding: 5px 15px 5px 20px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.user-role {
+  font-size: 10px;
+  color: #666;
+}
+
+.user-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0b287d;
+}
+
+.user-avatar {
+  color: #0b287d;
+  display: flex;
+  align-items: center;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 100px;
+}
+
+.main-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #0b287d;
+  margin-bottom: 15px;
+}
+
+.main-subtitle {
+  font-size: 18px;
+  color: #2b3a67;
+  margin-bottom: 40px;
+}
+
+.shortener-card {
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(11, 40, 125, 0.08);
+  width: 100%;
+  max-width: 700px;
+}
+
+.input-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0b287d;
+  margin-bottom: 12px;
+}
+
+.input-group {
+  display: flex;
+  gap: 15px;
+}
+
+.input-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border: 1px solid #e0e4ec;
+  border-radius: 8px;
+  padding: 0 15px;
+  background-color: white;
+}
+
+.input-wrapper:focus-within {
+  border-color: #0b287d;
+}
+
+.link-icon {
+  color: #8a94a6;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 15px 0;
+  color: #333;
+}
+
+.shorten-btn {
+  background-color: #0b287d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0 35px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.shorten-btn:hover {
+  background-color: #1a3b99;
+}
+
+/* -- CSS CHO MODAL-- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+  text-align: center;
+  animation: slideUp 0.4s;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #8a94a6;
+  cursor: pointer;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qr-code {
+  margin-bottom: 25px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.modal-title-success {
+  color: #0b287d;
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.modal-subtitle-success {
+  color: #2b3a67;
+  font-size: 14px;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.copy-group {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.copy-group input {
+  flex: 1;
+  border: 1px solid #e0e4ec;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 14px;
+  background-color: #fafbfc;
+  color: #333;
+}
+
+.copy-btn {
+  background-color: #0b287d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0 15px;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  background-color: #1a3b99;
+}
+
+/* Hiệu ứng animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
