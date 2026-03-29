@@ -1,0 +1,242 @@
+/* Dark blue: #030391 | Blue: #1488DB */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Myriad Pro', 'Arial', 'Nunito';
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  background-color: #ffffff;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo img {
+  width: 36px;
+  height: 36px;
+}
+
+.logo h4 {
+  font-weight: bold;
+  color: #030391;
+}
+
+/* DESCRIPTION */
+.des p {
+  color: #030391;
+  font-size: 14px;
+}
+
+/* CONTENT */
+.content {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.content h1 {
+  font-weight: bold;
+  color: #030391;
+  margin-bottom: 20px;
+}
+
+/* FORM CONTAINER */
+.form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.2);
+  color: #030391;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.main-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-group input {
+  border: 1px solid #030391;
+  border-radius: 8px;
+  flex: 1;
+  height: 36px;
+  outline: none;
+  padding: 0 10px;
+}
+
+/* SHORTEN BUTTON */
+.shorten-btn {
+  background-color: #030391;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: not-allowed;
+  opacity: 0.6;
+  filter: grayscale(40%);
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.url-input:not(:placeholder-shown) + .shorten-btn {
+  opacity: 1;
+  filter: grayscale(0%);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* QR MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 400px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  color: #030391;
+}
+
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #030391;
+  border: none;
+  background: none;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-body h3 {
+  color: #030391;
+  margin-bottom: 10px;
+}
+
+#qrcode-container {
+  display: inline-block;
+  padding: 10px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+#qrcode img {
+  display: block;
+}
+
+/* DOWNLOAD QR */
+.download-qr {
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+
+  background-color: #030391;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s;
+  z-index: 10;
+}
+
+.download-qr:hover {
+  background-color: black;
+}
+
+.download-qr-btn i {
+  font-size: 14px;
+}
+
+.result-box {
+  width: 100%;
+  padding: 10px;
+  align-items: center;
+  color: #030391;
+}
+
+#result-url {
+  width: 80%;
+  padding: 10px;
+  border: 2px solid #030391;
+  border-radius: 8px;
+  outline: none;
+}
+
+#copy-btn-modal {
+  background-color: #030391;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+#copy-btn-modal:hover {
+  background-color: black;
+}
