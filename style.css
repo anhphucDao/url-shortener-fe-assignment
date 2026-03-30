@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+header{
+    display : flex;
+    justify-content: space-between;
+
+    padding : 20px 5% ;
+    box-shadow: 0 2px 15px #0000000d; 
+
+}
+
+.logo {
+    font-size: 22px;        
+    color: #1a35a0;         
+    font-weight: 800;   
+    letter-spacing: -1.5px; 
+}
+
+nav {
+    margin-left : auto;
+    margin-right : 20px;
+}
+
+.connect li:hover {
+    color: #1a35a0;         
+}
+
+.connect {
+    display : flex;
+    list-style: none;
+    gap : 40px;
+    padding : 20px;
+}
+
+.connect li {
+    font-size: 16px;
+    font-weight: 500;
+    color: #4b5563;
+    cursor: pointer;
+}
+
+.user {
+    display: flex;
+    flex-direction: column; 
+    border: 1px solid #d1d5db;
+    padding: 5px 25px;
+    border-radius: 50px;   
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.welcome {
+    font-size: 10px;
+    color: #9ca3af;
+}
+
+.name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.container{ 
+    max-width: 900px; 
+    margin: 80px auto; 
+    text-align: center;
+}
+
+.maintitle {
+    font-size: 55px;
+    color: #1a35a0;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 25px;
+    color: #000000;
+    margin-bottom: 50px; 
+}
+
+.shortenbox {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px; 
+    box-shadow: 10px 10px 30px rgba(102, 129, 237, 0.08); 
+    text-align: left; 
+}
+
+.input label {
+    display: block; 
+    font-weight: bold;
+    color: #1a237e;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.input-wrapper {
+    display: flex; 
+    gap: 10px;
+}
+
+.input-wrapper input, .slug-input, .domain-select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none; 
+    background-color: #fff;
+    appearance: none;
+    -webkit-appearance: none; 
+}
+
+.options-row {
+    display: flex;
+    gap: 30px;
+    margin-top: 25px;
+}
+
+.options-row .input-group {
+    flex: 1; 
+}
+
+.btn-shorten {
+    background-color: #1a35a0;
+    color: white;
+    border: none;
+    padding: 0 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    white-space: nowrap; 
+}
+
+.btn-shorten:hover {
+    background-color: #122a80; 
+}
