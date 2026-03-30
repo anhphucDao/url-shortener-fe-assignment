@@ -84,7 +84,7 @@ function QrModal({ shortened, copySuccess, onClose, onCopy }: QrModalProps) {
           </p>
 
           <div className="mt-3 flex w-full items-center gap-2">
-            <Input variant="readonly" value={shortened} readOnly />
+            <Input variant="bordered" value={shortened} readOnly />
             <Button
               variant="contained"
               shape="square"

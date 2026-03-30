@@ -8,6 +8,8 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant
   shape?: ButtonShape
   size?: ButtonSize
+  isLoading?: boolean
+  loadingText?: ReactNode
   children: ReactNode
   className?: string
 }
@@ -57,6 +59,10 @@ function Button(props: ButtonProps) {
     shape = 'circle',
     variant = 'text',
     size = 'medium',
+    isLoading = false,
+    loadingText,
+    disabled,
+    'aria-busy': ariaBusy,
     ...buttonProps
   } = props
 
@@ -64,9 +70,21 @@ function Button(props: ButtonProps) {
     <button
       type={type}
       className={`flex cursor-pointer items-center justify-center transition hover:scale-110 ${shapeClass[shape]} ${sizeClass[shape][size]} ${variantClass[variant]} ${className}`}
+      disabled={disabled || isLoading}
+      aria-busy={ariaBusy || isLoading}
       {...buttonProps}
     >
-      {children}
+      {isLoading ? (
+        <>
+          <span
+            className="h-4 w-4 animate-spin rounded-full border-2 border-current/40 border-t-current"
+            aria-hidden="true"
+          />
+          <span>{loadingText ?? children}</span>
+        </>
+      ) : (
+        children
+      )}
     </button>
   )
 }

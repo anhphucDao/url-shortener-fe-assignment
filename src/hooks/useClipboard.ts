@@ -6,19 +6,23 @@ function useClipboard(textToCopy: string) {
   const [copySuccess, setCopySuccess] = useState('')
   const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  function handleCopy() {
+  async function handleCopy() {
     if (!textToCopy) {
       return
     }
 
-    navigator.clipboard.writeText(textToCopy)
-    setCopySuccess('Copied to clipboard!')
-
-    if (copyTimerRef.current) {
-      clearTimeout(copyTimerRef.current)
+    try {
+      await navigator.clipboard.writeText(textToCopy)
+      setCopySuccess('Copied to clipboard!')
+      if (copyTimerRef.current) {
+        clearTimeout(copyTimerRef.current)
+      }
+      copyTimerRef.current = setTimeout(() => setCopySuccess(''), COPY_FEEDBACK_DURATION_MS)
+    } catch (err) {
+      setCopySuccess('Failed to copy')
+      console.error('Failed to copy text: ', err)
+      return
     }
-
-    copyTimerRef.current = setTimeout(() => setCopySuccess(''), COPY_FEEDBACK_DURATION_MS)
   }
 
   return {

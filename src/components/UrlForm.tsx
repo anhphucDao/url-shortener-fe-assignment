@@ -42,7 +42,7 @@ function UrlForm({ url, loading, onUrlChange, onSubmit }: UrlFormProps) {
                 </svg>
               </span>
               <Input
-                variant="url"
+                variant="ghost"
                 type="url"
                 placeholder="Paste your long URL here"
                 value={url}
@@ -57,16 +57,10 @@ function UrlForm({ url, loading, onUrlChange, onSubmit }: UrlFormProps) {
               size="large"
               className="w-full flex-shrink-0 gap-2 px-8 text-2xl font-bold hover:scale-105 hover:bg-brand-navy/90 focus:outline-none focus:ring-4 focus:ring-brand-navy/30 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100 disabled:hover:bg-brand-navy sm:w-auto sm:min-w-[132px] sm:text-base"
               type="submit"
-              disabled={loading}
-              aria-busy={loading}
+              isLoading={loading}
+              loadingText="Shortening..."
             >
-              {loading && (
-                <span
-                  className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white"
-                  aria-hidden="true"
-                />
-              )}
-              <span>{loading ? 'Shortening...' : 'Shorten'}</span>
+              <span>Shorten</span>
             </Button>
           </form>
         </div>
