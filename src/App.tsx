@@ -7,18 +7,24 @@ import UrlForm from './components/UrlForm'
 // hooks
 import useClipboard from './hooks/useClipboard'
 import useShortenUrl from './hooks/useShortenUrl'
+import useToast from './hooks/useToast'
 
 function App() {
   const [showPopup, setShowPopup] = useState(false)
 
-  const { url, setUrl, shortened, loading, toastError, handleShorten } = useShortenUrl()
+  const { url, setUrl, shortened, loading, handleShorten } = useShortenUrl()
   const { copySuccess, handleCopy } = useClipboard(shortened)
+  const { toastMessage, showToast } = useToast()
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const shortenedResult = await handleShorten()
+    const { shortenedUrl, errorMessage } = await handleShorten()
 
-    if (shortenedResult) {
+    if (errorMessage) {
+      showToast(errorMessage)
+    }
+
+    if (shortenedUrl) {
       setShowPopup(true)
     }
   }
@@ -39,11 +45,11 @@ function App() {
   }
 
   function renderToast() {
-    if (!toastError) {
+    if (!toastMessage) {
       return null
     }
 
-    return <Toast message={toastError} />
+    return <Toast message={toastMessage} />
   }
 
   return (

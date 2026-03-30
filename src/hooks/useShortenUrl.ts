@@ -1,41 +1,43 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 
-const TOAST_ERROR_DURATION_MS = 3000
+type ShortenResult = {
+  shortenedUrl: string
+  errorMessage: string
+}
 
 function useShortenUrl() {
   const [url, setUrl] = useState('')
   const [shortened, setShortened] = useState('')
   const [loading, setLoading] = useState(false)
-  const [toastError, setToastError] = useState('')
+  const [error, setError] = useState('')
 
-  const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-  async function handleShorten() {
+  async function handleShorten(): Promise<ShortenResult> {
     const normalizedUrl = url.trim()
 
     if (!normalizedUrl) {
-      return ''
+      return {
+        shortenedUrl: '',
+        errorMessage: '',
+      }
     }
 
     setShortened('')
     setLoading(true)
-    setToastError('')
+    setError('')
 
     try {
       throw new Error('Backend not connected yet')
-    } catch (error) {
-      console.error('Failed to shorten URL:', error)
-      setToastError('Cannot connect to the server. Please try again.')
-
-      if (toastTimerRef.current) {
-        clearTimeout(toastTimerRef.current)
-      }
-
-      toastTimerRef.current = setTimeout(() => setToastError(''), TOAST_ERROR_DURATION_MS)
+    } catch (err) {
+      console.error('Failed to shorten URL:', err)
+      const errorMessage = 'Cannot connect to the server. Please try again.'
+      setError(errorMessage)
 
       const demoShortenedUrl = 'This is a demo shortened URL'
       setShortened(demoShortenedUrl) // For demo only
-      return demoShortenedUrl
+      return {
+        shortenedUrl: demoShortenedUrl,
+        errorMessage,
+      }
     } finally {
       setLoading(false)
     }
@@ -46,8 +48,7 @@ function useShortenUrl() {
     setUrl,
     shortened,
     loading,
-    toastError,
-    toastTimerRef,
+    error,
     handleShorten,
   }
 }
