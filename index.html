@@ -1,18 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shortly - URL Shortener</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class ="logo">
+            <h1> Devcamp </h1>
+        </div>
+        <nav>
+            <ul class ="connect">
+                <li> Home </li>
+                <li> URL Shortener </li>
+                <li> QR Generator </li>
+                <li> Resources </li>
+            </ul>
+        </nav>
 
-    <title>url-shortener-fe-assignment</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+        <div class ="user">
+            <span class ="welcome"> WELCOME </span>
+            <span class ="name">HOANG</span>
+        </div>
+    </header>
+    <main class="container">
+        <div class = "title">
+            <h2 class ="maintitle"> Devcamp URL Shortener </h2>
+            <p class ="subtitle">Simplify, Organize, and Share: URL Management Made Easy</p>
+        </div>
+
+        <div class ="shortenbox">
+            <div class= "input">
+                <label>Your long URL</label>
+                <div class="input-wrapper">
+                    <input type="text" placeholder="Input the URL you want to shorten">
+                    <button class="btn-shorten">Shorten</button>
+                </div>
+            </div>
+            <div class ="options">
+                <div class ="input">
+                    <label> Domain </label>
+                    <select class ="domain-select">
+                        <option> furl.one </option>
+                    </select>
+                </div>
+                <div class="input">
+                    <label> Slug </label>
+                    <input type="text" class="slug-input" placeholder="/slug">
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
