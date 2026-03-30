@@ -6,6 +6,7 @@ import CustomLink from './CustomLink'
 import useCopy from '../hooks/useCopy'
 import { type UrlState } from '../hooks/useShortenUrl'
 import { QR_API_URL } from '../constants'
+import OverlayBackground from './OverlayBackground'
 interface ShortenLinkPopupProps {
   data: string
   onReset: () => void
@@ -18,20 +19,14 @@ function ShortenLinkPopup({ data, onReset, onError }: ShortenLinkPopupProps) {
     try {
       await handleCopy(data)
     } catch {
-      onError({
-        data: null,
-        error: 'Something went wrong',
-      })
+      onError({ data: null, error: 'Failed to copy', isSuccess: false })
     }
   }
   const renderCopyIcon = () => {
     return isCopied ? './tick.svg' : './copy.svg'
   }
   return (
-    <div
-      className="flex items-center justify-center flex-col min-h-screen min-w-screen absolute z-10  bg-primary-100/50"
-      onClick={onReset}
-    >
+    <OverlayBackground onReset={onReset}>
       <div
         className=" bg-white py-8 px-10 rounded-xl flex flex-col items-center overflow-hidden justify-center relative max-w-100"
         onClick={stopPropagation}
@@ -75,7 +70,7 @@ function ShortenLinkPopup({ data, onReset, onError }: ShortenLinkPopupProps) {
           />
         </div>
       </div>
-    </div>
+    </OverlayBackground>
   )
 }
 

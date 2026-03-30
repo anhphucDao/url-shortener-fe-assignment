@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { shortenUrl } from '../services/shorten-api'
+import { ERROR_MESSAGE } from '../constants'
 export interface UrlState {
   data: string | null
   error: string | null
@@ -26,16 +27,17 @@ function useShortenUrl(): useShortenUrlProps {
     setLoading(true)
     try {
       const shortenurl = await shortenUrl(inputUrl)
-      if (shortenurl.isSuccess) {
+      const { isSuccess, data, errorMessage } = shortenurl
+      if (isSuccess)
         setUrlState({
-          data: shortenurl.data,
+          data: data,
           error: null,
           isSuccess: true,
         })
-      } else {
+      else {
         setUrlState({
           data: null,
-          error: shortenurl.errormessage,
+          error: errorMessage,
           isSuccess: false,
         })
       }
@@ -49,7 +51,7 @@ function useShortenUrl(): useShortenUrlProps {
       else
         setUrlState({
           data: null,
-          error: 'Unexpected error happen',
+          error: ERROR_MESSAGE,
           isSuccess: false,
         })
     }

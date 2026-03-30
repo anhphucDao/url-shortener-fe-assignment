@@ -1,14 +1,12 @@
 import { stopPropagation } from '../utils/events'
 import Button from './Button'
+import OverlayBackground from './OverlayBackground'
 interface ErrorPopupProps {
   onReset: () => void
 }
 function ErrorPopup({ onReset }: ErrorPopupProps) {
   return (
-    <div
-      className="flex items-center justify-center flex-col min-h-screen min-w-screen absolute z-10 bg-primary-100/50"
-      onClick={onReset}
-    >
+    <OverlayBackground onReset={onReset}>
       <div
         className="bg-white py-5 px-10 rounded-xl flex flex-col items-center justify-center"
         onClick={stopPropagation}
@@ -24,7 +22,7 @@ function ErrorPopup({ onReset }: ErrorPopupProps) {
           Close
         </Button>
       </div>
-    </div>
+    </OverlayBackground>
   )
 }
 

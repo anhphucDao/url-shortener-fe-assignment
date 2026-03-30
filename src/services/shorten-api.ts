@@ -1,32 +1,29 @@
 import axios from 'axios'
-
+import { buildBaseResponse } from '../utils/response'
+import { ERROR_MESSAGE } from '../constants'
 export interface ShortenerResponse {
-  shorturl?: string
-  errormessage?: string
+  shortUrl?: string
+  errorMessage?: string
 }
 export interface ShortenerProps {
   isSuccess: boolean
   data: string | null
-  errormessage: string | null
+  errorMessage: string | null
 }
 export const shortenUrl = async (url: string): Promise<ShortenerProps> => {
   try {
     const response = await axios.get<ShortenerResponse>(
       `/api/create.php?format=json&url=${encodeURIComponent(url)}`
     )
-    if (response.data.errormessage) {
-      return { isSuccess: false, data: null, errormessage: response.data.errormessage }
+    const { shortUrl, errorMessage } = response.data
+    if (errorMessage) {
+      return buildBaseResponse(false, null, errorMessage)
     }
-    if (response.data.shorturl)
-      return { isSuccess: true, data: response.data.shorturl, errormessage: null }
-    return { isSuccess: false, data: null, errormessage: 'Unexpected error occurred' }
+    if (shortUrl) return buildBaseResponse(true, shortUrl, null)
+    return buildBaseResponse(false, null, ERROR_MESSAGE)
   } catch (error) {
     if (error instanceof Error) {
-      return {
-        isSuccess: false,
-        data: null,
-        errormessage: error.message || 'Unexpected error occurred',
-      }
-    } else return { isSuccess: false, data: null, errormessage: 'Unexpected error occurred' }
+      return buildBaseResponse(false, null, error.message || ERROR_MESSAGE)
+    } else return buildBaseResponse(false, null, ERROR_MESSAGE)
   }
 }

@@ -6,7 +6,7 @@ interface UrlModalProps {
   inputUrl: string
 }
 function UrlModal({ isLoading, onShorten, setInputUrl, inputUrl }: UrlModalProps) {
-  const isDisabled = isLoading || inputUrl == ''
+  const isDisabled = isLoading || inputUrl === ''
   return (
     <>
       <div className=" flex flex-col md:flex-row items-start bg-white shadow-[0_0_30px] shadow-primary-100 /50 rounded-md w-[90%] md:w-[42%] p-5  mt-8 mb-2 md:min-w-187 text-start gap-5">
