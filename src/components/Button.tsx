@@ -1,79 +1,76 @@
 import { memo, type ButtonHTMLAttributes, type ReactNode } from 'react'
 
-type CircleButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonShape = 'circle' | 'square' | 'rectangle' | 'pill'
+type ButtonVariant = 'text' | 'contained' | 'outlined'
+type ButtonSize = 'small' | 'medium' | 'large'
+
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: ButtonVariant
+  shape?: ButtonShape
+  size?: ButtonSize
   children: ReactNode
   className?: string
 }
 
-type SquareButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  children: ReactNode
-  className?: string
-}
+function Button(props: ButtonProps) {
+  const shapeClass = {
+    circle: 'rounded-full',
+    square: 'rounded-lg',
+    rectangle: 'rounded-xl',
+    pill: 'rounded-full',
+  }
 
-type ProfileButtonProps = {
-  profileOpen: boolean
-  onToggleProfile: () => void
-  profilePic: string
-  profileName: string
-}
+  const variantClass = {
+    text: 'bg-transparent text-current',
+    contained: 'bg-brand-navy text-white',
+    outlined: 'border border-brand-navy/30 bg-transparent text-brand-navy',
+  }
 
-function CircleButton({ children, className = '', type = 'button', ...props }: CircleButtonProps) {
+  const sizeClass = {
+    circle: {
+      small: 'h-8 w-8',
+      medium: 'h-10 w-10',
+      large: 'h-12 w-12',
+    },
+    square: {
+      small: 'h-8 w-8',
+      medium: 'h-10 w-10',
+      large: 'h-12 w-12',
+    },
+    rectangle: {
+      small: 'h-10',
+      medium: 'h-12',
+      large: 'h-14',
+    },
+    pill: {
+      small: 'h-10',
+      medium: 'h-11',
+      large: 'h-12',
+    },
+  }
+
+  //default button
+  const {
+    children,
+    className = '',
+    type = 'button',
+    shape = 'circle',
+    variant = 'text',
+    size = 'medium',
+    ...buttonProps
+  } = props
+
   return (
     <button
       type={type}
-      className={`flex cursor-pointer items-center justify-center rounded-full transition hover:scale-110 ${className}`}
-      {...props}
+      className={`flex cursor-pointer items-center justify-center transition hover:scale-110 ${shapeClass[shape]} ${sizeClass[shape][size]} ${variantClass[variant]} ${className}`}
+      {...buttonProps}
     >
       {children}
     </button>
   )
 }
 
-function SquareButton({ children, className = '', type = 'button', ...props }: SquareButtonProps) {
-  return (
-    <button
-      type={type}
-      className={`flex cursor-pointer items-center justify-center rounded-lg transition hover:scale-110 ${className}`}
-      {...props}
-    >
-      {children}
-    </button>
-  )
-}
+const MemoButton = memo(Button)
 
-function ProfileButton({
-  profileOpen,
-  onToggleProfile,
-  profilePic,
-  profileName,
-}: ProfileButtonProps) {
-  return (
-    <button
-      type="button"
-      onClick={onToggleProfile}
-      className="flex cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-brand-navy/40 bg-brand-navy/10 pr-5 text-base font-semibold text-brand-navy transition-transform duration-200 hover:scale-110"
-      aria-haspopup="menu"
-      aria-expanded={profileOpen}
-      aria-label="Open profile menu"
-    >
-      <div className="h-12 w-12 flex-shrink-0 overflow-hidden rounded-full">
-        <img src={profilePic} className="h-full w-full object-cover" alt="Profile avatar" />
-      </div>
-
-      <span className="ml-3 tracking-[0.08em]">{profileName}</span>
-      <svg
-        className={`h-4 w-4 transition-transform duration-200 ${profileOpen ? 'rotate-180' : ''}`}
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-      </svg>
-    </button>
-  )
-}
-
-const MemoProfileButton = memo(ProfileButton)
-
-export { CircleButton, SquareButton, MemoProfileButton as ProfileButton }
+export { MemoButton as Button }

@@ -1,8 +1,8 @@
 import { QRCodeCanvas } from 'qrcode.react'
 import { useRef } from 'react'
-import copyIcon from '../assets/copy-outline.png'
+import copyIcon from '../assets/copy_outline.png'
 import downloadIcon from '../assets/file_download.svg'
-import { CircleButton, SquareButton } from './Button'
+import { Button } from './Button'
 import Input from './Input'
 
 type QrModalProps = {
@@ -39,13 +39,16 @@ function QrModal({ shortened, copySuccess, onClose, onCopy }: QrModalProps) {
         className="relative w-[400px] overflow-hidden rounded-2xl bg-white shadow-2xl"
         onClick={e => e.stopPropagation()}
       >
-        <CircleButton
+        <Button
+          variant="text"
+          shape="circle"
+          size="small"
           onClick={onClose}
           aria-label="Close popup"
-          className="absolute right-3 top-3 z-10 h-8 w-8 bg-white text-brand-navy/70 shadow hover:text-brand-navy"
+          className="absolute right-3 top-3 z-10 bg-white text-brand-navy/70 shadow hover:text-brand-navy"
         >
           ✕
-        </CircleButton>
+        </Button>
 
         <div className="relative flex h-[180px] items-end justify-center bg-brand-navy">
           <div className="absolute top-12 rounded-xl bg-white p-3 shadow-lg">
@@ -58,14 +61,17 @@ function QrModal({ shortened, copySuccess, onClose, onCopy }: QrModalProps) {
               level="M"
               className="h-[140px] w-[140px]"
             />
-            <CircleButton
+            <Button
+              variant="contained"
+              shape="circle"
+              size="medium"
               type="button"
               onClick={handleDownloadQr}
               aria-label="Download QR code"
-              className="absolute bottom-0 right-0 h-10 w-10 translate-x-1/2 translate-y-1/2 border-2 border-white bg-brand-navy text-white"
+              className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 border-2 border-white"
             >
               <img src={downloadIcon} alt="Download" className="h-4 w-4 invert" />
-            </CircleButton>
+            </Button>
           </div>
         </div>
 
@@ -79,13 +85,16 @@ function QrModal({ shortened, copySuccess, onClose, onCopy }: QrModalProps) {
 
           <div className="mt-3 flex w-full items-center gap-2">
             <Input variant="readonly" value={shortened} readOnly />
-            <SquareButton
+            <Button
+              variant="contained"
+              shape="square"
+              size="medium"
               onClick={onCopy}
               aria-label="Copy shortened URL"
-              className="h-10 w-10 bg-brand-navy text-white"
+              className=""
             >
               <img src={copyIcon} alt="Copy" className="h-4 w-4 invert" />
-            </SquareButton>
+            </Button>
           </div>
 
           {copySuccess && (

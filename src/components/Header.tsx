@@ -2,7 +2,7 @@ import { useState, memo } from 'react'
 import devcampLogo from '../assets/devcamp_logo_navy 1.svg'
 import githubIcon from '../assets/github_icon.svg'
 import profilePic from '../assets/profile_pic.jpg'
-import { ProfileButton } from './Button'
+import ProfileButton from './ProfileButton'
 
 function Header() {
   const [profileOpen, setProfileOpen] = useState(false)

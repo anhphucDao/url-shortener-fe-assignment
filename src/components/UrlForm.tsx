@@ -1,4 +1,5 @@
 import type { FormEvent } from 'react'
+import { Button } from './Button'
 import Input from './Input'
 
 type UrlFormProps = {
@@ -50,8 +51,11 @@ function UrlForm({ url, loading, onUrlChange, onSubmit }: UrlFormProps) {
               />
             </div>
 
-            <button
-              className="cursor-pointer flex h-14 w-full flex-shrink-0 items-center justify-center gap-2 rounded-xl bg-brand-navy px-8 text-2xl font-bold text-white transition hover:scale-105 hover:bg-brand-navy/90 focus:outline-none focus:ring-4 focus:ring-brand-navy/30 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100 disabled:hover:bg-brand-navy sm:w-auto sm:min-w-[132px] sm:text-base"
+            <Button
+              variant="contained"
+              shape="rectangle"
+              size="large"
+              className="w-full flex-shrink-0 gap-2 px-8 text-2xl font-bold hover:scale-105 hover:bg-brand-navy/90 focus:outline-none focus:ring-4 focus:ring-brand-navy/30 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100 disabled:hover:bg-brand-navy sm:w-auto sm:min-w-[132px] sm:text-base"
               type="submit"
               disabled={loading}
               aria-busy={loading}
@@ -63,7 +67,7 @@ function UrlForm({ url, loading, onUrlChange, onSubmit }: UrlFormProps) {
                 />
               )}
               <span>{loading ? 'Shortening...' : 'Shorten'}</span>
-            </button>
+            </Button>
           </form>
         </div>
       </div>
