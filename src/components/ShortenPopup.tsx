@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 interface ShortenPopupProps {
   isOpen: boolean
   onClose: () => void
@@ -15,11 +17,15 @@ export function ShortenPopup({
   downloadIcon = '/assets/DowVector.svg',
   copyIcon = '/assets/CopyVector.svg',
 }: ShortenPopupProps) {
+  const [copied, setCopied] = useState(false)
+
   if (!isOpen) return null
 
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(shortenedUrl)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000) // Reset after 2 seconds
     } catch (err) {
       console.error('Failed to copy:', err)
     }
@@ -27,12 +33,22 @@ export function ShortenPopup({
 
   const handleDownload = () => {
     try {
-      const link = document.createElement('a')
-      link.href = qrCode
-      link.download = 'qrcode.svg'
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
+      // Handle both data URLs and regular URLs
+      const filename = 'qrcode.svg'
+
+      if (qrCode.startsWith('data:')) {
+        // For data URLs, create download link
+        const link = document.createElement('a')
+        link.href = qrCode
+        link.download = filename
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+      } else {
+        // For regular URLs, open in new tab
+        window.open(qrCode, '_blank')
+      }
+
       console.log('QR code downloaded successfully')
     } catch (err) {
       console.error('Failed to download QR code:', err)
@@ -61,7 +77,7 @@ export function ShortenPopup({
             <div className="absolute inset-0 bg-blue-900 [clip-path:polygon(0_0,100%_0,100%_70%,0_100%)]"></div>
 
             <div className="w-40 h-40 absolute left-1/2 top-[70%] -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg p-2 shadow-lg">
-              <img src={qrCode} className="w-full h-full" />
+              <img src={qrCode} className="w-full h-full" alt="QR Code" />
               <button
                 onClick={handleDownload}
                 className="absolute -bottom-3 -right-3 w-10 h-10 bg-primary-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-primary-600 transition-colors"
@@ -87,9 +103,24 @@ export function ShortenPopup({
               </div>
               <button
                 onClick={handleCopy}
-                className="bg-primary-500 text-white p-3 rounded-lg hover:bg-primary-600 transition-colors"
+                className={`p-3 rounded-lg transition-colors ${
+                  copied
+                    ? 'bg-green-500 text-white'
+                    : 'bg-primary-500 text-white hover:bg-primary-600'
+                }`}
               >
-                <img src={copyIcon} alt="Copy" className="w-5 h-5" />
+                {copied ? (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                ) : (
+                  <img src={copyIcon} alt="Copy" className="w-5 h-5" />
+                )}
               </button>
             </div>
           </div>

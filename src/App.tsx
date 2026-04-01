@@ -1,12 +1,26 @@
 import { useState } from 'react'
 import { Header, UrlShortenerForm, ShortenPopup } from './components'
 
+interface ShortenedData {
+  shortUrl: string
+  qrCode: string
+}
+
 function App() {
   const [showPopup, setShowPopup] = useState(false)
+  const [shortenedData, setShortenedData] = useState<ShortenedData | null>(null)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleShorten = () => {
-    console.log('Shorten button clicked!')
+  const handleShorten = (data: ShortenedData) => {
+    setShortenedData(data)
     setShowPopup(true)
+    setError(null)
+  }
+
+  const handleError = (errorMessage: string) => {
+    setError(errorMessage)
+    // Show error for 3 seconds
+    setTimeout(() => setError(null), 3000)
   }
 
   const handleClosePopup = () => {
@@ -24,10 +38,22 @@ function App() {
           Simplify, Organize, and Share: URL Management Made Easy
         </p>
 
-        <UrlShortenerForm onShorten={handleShorten} />
+        {/* Error Message */}
+        {error && (
+          <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+            {error}
+          </div>
+        )}
+
+        <UrlShortenerForm onShorten={handleShorten} onError={handleError} />
       </main>
 
-      <ShortenPopup isOpen={showPopup} onClose={handleClosePopup} />
+      <ShortenPopup
+        isOpen={showPopup}
+        onClose={handleClosePopup}
+        shortenedUrl={shortenedData?.shortUrl}
+        qrCode={shortenedData?.qrCode}
+      />
     </>
   )
 }
