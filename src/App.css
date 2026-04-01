@@ -1,0 +1,191 @@
+:root {
+  --primary-blue: #1e293b;
+  --bg-input: #f8fafc;
+  --border-color: #e2e8f0;
+  --color-primary-500: #0b2878;
+  --color-brand-gray: #656c73;
+  --color-secondary-100: #ddeeff;
+}
+
+.root {
+  margin: auto;
+  min-height: auto;
+  padding: 0 3%;
+  margin: 0;
+  box-sizing: border-box;
+  perspective: 1000px;
+}
+
+/*______________________Phần header_________________________*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 24px 0;
+  margin: 0;
+}
+
+/*_______________Phần logo (HEADER)_____________________*/
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 60px;
+  width: auto;
+}
+
+/*___________________User profile (HEADER)_______________*/
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  box-sizing: border-box;
+  border: 1px solid var(--color-primary-500); 
+  padding: 0 40px 0 0; 
+  border-radius: 50px;
+  gap: 10px;
+  background-color: white;
+}
+
+.user-avatar {
+  width: 40px; 
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
+  margin: -1px 0 -1px -1px;
+  position: relative;
+  z-index: 1;
+}
+
+.user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+
+.user-label {
+  font-size: 11px;
+  color: var(--color-brand-gray);
+  line-height: 1;
+}
+
+.user-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-brand-gray);
+  line-height: 1;
+}
+
+/*________________________BODY CONTENT___________________*/
+.main-content {
+  width: 100%;
+  max-width: none;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--color-primary-500);
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-primary-500);
+  margin-bottom: 48px;
+}
+
+/*___________________Phần hộp ở giữa màn hình___________________*/
+.shorten-card {
+  background: white;
+  padding: 20px 30px 0;
+  border-radius: 8px;
+  box-shadow: 0 0 30px 10px rgb(220, 220, 230);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  border: 1px solid #f1f5f9;
+  max-width: 55%;
+  margin: 0 auto;
+}
+
+.input-label {
+  display: block;
+  text-align: left;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-primary-500);
+  margin-bottom: 12px;
+}
+
+.input-group {
+  display: flex;
+  gap: 12px;
+}
+
+.input-wrapper {
+  position: relative;
+  flex-grow: 1;
+}
+
+.icon-link {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 20px;
+  height: 20px;
+  color: var(--color-primary-500);
+}
+
+.url-input {
+  width: 100%;
+  height: 15%;
+  padding: 16px 16px 16px 44px;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.url-input:focus {
+  border-color: #3b82f6;
+  background-color: #fff;
+}
+
+/*___________________Shorten button__________________*/
+.btn-shorten {
+  background-color: var(--color-primary-500);
+  color: white;
+  padding: 0 32px;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: smaller;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  height: 33px;
+}
+
+.btn-shorten:hover {
+  opacity: 0.9;
+}
