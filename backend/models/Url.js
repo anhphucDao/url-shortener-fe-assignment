@@ -87,8 +87,9 @@ urlSchema.pre('save', async function (next) {
     }
 
     this.shortCode = code
-    this.shortUrl = `http://localhost:5001/${code}`
-    console.log(`Generated short URL: ${this.shortUrl}`) // Debug log
+    const baseUrl = process.env.BASE_URL || 'http://localhost:5001'
+    this.shortUrl = `${baseUrl}/${code}`
+    console.log(`Generated short URL: ${this.shortUrl} (BASE_URL: ${baseUrl})`) // Debug log
   }
   next()
 })

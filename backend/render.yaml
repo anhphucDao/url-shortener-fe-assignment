@@ -1,3 +1,6 @@
+# Render configuration for URL Shortener Backend
+# This file is used to deploy the backend to Render
+
 services:
   # Backend Web Service
   - type: web
@@ -9,14 +12,14 @@ services:
       - key: NODE_ENV
         value: production
       - key: MONGO_URI
-        sync: false  # Set manually in Render dashboard - NEVER commit secrets!
+        sync: false # Set manually in Render dashboard - NEVER commit secrets!
       - key: PORT
-        value: 10000  # Render provides this automatically
+        value: 10000 # Render provides this automatically
       - key: BASE_URL
-        sync: false  # Set to Render URL after deployment
+        sync: false # Set to Render URL after deployment
       - key: RATE_LIMIT_WINDOW_MS
         value: 900000
       - key: RATE_LIMIT_MAX_REQUESTS
         value: 100
     healthCheckPath: /health
-    autoDeploy: false  # Manual deploy to prevent accidental exposure
+    autoDeploy: false # Manual deploy to prevent accidental exposure
