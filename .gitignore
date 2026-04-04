@@ -13,8 +13,8 @@ dist-ssr
 *.local
 
 # Environment variables
-.frontend/env
-.backend/env
+backend/.env
+frontend/.env
 .env.local
 .env.production
 backend/DEPLOY.md
@@ -29,3 +29,5 @@ backend/DEPLOY.md
 *.njsproj
 *.sln
 *.sw?
+
+frontend/VERCEL_DEPLOY.md
