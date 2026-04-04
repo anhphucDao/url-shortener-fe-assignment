@@ -5,6 +5,7 @@ const helmet = require('helmet')
 const rateLimit = require('express-rate-limit')
 require('dotenv').config()
 
+const connectDB = require('./config/db')
 const urlRoutes = require('./routes/urlRoutes')
 const { errorHandler } = require('./middleware/errorHandler')
 
@@ -13,20 +14,17 @@ const PORT = process.env.PORT || 5000
 
 // Rate limiting
 const limiter = rateLimit({
-  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 15 * 60 * 1000, // 15 minutes
-  max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS) || 100, // limit each IP to 100 requests per windowMs
+  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 15 * 60 * 1000,
+  max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS) || 100,
   message: 'Too many requests from this IP, please try again later.',
 })
 
-// Middleware
+// Middleware - CORS allow all for production
 app.use(helmet())
 app.use(limiter)
 app.use(
   cors({
-    origin:
-      process.env.NODE_ENV === 'production'
-        ? ['http://localhost:5173', 'http://localhost:3000']
-        : true,
+    origin: true,
     credentials: true,
   })
 )
@@ -73,26 +71,21 @@ app.get('/health', (req, res) => {
 // Error handling middleware
 app.use(errorHandler)
 
-// 404 handler (must be last)
+// 404 handler
 app.use('*', (req, res) => {
   res.status(404).json({ error: 'Route not found' })
 })
 
-// Database connection
-mongoose
-  .connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/url-shortener', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+// Connect to database and start server
+connectDB()
   .then(() => {
-    console.log('✅ Connected to MongoDB')
     app.listen(PORT, () => {
       console.log(`🚀 Server running on port ${PORT}`)
       console.log(`📊 Health check: http://localhost:${PORT}/health`)
     })
   })
   .catch(error => {
-    console.error('❌ MongoDB connection error:', error)
+    console.error('❌ Failed to start server:', error.message)
     process.exit(1)
   })
 
