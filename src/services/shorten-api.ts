@@ -2,7 +2,7 @@ import axios from 'axios'
 import { buildBaseResponse } from '../utils/response'
 import { ERROR_MESSAGE } from '../constants'
 export interface ShortenerResponse {
-  shortUrl?: string
+  shorturl?: string
   errorMessage?: string
 }
 export interface ShortenerProps {
@@ -15,11 +15,12 @@ export const shortenUrl = async (url: string): Promise<ShortenerProps> => {
     const response = await axios.get<ShortenerResponse>(
       `/api/create.php?format=json&url=${encodeURIComponent(url)}`
     )
-    const { shortUrl, errorMessage } = response.data
+    console.log(response.data)
+    const { shorturl, errorMessage } = response.data
     if (errorMessage) {
       return buildBaseResponse(false, null, errorMessage)
     }
-    if (shortUrl) return buildBaseResponse(true, shortUrl, null)
+    if (shorturl) return buildBaseResponse(true, shorturl, null)
     return buildBaseResponse(false, null, ERROR_MESSAGE)
   } catch (error) {
     if (error instanceof Error) {
