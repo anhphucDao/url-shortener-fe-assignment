@@ -13,7 +13,8 @@ dist-ssr
 *.local
 
 # Environment variables
-.env
+.frontend/env
+.backend/env
 .env.local
 .env.production
 backend/DEPLOY.md
