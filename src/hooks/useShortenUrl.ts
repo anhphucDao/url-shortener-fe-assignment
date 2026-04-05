@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { api, API_URL } from '../api'
 
 type ShortenResult = {
   shortenedUrl: string
@@ -26,16 +27,26 @@ function useShortenUrl() {
     setError('')
 
     try {
-      throw new Error('Backend not connected yet')
-    } catch (err) {
+      const response = await api.post('/api/urls', {
+        originalUrl: normalizedUrl,
+      })
+
+      const shortenedUrl = `${API_URL}/${response.shortCode}`
+      setShortened(shortenedUrl)
+
+      return {
+        shortenedUrl,
+        errorMessage: '',
+      }
+    } catch (err: unknown) {
       console.error('Failed to shorten URL:', err)
-      const errorMessage = 'Cannot connect to the server. Please try again.'
+      const errorMessage =
+        err instanceof Error ? err.message : 'Cannot connect to the server. Please try again.'
+
       setError(errorMessage)
 
-      const demoShortenedUrl = 'This is a demo shortened URL'
-      setShortened(demoShortenedUrl) // For demo only
       return {
-        shortenedUrl: demoShortenedUrl,
+        shortenedUrl: '',
         errorMessage,
       }
     } finally {
