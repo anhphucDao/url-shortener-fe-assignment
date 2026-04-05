@@ -1,0 +1,39 @@
+name: Front-End CI
+
+on:
+  pull-request:
+  push:
+    - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      use: actions/checkout@v4
+
+    - name: Setup Node
+      use:  actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: Install dependencies
+      use: npm install
+
+    - name: Check TypeScript
+      run: npm run tsc --noEmit
+
+    - name: Build project
+      run: npm run build
+    
+    # - name: Deploy to Vercel
+    #   uses: amondnet/vercel-deploy@v2
+    #   with:
+    #     vercel-token: ${{ secrets.VERCEL_TOKEN }}
+
+    #     vercel-org-id: ${{ secrets.ORG_ID }}
+
+    #     vercel-project-id: ${{ secrets.PROJECT_ID }}
+
+    #     vercel-args: '--prod'

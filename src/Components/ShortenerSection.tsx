@@ -1,34 +1,44 @@
 import { Link2, X, Copy, ArrowDownToLine } from 'lucide-react'
 import Loading from './Loading.tsx'
+import { QRCodeSVG } from 'qrcode.react'
 import { useUrlShortener } from '../Hooks/useUrlShortener.ts'
+import isURL from 'validator/lib/isURL'
 import Input from './Input.tsx'
-import { DELAY_TIME, DEMO_URL, DEMO_QR_CODE } from '../Constants/DemoConst.ts'
+
+const API_BASE = import.meta.env.API_BASE || 'http://localhost:3000'
 
 export default function ShortenerSection() {
   const {
     inputUrl,
     resultUrl,
-    qrCode,
     isSubmited,
     copyStatus,
     pasteStatus,
     setResultUrl,
-    setQrCode,
     setInputUrl,
     setIsSubmited,
     setCopyStatus,
     setPasteStatus,
   } = useUrlShortener()
 
-  const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
   const handleSubmit = async () => {
     try {
-      if (inputUrl === '') return
+      if (!isURL(inputUrl, { protocols: ['http', 'https'], require_protocol: true })) return
       setIsSubmited(true)
       setPasteStatus('')
-      await delay(DELAY_TIME)
-      setResultUrl(DEMO_URL)
-      setQrCode(DEMO_QR_CODE)
+      const response = await fetch(`${API_BASE}/shorten`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          longUrl: inputUrl,
+        }),
+      })
+      const result = await response.json()
+      const { slug } = result
+      const shortenedUrl = `${API_BASE}/${slug}`
+      setResultUrl(shortenedUrl)
     } catch (e) {
       console.log('Error: ', e)
     }
@@ -52,13 +62,12 @@ export default function ShortenerSection() {
   const handleQuit = () => {
     setIsSubmited(false)
     setInputUrl('')
-    setQrCode('')
     setCopyStatus('')
   }
 
   const modalContent = isSubmited ? (
     <div className="bg-shade-black/30 z-30 fixed inset-0 flex items-center justify-center">
-      {qrCode !== '' && resultUrl !== '' ? (
+      {resultUrl !== '' ? (
         <div className="relative w-100 h-117 z-31 bg-white rounded-card">
           <div className="w-100 h-49 bg-primary-500 rounded-t-card clip-banner" />
           <X
@@ -66,9 +75,11 @@ export default function ShortenerSection() {
             onClick={() => handleQuit()}
           />
 
-          <div className="absolute z-32 w-55 p-3 aspect-square rounded-card bg-white shadow-md shadow-shade-black/20 top-10 justify-self-center">
-            <img className="object-contain rounded-card" src={qrCode} alt="QR Code" />
-            <div className="absolute flex justify-center items-center -bottom-4 -right-4 bg-primary-500 w-10 h-10 rounded-full text-white hover:cursor-pointer border-2 hover:border-primary-500">
+          <div className="absolute z-32 w-55 p-3 rounded-card bg-white shadow-md shadow-shade-black/20 top-10 justify-self-center">
+            <div className="w-full mx-auto">
+              <QRCodeSVG value={resultUrl} className="w-full h-auto" size={512} />
+            </div>
+            <div className="absolute flex justify-center items-center -bottom-6 -right-6 bg-primary-500 w-10 h-10 rounded-full text-white hover:cursor-pointer border-2 hover:border-primary-500">
               <ArrowDownToLine />
             </div>
           </div>
