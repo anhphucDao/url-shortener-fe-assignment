@@ -5,7 +5,7 @@ import { useUrlShortener } from '../Hooks/useUrlShortener.ts'
 import { isURL } from 'validator'
 import Input from './Input.tsx'
 
-const API_BASE = import.meta.env.API_BASE || 'http://localhost:3000'
+const VITE_API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:3000'
 
 export default function ShortenerSection() {
   const {
@@ -26,7 +26,8 @@ export default function ShortenerSection() {
       if (!isURL(inputUrl, { protocols: ['http', 'https'], require_protocol: true })) return
       setIsSubmited(true)
       setPasteStatus('')
-      const response = await fetch(`${API_BASE}/shorten`, {
+      console.log(`${VITE_API_BASE}/shorten`)
+      const response = await fetch(`${VITE_API_BASE}/shorten`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,7 +38,7 @@ export default function ShortenerSection() {
       })
       const result = await response.json()
       const { slug } = result
-      const shortenedUrl = `${API_BASE}/${slug}`
+      const shortenedUrl = `${VITE_API_BASE}/${slug}`
       setResultUrl(shortenedUrl)
     } catch (e) {
       console.log('Error: ', e)
