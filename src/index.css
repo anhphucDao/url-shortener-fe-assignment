@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400..800&display=swap'); /*font*/
+
 @import 'tailwindcss';
 
 @theme {
@@ -77,4 +79,21 @@
   --color-brand-navy: #0b2878;
   --color-brand-pink: #ff2d55;
   --color-brand-gray: #656c73;
+}
+
+/* Áp dụng font-family toàn cục */
+body {
+  font-family: var(--font-sans);
+}
+
+/* Các thẻ tiêu đề thường có font riêng, nên ép chúng dùng chung nếu muốn */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p {
+  font-family: var(--font-sans);
 }
