@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;    
   min-height: 100vh;      
-  background-color: #f8fafc; 
+  background-color: whitesmoke; 
   padding: 20px;
 }
 
@@ -23,7 +23,7 @@
   background-color: white;
   padding: 8px 16px;
   border-radius: 50px; 
-  border: 1px solid #e2e8f0;
+  border: 1px solid whitesmoke; 
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
@@ -115,14 +115,14 @@ header {
   left: 15px;
   top: 50%;
   transform: translateY(-50%); 
-  color: #94a3b8;
+  color: grey;
 }
 
 .url-input{
   width: 100%;
   padding: 15px 15px 15px 45px; 
   border-radius: 12px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid white;
   font-size: 14px;
   transition: border-color 0.3s;
 }
@@ -137,7 +137,7 @@ header {
 }
 
 .submit-btn:hover {
-  background-color: red; 
+  background-color: green; 
 }
 
 .modal-overlay {
@@ -179,7 +179,7 @@ header {
   padding: 12px;
   border-radius: 8px;
   border: 1px dashed blue;
-  background-color: #f0f7ff;
+  background-color: white;
   color: blue;
   font-weight: bold;
 }
@@ -195,7 +195,7 @@ header {
 }
 
 .copy-btn:hover {
-  background-color: red;
+  background-color: green;
 }
 
 .close-btn {
@@ -206,3 +206,81 @@ header {
   cursor: pointer;
 }
 
+.history-section {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 40px;
+  padding: 24px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid whitesmoke;
+  padding-bottom: 12px;
+}
+
+.history-title {
+  font-size: 20px;
+  color: #0b2878; 
+  font-weight: bold;
+}
+
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; 
+}
+
+.history-table th {
+  text-align: left;
+  padding: 12px;
+  color: grey;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.history-table td {
+  padding: 16px 12px;
+  border-bottom: 1px solid #f8fafc;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.url-cell {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #475569;
+}
+
+.short-url-link {
+  color: blue;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.short-url-link:hover {
+  text-decoration: underline;
+  color: #2563eb;
+}
+
+.empty-history {
+  text-align: center;
+  padding: 40px;
+  color: darkgrey;
+  font-style: italic;
+}
+
+.history-row:hover {
+  background-color: #f8fafc;
+  transition: background-color 0.2s;
+}
