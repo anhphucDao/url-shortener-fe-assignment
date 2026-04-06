@@ -6,11 +6,32 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [shortUrl, setShortUrl] = useState('')
 
-  const handleShorten = () => {
+  const handleShorten = async () => {
+    if (!url) return
     const randomCode = Math.random().toString(36).substring(2, 8)
-    const generatedLink = `https://furl.one/${randomCode}`
-    setShortUrl(generatedLink)
-    setIsModalOpen(true)
+    const API_URL = 'https://url-shortener-backend-ftwu.onrender.com'
+
+    try {
+      const response = await fetch(`${API_URL}/api/urls`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          originalUrl: url,
+          shortCode: randomCode,
+        }),
+      })
+
+      if (response.ok) {
+        const generatedLink = `${API_URL}/${randomCode}`
+        setShortUrl(generatedLink)
+        setIsModalOpen(true)
+      } else {
+        alert('Có lỗi xảy ra khi tạo link rút gọn!')
+      }
+    } catch (error) {
+      console.error('Lỗi gọi API:', error)
+      alert('Không thể kết nối đến máy chủ.')
+    }
   }
   return (
     <main className="min-h-screen p-8 bg-gray-50 flex flex-col justify-center items-center">
