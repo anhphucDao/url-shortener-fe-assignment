@@ -69,6 +69,11 @@ function App() {
         </div>
       </div>
       {isModalOpen && <PopUpModal shortUrl={shortUrl} onClose={() => setIsModalOpen(false)} />}
+      <div className="p-3 justify-center items-center">
+        <p className="text-primary-500 font-semibold ">
+          Le Nguyen Khoi - Khoi.lenguyen3010@hcmut.edu.vn
+        </p>
+      </div>
     </main>
   )
 }
