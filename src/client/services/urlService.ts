@@ -3,7 +3,7 @@ import { type ShortLink } from '../types'
 import { generateShortCode, normalizeUrl } from '../utils/url'
 
 const STORAGE_KEY = 'shortLinks'
-const API_BASE = import.meta.env.VITE_API_BASE || '' // e.g. http://localhost:3000
+const API_BASE = import.meta.env.VITE_API_BASE
 
 function buildShortUrl(code: string): string {
   return `${API_BASE}/${code}`
