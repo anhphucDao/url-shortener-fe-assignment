@@ -1,16 +1,34 @@
 import { Logo, UserIcon, LinkIcon, DownloadIcon, CopyIcon, CloseIcon } from './components/Icons'
 import { useState } from 'react'
 import QrCode from './assets/qr.png'
-//import Result from './components/Result'
+import axios from 'axios'
+
+const API_URL = import.meta.env.VITE_API_URL
 
 function App() {
   const [url, setUrl] = useState('')
   const [showQR, setShowQR] = useState(false)
 
-  const handleShorten = () => {
-    if (url.trim()) {
+  const [shortenedUrl, setShortenedUrl] = useState('')
+
+  const handleShorten = async () => {
+    if (!url.trim()) return
+
+    try {
+      const response = await axios.post(`${API_URL}/api/urls`, {
+        originalUrl: url,
+        shortCode: Math.random().toString(36).substring(2, 7),
+      })
+
+      const data = response.data
+      const fullShortLink = `${API_URL}/${data.shortCode}`
+      setShortenedUrl(fullShortLink)
       setShowQR(true)
-      console.log('https://furl.one/myshortenlink')
+
+      console.log('Shortened URL: ', fullShortLink)
+    } catch (error) {
+      console.error('API Error:', error)
+      alert('Shortening error')
     }
   }
 
@@ -94,7 +112,7 @@ function App() {
               </div>
               <div className="flex h-10 w-full content-between">
                 <div className="me-1 flex grow items-center overflow-hidden rounded-lg border border-solid border-primary p-2">
-                  <span className="truncate text-primary-500">https://furl.one/myshortenlink</span>
+                  <span className="truncate text-primary-500">{shortenedUrl}</span>
                 </div>
                 <button
                   title="Copy Button"
