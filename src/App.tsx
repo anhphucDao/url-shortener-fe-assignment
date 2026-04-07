@@ -19,8 +19,7 @@ function App() {
         originalUrl: url,
       })
 
-      const data = response.data
-      const shortenLink = `${API_URL}/${data.shortCode}`
+      const shortenLink = `${API_URL}/${response.data.shortCode}`
 
       setShortenedUrl(shortenLink)
       setShowQR(true)
