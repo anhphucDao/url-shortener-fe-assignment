@@ -17,15 +17,15 @@ function App() {
     try {
       const response = await axios.post(`${API_URL}/api/urls`, {
         originalUrl: url,
-        shortCode: Math.random().toString(36).substring(2, 7),
       })
 
       const data = response.data
-      const fullShortLink = `${API_URL}/${data.shortCode}`
-      setShortenedUrl(fullShortLink)
+      const shortenLink = `${API_URL}/${data.shortCode}`
+
+      setShortenedUrl(shortenLink)
       setShowQR(true)
 
-      console.log('Shortened URL: ', fullShortLink)
+      console.log('Shortened URL:', shortenLink)
     } catch (error) {
       console.error('API Error:', error)
       alert('Shortening error')
@@ -116,6 +116,10 @@ function App() {
                 </div>
                 <button
                   title="Copy Button"
+                  onClick={() => {
+                    navigator.clipboard.writeText(shortenedUrl)
+                    alert('Shortened URL copied to clipboard!')
+                  }}
                   className="w-fit border-[#0B2878] text-[#0B2878] hover:bg-[#bcccf9] border h-10 text-base aspect-square p-2 rounded-lg relative flex min-w-fit items-center justify-center overflow-hidden transition-all duration-100"
                 >
                   <CopyIcon className="h-full w-auto" />
