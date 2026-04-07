@@ -4,7 +4,7 @@ import './App.css'
 // ===== IMPORT ASSETS =====
 import devcamp_logo from './assets/devcamp_logo.svg'
 import avatar_icon from './assets/Avatar_icon.svg'
-import link_icon from './assets/link_icon.svg'
+import link_icon from './assets/Link_icon.svg'
 import bg_qr from './assets/BG_QR_code.svg'
 import qr_sample from './assets/QR_code_sample(scan it pls).png'
 import download_icon from './assets/Download_icon.svg'
