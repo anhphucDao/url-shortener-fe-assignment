@@ -1,9 +1,12 @@
-function App() {
+import Header from './components/Header'
+import ShortenerCard from './components/ShortenerCard'
+
+export default function App() {
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <h1 className="text-3xl font-bold text-primary-500">URL Shortener</h1>
-    </main>
+    <div className="flex flex-col bg-[#f7f7f7]">
+      <Header />
+
+      <ShortenerCard />
+    </div>
   )
 }
-
-export default App
