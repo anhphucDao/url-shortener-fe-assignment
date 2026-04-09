@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+# Environment variables
+backend/.env
+frontend/.env
+.env.local
+.env.production
+backend/DEPLOY.md
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -22,3 +29,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+frontend/VERCEL_DEPLOY.md
