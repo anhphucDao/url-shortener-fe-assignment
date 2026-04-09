@@ -24,9 +24,7 @@ app.post('/api/shorten', (req, res) => {
   try {
     const parsedUrl = new URL(url)
     const hostParts = parsedUrl.hostname.replace('www.', '').split('.')
-    const brandName = hostParts[0]
-    const suffix = Math.random().toString(36).substring(7, 11)
-    const code = `${brandName}-${suffix}`
+    const code = Math.random().toString(36).substring(2, 8);
 
     db[code] = url
     res.json({ shortUrl: `https://url-shortener-fe-assignment-1.onrender.com/c/${code}` })
