@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0-alpine
+    container_name: url-shortener-mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: url-shortener
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/url-shortener
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend Server
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    container_name: url-shortener-backend
+    ports:
+      - "3000:3000"
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/url-shortener
+      PORT: 3000
+      HOST: 0.0.0.0
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    volumes:
+      - ./src/server:/app/src/server
+    restart: unless-stopped
+
+  # Frontend Application
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    container_name: url-shortener-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_BASE: http://localhost:3000
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  mongodb_data:

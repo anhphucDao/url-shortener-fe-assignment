@@ -1,0 +1,42 @@
+# Frontend Dockerfile for React + Vite
+
+# Build stage
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Copy package files
+COPY package.json yarn.lock ./
+
+# Install dependencies
+RUN yarn install --frozen-lockfile
+
+# Copy source code
+COPY src/client ./src/client
+COPY tsconfig.json tsconfig.app.json vite.config.ts eslint.config.js ./
+COPY public ./public
+COPY index.html ./
+
+# Build React app
+RUN yarn build
+
+# Production stage
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Install http-server for serving static files
+RUN npm install -g http-server
+
+# Copy built files from builder
+COPY --from=builder /app/dist ./dist
+
+# Expose port
+EXPOSE 5173
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+  CMD wget --quiet --tries=1 --spider http://localhost:5173 || exit 1
+
+# Start server
+CMD ["http-server", "dist", "-p", "5173", "--cors"]
