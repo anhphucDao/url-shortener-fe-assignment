@@ -13,7 +13,7 @@ function App() {
 
     setIsLoading(true)
     try {
-      const response = await fetch('https://url-shortener-fe-assignment-1.onrender.com/', {
+      const response = await fetch('https://url-shortener-fe-assignment-1.onrender.com/api/shorten', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url: urlInput }),
