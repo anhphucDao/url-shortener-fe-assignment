@@ -1,0 +1,489 @@
+/* ===== FONT IMPORT ===== */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;500;600;700;800&display=swap');
+
+/* ===== LAYOUT ===== */
+.app-container {
+  min-height: 100vh;
+  background-color: #f5f7fa;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background: white;
+}
+
+.navbar-logo-img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px 0 0;
+  border: 1px solid #0B2878;
+  border-radius: 9999px;
+  height: 52px;
+}
+
+.user-avatar-img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-left: -1px;
+  object-fit: cover;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-label {
+  font-family: 'Baloo Chettan 2', cursive;
+  font-size: 12px;
+  color: #0B2878;
+}
+
+.user-name {
+  font-family: 'Baloo Chettan 2', cursive;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0B2878;
+  line-height: 1.1;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 24px;
+  gap: 10px;
+  transition: all 0.4s ease;
+}
+
+.main-content.blurred {
+  filter: blur(4px);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.page-title {
+  font-family: 'Baloo Chettan 2', cursive;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 65px;
+  color: #0B2878;
+  text-align: center;
+  margin: 0;
+}
+
+.page-subtitle {
+  font-size: 28px;
+  color: #0B2878;
+  text-align: center;
+  margin: 0 0 38px 0;
+}
+
+/* ===== FORM CARD ===== */
+.form-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px 32px;
+  box-shadow: 0 4px 24px rgba(11, 40, 120, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  max-width: 832px;
+}
+
+.form-label {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0B2878;
+  margin: 0 0 12px 0;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.input-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+/* ===== ADDED: Divider line between icon and input text ===== */
+.input-divider {
+  position: absolute;
+  left: 42px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 24px;
+  background: #e5e7eb;
+  pointer-events: none;
+}
+
+.url-input {
+  width: 100%;
+  padding: 12px 16px 12px 54px; /* CHANGED: from 44px to 54px to make room for divider */
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 12px;
+  color: #333;
+  background: white;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.url-input::placeholder {
+  color: #9ca3af;
+}
+
+.url-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.url-input:hover:not(:focus) {
+  border-color: #c0c7d1;
+}
+
+/* ===== SHORTEN BUTTON ===== */
+.shorten-btn {
+  padding: 12px 28px;
+  background: #0B2878;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.shorten-btn:hover {
+  background: #1a2d52;
+  box-shadow: 0 4px 12px rgba(15, 29, 58, 0.3);
+}
+
+.shorten-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(15, 29, 58, 0.25);
+}
+
+.shorten-btn:active {
+  transform: scale(0.97);
+}
+
+/* ===== LOGO LINK ===== */
+.navbar-logo-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.navbar-logo-link:hover::after {
+  content: 'This is the riel link';
+  position: absolute;
+  bottom: -28px;
+  left: 0;
+  background: #0B2878;
+  color: white;
+  font-family: 'Baloo Chettan 2', cursive;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  z-index: 20;
+}
+
+/* ===== ERROR MESSAGE ===== */
+.error-msg {
+  font-family: 'Baloo Chettan 2', cursive;
+  font-size: 13px;
+  color: #dc2626;
+  margin: 8px 0 0 0;
+  padding-left: 4px;
+}
+
+.url-input-error {
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12) !important;
+}
+
+/* ===== COPIED NOTIFICATION ===== */
+.copied-msg {
+  font-family: 'Baloo Chettan 2', cursive;
+  font-size: 13px;
+  color: #16a34a;
+  margin: 10px 0 0 0;
+  text-align: center;
+  animation: fadeUp 0.3s ease-out;
+}
+
+.copy-check {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* ===== MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Outer white frame */
+.modal-card {
+  position: relative;
+  width: 400px;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+  animation: fadeUp 0.35s ease-out;
+}
+
+/* Close button */
+.modal-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.modal-qr-section {
+  position: relative;
+  background: #0B2878;
+  padding: 16px 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.modal-deco-qr {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  opacity: 1.0;
+}
+
+.modal-deco-qr-left {
+  top: 24px;
+  left: -30px;
+}
+
+.modal-deco-qr-right {
+  top: 50px;
+  right: -30px;
+}
+
+/* Main QR code image */
+.modal-qr-img {
+  position: relative;
+  z-index: 2;
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
+  background: white;
+  padding: 8px;
+}
+
+/* Download button wrapper */
+.modal-download-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -50px;
+  padding: 0px 90px;
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+/* Download button */
+.modal-download-btn {
+  width: 40px;
+  height: 40px;
+  background: #0B2878;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+
+.modal-download-btn:hover {
+  background: #1a3a8f;
+}
+
+/* Info Section */
+.modal-info-section {
+  padding: 20px 32px 32px;
+  text-align: center;
+}
+
+.modal-title {
+  font-family: 'Baloo Chettan 2', cursive;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0B2878;
+  margin: 0 0 8px 0;
+}
+
+.modal-subtitle {
+  font-family: 'Baloo Chettan 2', cursive;
+  font-size: 14px;
+  color: #0B2878;
+  margin: 0 0 20px 0;
+  line-height: 1.4;
+}
+
+/* Link box row */
+.modal-link-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-link-box {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid #0B2878;
+  border-radius: 8px;
+  background: white;
+}
+
+.modal-link-text {
+  font-family: 'Baloo Chettan 2', cursive;
+  font-size: 16px;
+  color: #0B2878;
+}
+
+/* Copy button */
+.modal-copy-btn {
+  width: 40px;
+  height: 40px;
+  background: #0B2878;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.modal-copy-btn:hover {
+  background: #1a3a8f;
+  box-shadow: 0 2px 8px rgba(11, 40, 120, 0.3);
+}
+
+.modal-copy-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(11, 40, 120, 0.25);
+}
+
+.modal-copy-btn-copied {
+  background: #16a34a;
+}
+
+.modal-copy-btn-copied:hover {
+  background: #15803d;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .navbar {
+    padding: 12px 16px;
+  }
+
+  .page-title {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .form-card {
+    padding: 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .shorten-btn {
+    width: 100%;
+  }
+
+  .modal-card {
+    width: 100%;
+  }
+
+  .modal-link-row {
+    flex-direction: column;
+  }
+
+  .modal-copy-btn {
+    width: 100%;
+  }
+}
