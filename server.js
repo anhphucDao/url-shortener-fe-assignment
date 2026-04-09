@@ -29,7 +29,7 @@ app.post('/api/shorten', (req, res) => {
     const code = `${brandName}-${suffix}`
 
     db[code] = url
-    res.json({ shortUrl: `http://localhost:${PORT}/c/${code}` })
+    res.json({ shortUrl: `https://url-shortener-fe-assignment-1.onrender.com/c/${code}` })
   } catch (err) {
     res.status(400).json({ error: 'Định dạng URL không hợp lệ.' })
   }
