@@ -6,7 +6,7 @@ function DownloadButton() {
       onClick={() => alert('Downloaded!')}
       className="w-[40px] h-[40px] absolute top-[200px] left-[200px] bg-primary-500 rounded-full"
     >
-      <img src="/public/images/download_icon.svg" className="w-[28px] h-[28px]" />
+      <img src="public/images/download_icon.svg" className="w-[28px] h-[28px]" />
     </Button>
   )
 }
