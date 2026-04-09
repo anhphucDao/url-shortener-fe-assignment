@@ -35,10 +35,13 @@ app.post('/api/shorten', (req, res) => {
   }
 })
 
-app.get('/c/:code', (req, res) => {
+app.get('/:code', (req, res) => { handleRedirect(req, res) })
+app.get('/c/:code', (req, res) => { handleRedirect(req, res) })
+
+function handleRedirect(req, res) {
   const originalUrl = db[req.params.code]
-  if (originalUrl) res.redirect(originalUrl)
-  else res.status(404).send('<h1>404 - Link này không tồn tại!</h1>')
-})
+  if (originalUrl) return res.redirect(originalUrl)
+  res.status(404).send('Không tìm thấy link')
+}
 
 app.listen(PORT, () => console.log(`🚀 Backend đang chạy tại: http://localhost:${PORT}`))
