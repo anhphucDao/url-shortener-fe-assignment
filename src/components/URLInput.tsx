@@ -2,7 +2,7 @@ function URLInput({ value, onChange }: { value: string; onChange: (url: string) 
   return (
     <div className="w-[608px] h-[42px] flex border border-gray-300 rounded-lg relative">
       <img
-        src="public/images/icon.svg"
+        src="/images/icon.svg"
         className="w-[20px] h-[20px] absolute top-1/2 -translate-y-1/2 left-[8px]"
       />
       <div className="w-0 h-[26px] absolute top-1/2 -translate-y-1/2 left-[36px] border border-gray-300"></div>

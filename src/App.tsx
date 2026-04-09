@@ -4,7 +4,7 @@ function App() {
   return (
     <main className="w-screen min-h-screen relative flex items-center flex-col">
       <div className="w-screen h-[108px] px-[40px] bg-white flex justify-between items-center">
-        <img src="public/images/devcamp_logo.svg" className="w-[96px] h-[74px]" />
+        <img src="/images/devcamp_logo.svg" className="w-[96px] h-[74px]" />
         <UserProfile />
       </div>
 
