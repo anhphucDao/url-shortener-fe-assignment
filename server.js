@@ -23,11 +23,11 @@ app.post('/api/shorten', (req, res) => {
 
   try {
     const parsedUrl = new URL(url)
-    const hostParts = parsedUrl.hostname.replace('www.', '').split('.')
-    const code = Math.random().toString(36).substring(2, 8);
+
+    const code = generateCode(6);
 
     db[code] = url
-    res.json({ shortUrl: `https://url-short.com/c/${code}` })
+    res.json({ shortUrl: `https://url-shortener-fe-assignment-1.onrender.com/c/${code}` })
   } catch (err) {
     res.status(400).json({ error: 'Định dạng URL không hợp lệ.' })
   }
